@@ -37,7 +37,13 @@ public class WorkOrderBilling {
 
 	private Connection connection;
 	
-	public InvoiceDto createInvoiceFor(List<Long> workOrderIDS) throws BusinessException {
+	private List<Long> workOrderIDS;
+	
+	public WorkOrderBilling(List<Long> workOrderIDS) {
+		this.workOrderIDS = workOrderIDS;
+	}
+	
+	public InvoiceDto createInvoices() throws BusinessException {
 		InvoiceDto invoiceDto = new InvoiceDto();
 		try {
 			connection = Jdbc.getConnection();
