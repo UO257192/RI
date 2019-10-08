@@ -15,7 +15,7 @@ public class InvoiceServiceImpl implements InvoiceService {
 	@Override
 	public InvoiceDto createInvoiceFor(List<Long> workOrderIDS) throws BusinessException {
 		WorkOrderBilling workOrderBilling = new WorkOrderBilling(workOrderIDS);
-		return workOrderBilling.createInvoices();
+		return workOrderBilling.execute();
 	}
 
 	@Override

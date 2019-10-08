@@ -43,7 +43,7 @@ public class WorkOrderBilling {
 		this.workOrderIDS = workOrderIDS;
 	}
 	
-	public InvoiceDto createInvoices() throws BusinessException {
+	public InvoiceDto execute() throws BusinessException {
 		InvoiceDto invoiceDto = new InvoiceDto();
 		try {
 			connection = Jdbc.getConnection();
