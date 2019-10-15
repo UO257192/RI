@@ -52,12 +52,6 @@ public class InvoiceGatewayImpl implements InvoiceGateway {
 	}
 
 	@Override
-	public long getLastInvoiceID(InvoiceDto invoice) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public long getGeneratedKey(long invoice_number) {
 		PreparedStatement pst = null;
 		ResultSet rs = null;

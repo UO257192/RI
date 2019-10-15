@@ -12,6 +12,4 @@ public interface InvoiceGateway {
 	Long generateInvoiceNumber();
 	
 	long getGeneratedKey(long invoice_number);
-	
-	long getLastInvoiceID(InvoiceDto invoice);
 }
