@@ -1,4 +1,4 @@
-package uo.ri.persistance.impl;
+package uo.ri.persistance.invoice.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import uo.ri.business.dto.InvoiceDto;
 import uo.ri.conf.Conf;
-import uo.ri.persistance.InvoiceGateway;
+import uo.ri.persistance.invoice.InvoiceGateway;
 
 public class InvoiceGatewayImpl implements InvoiceGateway {
 	private Connection c;

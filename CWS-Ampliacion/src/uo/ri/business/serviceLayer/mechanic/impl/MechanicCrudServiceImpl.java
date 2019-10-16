@@ -1,9 +1,9 @@
-package uo.ri.business.serviceLayer.impl;
+package uo.ri.business.serviceLayer.mechanic.impl;
 
 import java.util.List;
 
 import uo.ri.business.dto.MechanicDto;
-import uo.ri.business.serviceLayer.MechanicCrudService;
+import uo.ri.business.serviceLayer.mechanic.MechanicCrudService;
 import uo.ri.business.transactionScripts.administrator.AddMechanic;
 import uo.ri.business.transactionScripts.administrator.DeleteMechanic;
 import uo.ri.business.transactionScripts.administrator.ListMechanics;

@@ -1,4 +1,4 @@
-package uo.ri.persistance.impl;
+package uo.ri.persistance.mechanic.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.util.List;
 import alb.util.jdbc.Jdbc;
 import uo.ri.business.dto.MechanicDto;
 import uo.ri.conf.Conf;
-import uo.ri.persistance.MechanicGateway;
+import uo.ri.persistance.mechanic.MechanicGateway;
 
 public class MechanicGatewayImpl implements MechanicGateway {
 	private Connection c;

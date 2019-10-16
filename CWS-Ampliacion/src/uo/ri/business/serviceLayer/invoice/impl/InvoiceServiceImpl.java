@@ -1,4 +1,4 @@
-package uo.ri.business.serviceLayer.impl;
+package uo.ri.business.serviceLayer.invoice.impl;
 
 import java.util.List;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 import uo.ri.business.dto.BreakdownDto;
 import uo.ri.business.dto.InvoiceDto;
 import uo.ri.business.dto.PaymentMeanDto;
-import uo.ri.business.serviceLayer.InvoiceService;
+import uo.ri.business.serviceLayer.invoice.InvoiceService;
 import uo.ri.business.transactionScripts.cashier.WorkOrderBilling;
 import uo.ri.common.BusinessException;
 
