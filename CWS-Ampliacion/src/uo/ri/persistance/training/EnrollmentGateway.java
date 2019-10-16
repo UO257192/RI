@@ -10,5 +10,10 @@ public interface EnrollmentGateway {
 	void setConnection(Connection c);
 	
 	List<EnrollmentDto> findPassedEnrollmentsByMechanicId(Long mechanic_id);
-
+	
+	List<Long> findPassedCoursessByMechanicId(Long mechanic_id);
+	
+	List<Long> findPassedMechanicIDS();
+	
+	int findAttendanceForCourseAndMechanic(Long courseID, Long mechanicId);
 }

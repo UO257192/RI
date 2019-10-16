@@ -12,11 +12,11 @@ import uo.ri.business.serviceLayer.workorder.WorkOrderService;
 import uo.ri.business.serviceLayer.workorder.impl.WorkOrderServiceImpl;
 
 public class ServiceFactory {
-	public static MechanicCrudService getMechanicCrudService() {
+	public MechanicCrudService getMechanicCrudService() {
 		return new MechanicCrudServiceImpl();
 	}
 	
-	public static InvoiceService getInvoiceService() {
+	public InvoiceService getInvoiceService() {
 		return new InvoiceServiceImpl();
 	}
 

@@ -1,5 +1,7 @@
 package uo.ri.conf;
 
+import uo.ri.persistance.certificate.CertificateGateway;
+import uo.ri.persistance.certificate.impl.CertificateGatewayImpl;
 import uo.ri.persistance.interventions.InterventionGateway;
 import uo.ri.persistance.interventions.impl.InterventionGatewayImpl;
 import uo.ri.persistance.invoice.InvoiceGateway;
@@ -13,7 +15,9 @@ import uo.ri.persistance.training.impl.CourseGatewayImpl;
 import uo.ri.persistance.training.impl.DedicationGatewayImpl;
 import uo.ri.persistance.training.impl.EnrollmentGatewayImpl;
 import uo.ri.persistance.vehicle.VehicleGateway;
+import uo.ri.persistance.vehicle.VehicleTypeGateway;
 import uo.ri.persistance.vehicle.impl.VehicleGatewayImpl;
+import uo.ri.persistance.vehicle.impl.VehicleTypeGatewayImpl;
 import uo.ri.persistance.workorder.WorkOrderGateway;
 import uo.ri.persistance.workorder.impl.WorkOrderGatewayImpl;
 
@@ -48,6 +52,14 @@ public class PersistanceFactory {
 
 	public InterventionGateway getInterventionGateway() {
 		return new InterventionGatewayImpl();
+	}
+
+	public VehicleTypeGateway getVehicleTypeGateway() {
+		return new VehicleTypeGatewayImpl();
+	}
+
+	public CertificateGateway getCertificateGateway() {
+		return new CertificateGatewayImpl();
 	}
 
 }

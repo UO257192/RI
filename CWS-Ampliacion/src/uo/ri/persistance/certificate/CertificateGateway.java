@@ -10,4 +10,8 @@ public interface CertificateGateway {
 	void setConnection(Connection c);
 	
 	List<CertificateDto> findAll();
+	
+	CertificateDto findCertificateByMechanic(Long mechanicId, Long vehicletype_Id);
+	
+	void generateCertificate(Long mechanicID, Long vehicleTypeID);
 }

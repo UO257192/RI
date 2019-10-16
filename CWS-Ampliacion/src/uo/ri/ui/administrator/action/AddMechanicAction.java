@@ -5,7 +5,7 @@ import alb.util.menu.Action;
 import uo.ri.business.dto.MechanicDto;
 import uo.ri.business.serviceLayer.mechanic.MechanicCrudService;
 import uo.ri.common.BusinessException;
-import uo.ri.conf.ServiceFactory;
+import uo.ri.conf.Factory;
 
 public class AddMechanicAction implements Action {
 
@@ -19,7 +19,7 @@ public class AddMechanicAction implements Action {
 		mechanicDto.name = Console.readString("Name"); 
 		mechanicDto.surname = Console.readString("Surname");
 		
-		MechanicCrudService mcs = ServiceFactory.getMechanicCrudService();
+		MechanicCrudService mcs = Factory.service.getMechanicCrudService();
 		mcs.addMechanic(mechanicDto);
 		
 		// Print result

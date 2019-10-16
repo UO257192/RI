@@ -7,7 +7,7 @@ import alb.util.menu.Action;
 import uo.ri.business.dto.MechanicDto;
 import uo.ri.business.serviceLayer.mechanic.MechanicCrudService;
 import uo.ri.common.BusinessException;
-import uo.ri.conf.ServiceFactory;
+import uo.ri.conf.Factory;
 import uo.ri.ui.util.Printer;
 
 public class ListMechanicsByVehicleTypeAction implements Action {
@@ -16,11 +16,8 @@ public class ListMechanicsByVehicleTypeAction implements Action {
 	public void execute() throws BusinessException {
 
 		Console.println("\nList of mechanics who have attended the training by type of vehicle\n");
-		MechanicCrudService mcs = ServiceFactory.getMechanicCrudService();
-		List<MechanicDto> mechanics = mcs.findAllMechanics();
-		for (MechanicDto mechanicDto : mechanics) {
-			Printer.printMechanic(mechanicDto);
-		}
+		MechanicCrudService mcs = Factory.service.getMechanicCrudService();
+		
 
 	}
 }

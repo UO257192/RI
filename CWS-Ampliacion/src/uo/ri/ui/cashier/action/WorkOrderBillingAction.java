@@ -7,7 +7,7 @@ import alb.util.console.Console;
 import alb.util.menu.Action;
 import uo.ri.business.serviceLayer.invoice.InvoiceService;
 import uo.ri.common.BusinessException;
-import uo.ri.conf.ServiceFactory;
+import uo.ri.conf.Factory;
 import uo.ri.ui.util.Printer;
 
 public class WorkOrderBillingAction implements Action {
@@ -20,7 +20,7 @@ public class WorkOrderBillingAction implements Action {
 			Long id = Console.readLong("Type work order ids ? ");
 			workOrderIds.add(id);
 		} while (nextWorkorder());
-		InvoiceService invoiceServiceImpl = ServiceFactory.getInvoiceService();
+		InvoiceService invoiceServiceImpl = Factory.service.getInvoiceService();
 		Printer.printInvoice(invoiceServiceImpl.createInvoiceFor(workOrderIds));
 	}
 

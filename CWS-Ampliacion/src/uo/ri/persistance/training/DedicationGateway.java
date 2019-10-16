@@ -10,4 +10,8 @@ public interface DedicationGateway {
 	void setConnection(Connection c);
 	
 	List<DedicationDto> findDedicationByCourse(Long course_id);
+	
+	List<Long> findCoursesByVehicleType(Long vehicletype_id);
+	
+	int findPercentageForCourse(Long courseID, Long vehicletypeID);
 }

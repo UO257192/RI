@@ -47,4 +47,46 @@ public class CertificateGatewayImpl implements CertificateGateway {
 		return certificateDtos;
 	}
 
+	@Override
+	public CertificateDto findCertificateByMechanic(Long mechanicId, Long vehicletype_Id) {
+		CertificateDto dto = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		String SQL_FIND_CERTIFICATE_BY_MECHANIC = Conf.getInstance().getProperty("SQL_FIND_CERTIFICATE_BY_MECHANIC");
+		try {
+			pst = c.prepareStatement(SQL_FIND_CERTIFICATE_BY_MECHANIC);
+			pst.setLong(1, mechanicId);
+			pst.setLong(2, vehicletype_Id);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				dto = new CertificateDto();
+				dto.id = rs.getLong(1);
+				dto.obtainedAt = rs.getDate(2);
+				dto.mechanic = new MechanicDto();
+				dto.mechanic.id = rs.getLong(3);
+				dto.vehicleType = new VehicleTypeDto();
+				dto.vehicleType.id = rs.getLong(4);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException("ERROR");
+		}
+		return dto;
+	}
+
+	@Override
+	public void generateCertificate(Long mechanicID, Long vehicleTypeID) {
+		PreparedStatement pst = null;
+		String SQL = Conf.getInstance().getProperty("SQL_ADD_CERTIFICATE");
+		try {
+			pst = c.prepareStatement(SQL);
+			pst.setDate(1, new java.sql.Date(new java.util.Date().getTime()));
+			pst.setLong(2, mechanicID);
+			pst.setLong(3, vehicleTypeID);
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+
 }

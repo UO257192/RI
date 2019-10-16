@@ -47,4 +47,46 @@ public class DedicationGatewayImpl implements DedicationGateway {
 		}
 	}
 
+	@Override
+	public List<Long> findCoursesByVehicleType(Long vehicletype_id) {
+		List<Long> coursesID = new ArrayList<Long>();
+		String SQL_FIND_COURSE_BY_VEHICLETYPE = Conf.getInstance().getProperty("SQL_FIND_COURSE_BY_VEHICLETYPE");
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			pst = c.prepareStatement(SQL_FIND_COURSE_BY_VEHICLETYPE);
+			pst.setLong(1, vehicletype_id);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				coursesID.add(rs.getLong(1));
+			}
+			return coursesID;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			Jdbc.close(rs, pst);
+		}
+	}
+
+	@Override
+	public int findPercentageForCourse(Long courseID, Long vehicleTypeId) {
+		String SQL_FIND_DEDICATION_BY_COURSE_AND_VEHICLETYPE = Conf.getInstance().getProperty("SQL_FIND_DEDICATION_BY_COURSE_AND_VEHICLETYPE");
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			pst = c.prepareStatement(SQL_FIND_DEDICATION_BY_COURSE_AND_VEHICLETYPE);
+			pst.setLong(1, courseID);
+			pst.setLong(2, vehicleTypeId);
+			rs = pst.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+			return 0;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			Jdbc.close(rs, pst);
+		}
+	}
+
 }

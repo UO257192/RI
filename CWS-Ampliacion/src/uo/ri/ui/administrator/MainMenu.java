@@ -1,6 +1,7 @@
 package uo.ri.ui.administrator;
 
 import alb.util.menu.BaseMenu;
+import uo.ri.ui.administrator.action.GenerateCertificatesAction;
 
 public class MainMenu extends BaseMenu {
 
@@ -10,6 +11,7 @@ public class MainMenu extends BaseMenu {
 			{ "Mechanics management", 			MechanicsMenu.class }, 
 			{ "Spare parts management", 			SparesMenu.class },
 			{ "Vehicle types management", 	VehicleTypeMenu.class },
+			{ "Certificate generation", 	GenerateCertificatesAction.class },
 		};
 	}
 
