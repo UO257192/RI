@@ -2,8 +2,8 @@ package uo.ri.ui.foreman;
 
 import alb.util.menu.BaseMenu;
 import alb.util.menu.NotYetImplementedAction;
-import uo.ri.ui.foreman.action.UpdateBreakdownAction;
 import uo.ri.ui.foreman.action.AddBreakdownAction;
+import uo.ri.ui.foreman.action.UpdateBreakdownAction;
 
 public class ClientReceptionsMenu extends BaseMenu {
 

@@ -1,11 +1,15 @@
 package uo.ri.conf;
 
-import uo.ri.business.serviceLayer.CertificateService;
-import uo.ri.business.serviceLayer.InvoiceService;
-import uo.ri.business.serviceLayer.MechanicCrudService;
-import uo.ri.business.serviceLayer.impl.CertificateServiceImpl;
-import uo.ri.business.serviceLayer.impl.InvoiceServiceImpl;
-import uo.ri.business.serviceLayer.impl.MechanicCrudServiceImpl;
+import uo.ri.business.serviceLayer.certificate.CertificateService;
+import uo.ri.business.serviceLayer.certificate.impl.CertificateServiceImpl;
+import uo.ri.business.serviceLayer.invoice.InvoiceService;
+import uo.ri.business.serviceLayer.invoice.impl.InvoiceServiceImpl;
+import uo.ri.business.serviceLayer.mechanic.MechanicCrudService;
+import uo.ri.business.serviceLayer.mechanic.impl.MechanicCrudServiceImpl;
+import uo.ri.business.serviceLayer.vehicle.VehicleCrudService;
+import uo.ri.business.serviceLayer.vehicle.impl.VehicleCrudServiceImpl;
+import uo.ri.business.serviceLayer.workorder.WorkOrderService;
+import uo.ri.business.serviceLayer.workorder.impl.WorkOrderServiceImpl;
 
 public class ServiceFactory {
 	public static MechanicCrudService getMechanicCrudService() {
@@ -18,6 +22,14 @@ public class ServiceFactory {
 
 	public CertificateService forCertificateService() {
 		return new CertificateServiceImpl();
+	}
+
+	public WorkOrderService forWorkOrderService() {
+		return new WorkOrderServiceImpl();
+	}
+
+	public VehicleCrudService forVehicleCrudService() {
+		return new VehicleCrudServiceImpl();
 	}
 
 }

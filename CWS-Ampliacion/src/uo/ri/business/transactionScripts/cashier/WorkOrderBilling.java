@@ -9,9 +9,9 @@ import alb.util.date.Dates;
 import alb.util.jdbc.Jdbc;
 import uo.ri.business.dto.InvoiceDto;
 import uo.ri.common.BusinessException;
-import uo.ri.conf.PersistanceFactory;
-import uo.ri.persistance.InvoiceGateway;
-import uo.ri.persistance.WorkOrderGateway;
+import uo.ri.conf.Factory;
+import uo.ri.persistance.invoice.InvoiceGateway;
+import uo.ri.persistance.workorder.WorkOrderGateway;
 
 public class WorkOrderBilling {
 	private List<Long> workOrderIDS;
@@ -37,7 +37,7 @@ public class WorkOrderBilling {
 
 	private void updateWorkOrderStatus(List<Long> breakdownIds, String status){
 		try (Connection c = Jdbc.getConnection()) {
-			WorkOrderGateway gateway = PersistanceFactory.getWorkOrderGateway();
+			WorkOrderGateway gateway = Factory.persistance.getWorkOrderGateway();
 			c.setAutoCommit(false);
 			gateway.setConnection(c);
 			for (Long breakdownId : breakdownIds) {
@@ -51,7 +51,7 @@ public class WorkOrderBilling {
 
 	private void linkWorkorderInvoice(long invoiceId, List<Long> workOrderIDS) {
 		try (Connection c = Jdbc.getConnection()) {
-			WorkOrderGateway gateway = PersistanceFactory.getWorkOrderGateway();
+			WorkOrderGateway gateway = Factory.persistance.getWorkOrderGateway();
 			c.setAutoCommit(false);
 			gateway.setConnection(c);
 			for (Long breakdownId : workOrderIDS) {
@@ -66,7 +66,7 @@ public class WorkOrderBilling {
 	private long getGeneratedKey(long numberInvoice) {
 		long id = 1L;
 		try (Connection c = Jdbc.getConnection()) {
-			InvoiceGateway gateway = PersistanceFactory.getInvoiceGateway();
+			InvoiceGateway gateway = Factory.persistance.getInvoiceGateway();
 			c.setAutoCommit(false);
 			gateway.setConnection(c);
 			id = gateway.getGeneratedKey(numberInvoice);
@@ -79,7 +79,7 @@ public class WorkOrderBilling {
 
 	private long createInvoice(long numberInvoice, Date dateInvoice, double vat, double total) {
 		try (Connection c = Jdbc.getConnection()) {
-			InvoiceGateway gateway = PersistanceFactory.getInvoiceGateway();
+			InvoiceGateway gateway = Factory.persistance.getInvoiceGateway();
 			c.setAutoCommit(false);
 			gateway.setConnection(c);
 			InvoiceDto dto = new InvoiceDto();
@@ -103,7 +103,7 @@ public class WorkOrderBilling {
 
 	private void testRepairs(List<Long> workOrderIDS) throws BusinessException {
 		try (Connection c = Jdbc.getConnection()) {
-			WorkOrderGateway gateway = PersistanceFactory.getWorkOrderGateway();
+			WorkOrderGateway gateway = Factory.persistance.getWorkOrderGateway();
 			gateway.setConnection(c);
 			for (Long workOrderID : workOrderIDS) {
 				String status = gateway.checkWorkOrderStatus(workOrderID);
@@ -123,7 +123,7 @@ public class WorkOrderBilling {
 		Long id;
 		try (Connection c = Jdbc.getConnection()) {
 			c.setAutoCommit(false);
-			InvoiceGateway gateway = PersistanceFactory.getInvoiceGateway();
+			InvoiceGateway gateway = Factory.persistance.getInvoiceGateway();
 			gateway.setConnection(c);
 			id = gateway.generateInvoiceNumber();
 			c.commit();
@@ -150,7 +150,7 @@ public class WorkOrderBilling {
 		double totalLabor;
 		try (Connection c = Jdbc.getConnection()) {
 			c.setAutoCommit(false);
-			WorkOrderGateway gateway = PersistanceFactory.getWorkOrderGateway();
+			WorkOrderGateway gateway = Factory.persistance.getWorkOrderGateway();
 			gateway.setConnection(c);
 			totalLabor = gateway.checkTotalLabor(workOrderID);
 			c.commit();
@@ -167,7 +167,7 @@ public class WorkOrderBilling {
 		double totalParts;
 		try (Connection c = Jdbc.getConnection()) {
 			c.setAutoCommit(false);
-			WorkOrderGateway gateway = PersistanceFactory.getWorkOrderGateway();
+			WorkOrderGateway gateway = Factory.persistance.getWorkOrderGateway();
 			gateway.setConnection(c);
 			totalParts = gateway.checkTotalParts(workOrderID);
 			c.commit();
@@ -180,7 +180,7 @@ public class WorkOrderBilling {
 	private void updateWorkorderTotal(Long workOrderID, double total) {
 		try (Connection c = Jdbc.getConnection()) {
 			c.setAutoCommit(false);
-			WorkOrderGateway gateway = PersistanceFactory.getWorkOrderGateway();
+			WorkOrderGateway gateway = Factory.persistance.getWorkOrderGateway();
 			gateway.setConnection(c);
 			gateway.updateWorkorderTotal(workOrderID, total);
 			c.commit();

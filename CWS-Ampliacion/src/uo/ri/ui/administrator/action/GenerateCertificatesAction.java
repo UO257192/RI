@@ -2,7 +2,7 @@ package uo.ri.ui.administrator.action;
 
 import alb.util.console.Console;
 import alb.util.menu.Action;
-import uo.ri.business.serviceLayer.CertificateService;
+import uo.ri.business.serviceLayer.certificate.CertificateService;
 import uo.ri.conf.Factory;
 
 public class GenerateCertificatesAction implements Action {
