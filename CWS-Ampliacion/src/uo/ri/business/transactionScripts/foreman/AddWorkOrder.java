@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import alb.util.jdbc.Jdbc;
-import uo.ri.business.dto.ampliacion.WorkOrderDto;
+import uo.ri.business.dto.WorkOrderDto;
 import uo.ri.common.BusinessException;
 import uo.ri.conf.Factory;
 import uo.ri.persistance.workorder.WorkOrderGateway;

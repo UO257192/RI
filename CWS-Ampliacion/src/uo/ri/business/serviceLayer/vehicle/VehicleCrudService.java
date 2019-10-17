@@ -1,6 +1,6 @@
 package uo.ri.business.serviceLayer.vehicle;
 
-import uo.ri.business.dto.ampliacion.VehicleDto;
+import uo.ri.business.dto.VehicleDto;
 import uo.ri.common.BusinessException;
 
 /**

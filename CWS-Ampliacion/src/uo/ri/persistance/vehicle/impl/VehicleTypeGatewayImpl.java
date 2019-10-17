@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import alb.util.jdbc.Jdbc;
-import uo.ri.business.dto.ampliacion.VehicleTypeDto;
+import uo.ri.business.dto.VehicleTypeDto;
 import uo.ri.conf.Conf;
 import uo.ri.persistance.vehicle.VehicleTypeGateway;
 
@@ -46,5 +46,6 @@ public class VehicleTypeGatewayImpl implements VehicleTypeGateway {
 			Jdbc.close(rs, pst);
 		}
 	}
+
 
 }

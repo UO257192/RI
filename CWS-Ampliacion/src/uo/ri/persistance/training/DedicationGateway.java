@@ -3,7 +3,7 @@ package uo.ri.persistance.training;
 import java.sql.Connection;
 import java.util.List;
 
-import uo.ri.business.dto.ampliacion.DedicationDto;
+import uo.ri.business.dto.DedicationDto;
 
 public interface DedicationGateway {
 	

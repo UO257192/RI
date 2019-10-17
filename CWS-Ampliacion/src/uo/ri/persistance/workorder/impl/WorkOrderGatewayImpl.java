@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import uo.ri.business.dto.ampliacion.WorkOrderDto;
+import uo.ri.business.dto.WorkOrderDto;
 import uo.ri.conf.Conf;
 import uo.ri.persistance.workorder.WorkOrderGateway;
 

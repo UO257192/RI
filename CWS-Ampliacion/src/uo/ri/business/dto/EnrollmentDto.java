@@ -1,6 +1,4 @@
-package uo.ri.business.dto.ampliacion;
-
-import uo.ri.business.dto.MechanicDto;
+package uo.ri.business.dto;
 
 public class EnrollmentDto {
 

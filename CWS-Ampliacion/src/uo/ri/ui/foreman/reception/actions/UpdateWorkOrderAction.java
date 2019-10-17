@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import alb.util.console.Console;
 import alb.util.menu.Action;
-import uo.ri.business.dto.ampliacion.WorkOrderDto;
+import uo.ri.business.dto.WorkOrderDto;
 import uo.ri.business.serviceLayer.workorder.WorkOrderService;
 import uo.ri.common.BusinessException;
 import uo.ri.conf.Factory;

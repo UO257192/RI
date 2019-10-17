@@ -3,8 +3,8 @@ package uo.ri.ui.foreman.reception.actions;
 import java.util.Optional;
 
 import alb.util.console.Console;
-import uo.ri.business.dto.ampliacion.VehicleDto;
-import uo.ri.business.dto.ampliacion.WorkOrderDto;
+import uo.ri.business.dto.VehicleDto;
+import uo.ri.business.dto.WorkOrderDto;
 import uo.ri.business.serviceLayer.vehicle.VehicleCrudService;
 import uo.ri.common.BusinessException;
 import uo.ri.conf.Factory;

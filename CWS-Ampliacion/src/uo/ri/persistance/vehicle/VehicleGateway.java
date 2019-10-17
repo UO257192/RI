@@ -2,7 +2,7 @@ package uo.ri.persistance.vehicle;
 
 import java.sql.Connection;
 
-import uo.ri.business.dto.ampliacion.VehicleDto;
+import uo.ri.business.dto.VehicleDto;
 
 public interface VehicleGateway {
 	

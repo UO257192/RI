@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import alb.util.jdbc.Jdbc;
-import uo.ri.business.dto.ampliacion.EnrollmentDto;
+import uo.ri.business.dto.EnrollmentDto;
 import uo.ri.conf.Conf;
 import uo.ri.persistance.training.EnrollmentGateway;
 

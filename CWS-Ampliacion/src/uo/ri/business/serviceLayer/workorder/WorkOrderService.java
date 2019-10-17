@@ -3,8 +3,8 @@ package uo.ri.business.serviceLayer.workorder;
 import java.util.List;
 import java.util.Optional;
 
-import uo.ri.business.dto.ampliacion.CertificateDto;
-import uo.ri.business.dto.ampliacion.WorkOrderDto;
+import uo.ri.business.dto.CertificateDto;
+import uo.ri.business.dto.WorkOrderDto;
 import uo.ri.common.BusinessException;
 
 /**

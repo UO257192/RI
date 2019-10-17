@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import alb.util.jdbc.Jdbc;
-import uo.ri.business.dto.ampliacion.DedicationDto;
+import uo.ri.business.dto.DedicationDto;
 import uo.ri.conf.Conf;
 import uo.ri.persistance.training.DedicationGateway;
 

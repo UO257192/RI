@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import alb.util.jdbc.Jdbc;
-import uo.ri.business.dto.ampliacion.VehicleDto;
+import uo.ri.business.dto.VehicleDto;
 import uo.ri.conf.Conf;
 import uo.ri.persistance.vehicle.VehicleGateway;
 

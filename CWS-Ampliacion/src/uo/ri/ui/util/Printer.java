@@ -4,6 +4,7 @@ import java.util.List;
 
 import alb.util.console.Console;
 import uo.ri.business.dto.BreakdownDto;
+import uo.ri.business.dto.CertificateDto;
 import uo.ri.business.dto.ContractCategoryDto;
 import uo.ri.business.dto.ContractDto;
 import uo.ri.business.dto.ContractTypeDto;
@@ -11,9 +12,10 @@ import uo.ri.business.dto.InvoiceDto;
 import uo.ri.business.dto.MechanicDto;
 import uo.ri.business.dto.PaymentMeanDto;
 import uo.ri.business.dto.PayrollDto;
-import uo.ri.business.dto.ampliacion.CertificateDto;
-import uo.ri.business.dto.ampliacion.VehicleDto;
-import uo.ri.business.dto.ampliacion.WorkOrderDto;
+import uo.ri.business.dto.TrainingForMechanicRow;
+import uo.ri.business.dto.TrainingHoursRow;
+import uo.ri.business.dto.VehicleDto;
+import uo.ri.business.dto.WorkOrderDto;
 
 public class Printer {
 
@@ -166,6 +168,24 @@ public class Printer {
 				, v.make
 				, v.model
 			);
+	}
+	
+	public static void printTrainingForMechanic(TrainingForMechanicRow row) {
+
+		Console.printf("\t%-20.20s\t%d\t%d\n"
+					, row.vehicleTypeName
+					, row.enrolledHours
+					, row.attendedHours
+		);
+
+	}
+
+	public static void printTrainingHoursRow(TrainingHoursRow r) {
+
+		Console.printf("%-20.20s\t%-30.30s\t%d hours\n"
+				, r.vehicleTypeName
+				, r.mechanicFullName
+				, r.enrolledHours);
 	}
 
 }

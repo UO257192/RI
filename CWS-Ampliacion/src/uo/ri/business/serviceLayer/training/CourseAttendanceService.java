@@ -2,9 +2,9 @@ package uo.ri.business.serviceLayer.training;
 
 import java.util.List;
 
+import uo.ri.business.dto.CourseDto;
+import uo.ri.business.dto.EnrollmentDto;
 import uo.ri.business.dto.MechanicDto;
-import uo.ri.business.dto.ampliacion.CourseDto;
-import uo.ri.business.dto.ampliacion.EnrollmentDto;
 import uo.ri.common.BusinessException;
 
 /**

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import alb.util.jdbc.Jdbc;
-import uo.ri.business.dto.ampliacion.CourseDto;
+import uo.ri.business.dto.CourseDto;
 import uo.ri.conf.Conf;
 import uo.ri.persistance.training.CourseGateway;
 

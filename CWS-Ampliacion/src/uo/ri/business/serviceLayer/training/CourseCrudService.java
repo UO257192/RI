@@ -3,8 +3,8 @@ package uo.ri.business.serviceLayer.training;
 
 import java.util.List;
 
-import uo.ri.business.dto.ampliacion.CourseDto;
-import uo.ri.business.dto.ampliacion.VehicleTypeDto;
+import uo.ri.business.dto.CourseDto;
+import uo.ri.business.dto.VehicleTypeDto;
 import uo.ri.common.BusinessException;
 
 /**

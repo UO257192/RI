@@ -2,7 +2,7 @@ package uo.ri.persistance.workorder;
 
 import java.sql.Connection;
 
-import uo.ri.business.dto.ampliacion.WorkOrderDto;
+import uo.ri.business.dto.WorkOrderDto;
 
 public interface WorkOrderGateway {
 

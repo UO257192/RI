@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import uo.ri.business.dto.CertificateDto;
 import uo.ri.business.dto.MechanicDto;
-import uo.ri.business.dto.ampliacion.CertificateDto;
-import uo.ri.business.dto.ampliacion.VehicleTypeDto;
+import uo.ri.business.dto.VehicleTypeDto;
 import uo.ri.conf.Conf;
 import uo.ri.persistance.certificate.CertificateGateway;
 

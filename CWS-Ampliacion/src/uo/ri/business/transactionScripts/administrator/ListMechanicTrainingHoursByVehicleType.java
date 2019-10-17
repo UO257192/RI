@@ -6,40 +6,60 @@ import java.util.ArrayList;
 import java.util.List;
 
 import alb.util.jdbc.Jdbc;
+import uo.ri.business.dto.MechanicDto;
+import uo.ri.business.dto.TrainingHoursRow;
 import uo.ri.business.dto.VehicleTypeDto;
-import uo.ri.common.BusinessException;
 import uo.ri.conf.Factory;
 import uo.ri.persistance.certificate.CertificateGateway;
+import uo.ri.persistance.mechanic.MechanicGateway;
 import uo.ri.persistance.training.CourseGateway;
 import uo.ri.persistance.training.DedicationGateway;
 import uo.ri.persistance.training.EnrollmentGateway;
 import uo.ri.persistance.vehicle.VehicleTypeGateway;
 
-public class GenerateCertificates {
+public class ListMechanicTrainingHoursByVehicleType {
 
-	public int execute() throws BusinessException {
-		int certificatesGenerated = 0;
+	public List<TrainingHoursRow> execute() {
+		List<TrainingHoursRow> trainingHoursRows = new ArrayList<TrainingHoursRow>();
 		List<VehicleTypeDto> vehicleTypeDtos = findAllVehicleTypes();
+		String lastVehicleTypeName = "";
 		for (VehicleTypeDto vehicleTypeDto : vehicleTypeDtos) {
 			List<Long> mechanicIDs = findPassedMechanics();
 			for (Long mechanicID : mechanicIDs) {
-				if (findCertificateByMechanic(mechanicID, vehicleTypeDto.id)) {
-					int totalHours = 0;
-					List<Long> coursesIDs = findCoursesForMechanicAndVehicleType(mechanicID, vehicleTypeDto.id);
-					for (Long courseID : coursesIDs) {
-						int hours = getCourseDuration(courseID);
-						int pertentage = getPercentageForCourseVehicleType(courseID, vehicleTypeDto.id);
-						int attendance = getAttendanceForMechanicInCourse(courseID, mechanicID);
-						totalHours += (hours * pertentage / 100) * attendance / 100;
+				int totalHours = 0;
+				String name = "";
+				List<Long> coursesIDs = findCoursesForMechanicAndVehicleType(mechanicID, vehicleTypeDto.id);
+				for (Long courseID : coursesIDs) {
+					int hours = getCourseDuration(courseID);
+					int attendance = getAttendanceForMechanicInCourse(courseID, mechanicID);
+					totalHours += hours * attendance / 100;
+					name = findMechanicFullNameByID(mechanicID);
+				}
+				if(totalHours>0) {
+					TrainingHoursRow trainingHoursRow = new TrainingHoursRow();
+					trainingHoursRow.enrolledHours = totalHours;
+					trainingHoursRow.mechanicFullName = name;
+					if(lastVehicleTypeName.equals("") || lastVehicleTypeName.equals(vehicleTypeDto.name)) {
+						trainingHoursRow.vehicleTypeName = vehicleTypeDto.name;
+					}else {
+						trainingHoursRow.vehicleTypeName = "";
 					}
-					if (totalHours > vehicleTypeDto.minTrainigHours) {
-						generateCretificate(mechanicID, vehicleTypeDto.id);
-						certificatesGenerated++;
-					}
+					trainingHoursRows.add(trainingHoursRow);
 				}
 			}
 		}
-		return certificatesGenerated;
+		return trainingHoursRows;
+	}
+	
+	public String findMechanicFullNameByID(Long mechanicID) {
+		try (Connection c = Jdbc.getConnection()) {
+			MechanicGateway gateway = Factory.persistance.getMechanicCrudService();
+			gateway.setConnection(c);
+			MechanicDto dto = gateway.findByID(mechanicID);
+			return dto.name + " " + dto.surname;
+		} catch (SQLException e) {
+			throw new RuntimeException("ERROR");
+		}
 	}
 
 	public void generateCretificate(Long mechanicID, Long vehicleTypeID) {
@@ -151,4 +171,5 @@ public class GenerateCertificates {
 			throw new RuntimeException("ERROR");
 		}
 	}
+
 }

@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import alb.util.jdbc.Jdbc;
-import uo.ri.business.dto.ampliacion.VehicleDto;
+import uo.ri.business.dto.VehicleDto;
 import uo.ri.common.BusinessException;
 import uo.ri.conf.Factory;
 import uo.ri.persistance.vehicle.VehicleGateway;

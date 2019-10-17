@@ -1,4 +1,4 @@
-package uo.ri.business.dto.ampliacion;
+package uo.ri.business.dto;
 
 public class VehicleDto {
 	public Long id;
