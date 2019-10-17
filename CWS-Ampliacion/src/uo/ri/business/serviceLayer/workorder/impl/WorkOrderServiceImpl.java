@@ -8,6 +8,7 @@ import uo.ri.business.dto.WorkOrderDto;
 import uo.ri.business.serviceLayer.workorder.WorkOrderService;
 import uo.ri.business.transactionScripts.foreman.AddWorkOrder;
 import uo.ri.business.transactionScripts.foreman.AssignMechanicToWorkorder;
+import uo.ri.business.transactionScripts.foreman.FindCertificatesByVehicleTypeId;
 import uo.ri.business.transactionScripts.foreman.FindWorkOrderByID;
 import uo.ri.business.transactionScripts.foreman.RemoveWorkOrder;
 import uo.ri.business.transactionScripts.foreman.UpdateWorkOrderDescription;
@@ -59,8 +60,8 @@ public class WorkOrderServiceImpl implements WorkOrderService {
 
 	@Override
 	public List<CertificateDto> findCertificatesByVehicleTypeId(Long id) throws BusinessException {
-		// TODO Auto-generated method stub
-		return null;
+		FindCertificatesByVehicleTypeId asd = new FindCertificatesByVehicleTypeId(id);
+		return asd.execute();
 	}
 
 	@Override

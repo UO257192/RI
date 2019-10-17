@@ -14,4 +14,6 @@ public interface CertificateGateway {
 	CertificateDto findCertificateByMechanic(Long mechanicId, Long vehicletype_Id);
 	
 	void generateCertificate(Long mechanicID, Long vehicleTypeID);
+	
+	List<CertificateDto> findCertificatesByVehicleID(Long vehicleID);
 }
