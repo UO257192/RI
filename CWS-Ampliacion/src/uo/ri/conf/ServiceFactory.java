@@ -14,26 +14,57 @@ import uo.ri.business.serviceLayer.workorder.WorkOrderService;
 import uo.ri.business.serviceLayer.workorder.impl.WorkOrderServiceImpl;
 
 public class ServiceFactory {
+
+	/**
+	 * Create a new instance of the implementation of MechanicCrudService
+	 * 
+	 * @return a new MechanicCrudServiceImpl
+	 */
 	public MechanicCrudService getMechanicCrudService() {
 		return new MechanicCrudServiceImpl();
 	}
-	
+
+	/**
+	 * Create a new instance of the implementation of InvoiceService
+	 * 
+	 * @return a new InvoiceServiceImpl
+	 */
 	public InvoiceService getInvoiceService() {
 		return new InvoiceServiceImpl();
 	}
 
+	/**
+	 * Create a new instance of the implementation of CertificateService
+	 * 
+	 * @return a new CertificateServiceImpl
+	 */
 	public CertificateService forCertificateService() {
 		return new CertificateServiceImpl();
 	}
 
+	/**
+	 * Create a new instance of the implementation of WorkOrderService
+	 * 
+	 * @return a new WorkOrderServiceImpl
+	 */
 	public WorkOrderService forWorkOrderService() {
 		return new WorkOrderServiceImpl();
 	}
 
+	/**
+	 * Create a new instance of the implementation of VehicleCrudService
+	 * 
+	 * @return a new VehicleCrudServiceImpl
+	 */
 	public VehicleCrudService forVehicleCrudService() {
 		return new VehicleCrudServiceImpl();
 	}
 
+	/**
+	 * Create a new instance of the implementation of CourseReportService
+	 * 
+	 * @return a new CourseReportServiceImpl
+	 */
 	public CourseReportService getCourseReportService() {
 		return new CourseReportServiceImpl();
 	}

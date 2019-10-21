@@ -22,42 +22,93 @@ import uo.ri.persistance.workorder.WorkOrderGateway;
 import uo.ri.persistance.workorder.impl.WorkOrderGatewayImpl;
 
 public class PersistanceFactory {
+
+	/**
+	 * Create a new instance of the implementation of MechanicGateway
+	 * 
+	 * @return a new MechanicGatewayImpl
+	 */
 	public MechanicGateway getMechanicCrudService() {
 		return new MechanicGatewayImpl();
 	}
-	
+
+	/**
+	 * Create a new instance of the implementation of InvoiceGateway
+	 * 
+	 * @return a new InvoiceGatewayImpl
+	 */
 	public InvoiceGateway getInvoiceGateway() {
 		return new InvoiceGatewayImpl();
 	}
-	
+
+	/**
+	 * Create a new instance of the implementation of WorkOrderGateway
+	 * 
+	 * @return a new WorkOrderGatewayImpl
+	 */
 	public WorkOrderGateway getWorkOrderGateway() {
 		return new WorkOrderGatewayImpl();
 	}
-	
+
+	/**
+	 * Create a new instance of the implementation of EnrollmentGateway
+	 * 
+	 * @return a new EnrollmentGatewayImpl
+	 */
 	public EnrollmentGateway getEnrollmentGateway() {
 		return new EnrollmentGatewayImpl();
 	}
-	
+
+	/**
+	 * Create a new instance of the implementation of CourseGateway
+	 * 
+	 * @return a new CourseGatewayImpl
+	 */
 	public CourseGateway getCourseGateway() {
 		return new CourseGatewayImpl();
 	}
-	
+
+	/**
+	 * Create a new instance of the implementation of DedicationGateway
+	 * 
+	 * @return a new DedicationGatewayImpl
+	 */
 	public DedicationGateway getDedicationGateway() {
 		return new DedicationGatewayImpl();
 	}
 
+	/**
+	 * Create a new instance of the implementation of VehicleGateway
+	 * 
+	 * @return a new VehicleGatewayImpl
+	 */
 	public VehicleGateway getVehicleGateway() {
 		return new VehicleGatewayImpl();
 	}
 
+	/**
+	 * Create a new instance of the implementation of InterventionGateway
+	 * 
+	 * @return a new InterventionGatewayImpl
+	 */
 	public InterventionGateway getInterventionGateway() {
 		return new InterventionGatewayImpl();
 	}
 
+	/**
+	 * Create a new instance of the implementation of VehicleTypeGateway
+	 * 
+	 * @return a new VehicleTypeGatewayImpl
+	 */
 	public VehicleTypeGateway getVehicleTypeGateway() {
 		return new VehicleTypeGatewayImpl();
 	}
 
+	/**
+	 * Create a new instance of the implementation of CertificateGateway
+	 * 
+	 * @return a new MechanicGatewayImpl
+	 */
 	public CertificateGateway getCertificateGateway() {
 		return new CertificateGatewayImpl();
 	}

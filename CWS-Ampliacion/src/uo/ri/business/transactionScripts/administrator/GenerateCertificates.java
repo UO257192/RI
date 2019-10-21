@@ -20,8 +20,8 @@ public class GenerateCertificates {
 	public int execute() throws BusinessException {
 		int certificatesGenerated = 0;
 		List<VehicleTypeDto> vehicleTypeDtos = findAllVehicleTypes();
+		List<Long> mechanicIDs = findPassedMechanics();
 		for (VehicleTypeDto vehicleTypeDto : vehicleTypeDtos) {
-			List<Long> mechanicIDs = findPassedMechanics();
 			for (Long mechanicID : mechanicIDs) {
 				if (findCertificateByMechanic(mechanicID, vehicleTypeDto.id)) {
 					int totalHours = 0;
@@ -32,7 +32,7 @@ public class GenerateCertificates {
 						int attendance = getAttendanceForMechanicInCourse(courseID, mechanicID);
 						totalHours += (hours * pertentage / 100) * attendance / 100;
 					}
-					if (totalHours > vehicleTypeDto.minTrainigHours) {
+					if (totalHours >= vehicleTypeDto.minTrainigHours) {
 						generateCretificate(mechanicID, vehicleTypeDto.id);
 						certificatesGenerated++;
 					}
