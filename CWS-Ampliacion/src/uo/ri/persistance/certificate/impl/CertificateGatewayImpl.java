@@ -97,6 +97,7 @@ public class CertificateGatewayImpl implements CertificateGateway {
 		String SQL_FIND_CERTIFICATE_BY_VEHICLETYPE_ID = Conf.getInstance().getProperty("SQL_FIND_CERTIFICATE_BY_VEHICLETYPE_ID");
 		try {
 			pst = c.prepareStatement(SQL_FIND_CERTIFICATE_BY_VEHICLETYPE_ID);
+			pst.setLong(1, vehicleID);
 			rs = pst.executeQuery();
 			while(rs.next()) {
 				CertificateDto dto = new CertificateDto();
@@ -104,8 +105,10 @@ public class CertificateGatewayImpl implements CertificateGateway {
 				dto.obtainedAt = rs.getDate(2);
 				dto.mechanic = new MechanicDto();
 				dto.mechanic.id = rs.getLong(3);
+				dto.mechanic.name = rs.getString(4);
+				dto.mechanic.surname = rs.getString(5);
 				dto.vehicleType = new VehicleTypeDto();
-				dto.vehicleType.id = rs.getLong(4);
+				dto.vehicleType.id = rs.getLong(6);
 				certificateDtos.add(dto);
 			}
 		} catch (SQLException e) {

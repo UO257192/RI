@@ -45,4 +45,31 @@ public class VehicleGatewayImpl implements VehicleGateway {
 			Jdbc.close(rs, pst);
 		}
 	}
+
+	@Override
+	public VehicleDto findVehicleByID(Long id) {
+		VehicleDto dto = null;
+		String SQL = Conf.getInstance().getProperty("SQL_FIND_VEHICLE_BY_ID");
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			pst = c.prepareStatement(SQL);
+			pst.setLong(1, id);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				dto = new VehicleDto();
+				dto.id = rs.getLong(1);
+				dto.make = rs.getString(2);
+				dto.model = rs.getString(3);
+				dto.plate = rs.getString(4);
+				dto.clientId = rs.getLong(5);
+				dto.vehicleTypeId = rs.getLong(6);
+			}
+			return dto;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			Jdbc.close(rs, pst);
+		}
+	}
 }

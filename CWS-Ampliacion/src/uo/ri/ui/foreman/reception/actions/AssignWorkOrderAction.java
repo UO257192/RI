@@ -5,8 +5,9 @@ import java.util.List;
 import alb.util.console.Console;
 import alb.util.menu.Action;
 import uo.ri.business.dto.CertificateDto;
+import uo.ri.business.dto.VehicleDto;
 import uo.ri.business.dto.WorkOrderDto;
-import uo.ri.business.serviceLayer.certificate.CertificateService;
+import uo.ri.business.serviceLayer.vehicle.VehicleCrudService;
 import uo.ri.business.serviceLayer.workorder.WorkOrderService;
 import uo.ri.common.BusinessException;
 import uo.ri.conf.Factory;
@@ -22,7 +23,7 @@ public class AssignWorkOrderAction implements Action {
 		if(dto == null) {
 			throw new BusinessException("Workorder: " + woId + " does not exist");
 		}
-		if(dto.mechanicId != null) {
+		if(dto.mechanicId != 0) {
 			throw new BusinessException("Workorder: " + woId + " already has assigned mechanic");
 		}
 
@@ -30,18 +31,31 @@ public class AssignWorkOrderAction implements Action {
 			throw new BusinessException("The workorder is not available");
 		}
 		
-		List<CertificateDto> mechanics = as.findCertificatesByVehicleTypeId(woId);
 		// List Mechanic
-
+		VehicleCrudService vs = Factory.service.forVehicleCrudService();
+		VehicleDto vehicle = vs.findVehicleByID(dto.vehicleId);
+		List<CertificateDto> mechanics = as.findCertificatesByVehicleTypeId(vehicle.vehicleTypeId);
+		Console.println("Mechanics:");
+		for (CertificateDto certificateDto : mechanics) {
+			Console.println("ID: " +certificateDto.mechanic.id + " NAME: " +certificateDto.mechanic.name + " " +certificateDto.mechanic.surname);
+		}
 		Long mId = Console.readLong("Mechanic id");
-
+		while(Contains(mId,mechanics)) {
+			mId = Console.readLong("Mechanic id");
+		}
 		as.assignWorkOrderToMechanic(woId, mId);
 
 		Console.println("\nAssignation done");
 	}
 	
-	
-	private boolean Contains(Long mechanicID, List<CertificateDto> mechanics) {
-		
+	private boolean Contains(Long mId , List<CertificateDto> dtos) {
+		for (CertificateDto certificateDto : dtos) {
+			if(certificateDto.id.equals(mId)) {
+				return true;
+			}
+		}
+		return false;
 	}
+	
+	
 }

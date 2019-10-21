@@ -16,4 +16,6 @@ public interface EnrollmentGateway {
 	List<Long> findPassedMechanicIDS();
 	
 	int findAttendanceForCourseAndMechanic(Long courseID, Long mechanicId);
+
+	List<Long> findCoursesByMechanicId(Long mechanic_id);
 }

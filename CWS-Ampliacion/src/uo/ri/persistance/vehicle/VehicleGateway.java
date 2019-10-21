@@ -9,5 +9,7 @@ public interface VehicleGateway {
 	void setConnection(Connection c);
 	
 	VehicleDto findVehicleByPlate(String plate);
+	
+	VehicleDto findVehicleByID(Long id);
 
 }
