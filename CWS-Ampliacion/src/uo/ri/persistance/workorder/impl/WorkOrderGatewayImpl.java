@@ -177,15 +177,20 @@ public class WorkOrderGatewayImpl implements WorkOrderGateway {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		WorkOrderDto dto = null;
-		String SQL_FIND_WORKORDER_STATUS_BY_ID = Conf.getInstance().getProperty("SQL_FIND_WORKORDER_STATUS_BY_ID");
+		String SQL_FIND_WORKORDER_BY_ID = Conf.getInstance().getProperty("SQL_FIND_WORKORDER_BY_ID");
 		try {
-			pst = c.prepareStatement(SQL_FIND_WORKORDER_STATUS_BY_ID);
+			pst = c.prepareStatement(SQL_FIND_WORKORDER_BY_ID);
 			pst.setLong(1, id);
 			rs = pst.executeQuery();
 			if(rs.next()) {
 				dto = new WorkOrderDto();
 				dto.id = id;
-				dto.status = rs.getString(1);
+				dto.date = rs.getDate(3);
+				dto.description = rs.getString(4);
+				dto.status = rs.getString(5);
+				dto.invoiceId = rs.getLong(6);
+				dto.mechanicId = rs.getLong(7);
+				dto.vehicleId = rs.getLong(8);
 			}
 			return dto;
 

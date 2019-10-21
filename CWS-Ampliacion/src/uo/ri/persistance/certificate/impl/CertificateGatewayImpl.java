@@ -89,4 +89,29 @@ public class CertificateGatewayImpl implements CertificateGateway {
 		
 	}
 
+	@Override
+	public List<CertificateDto> findCertificatesByVehicleID(Long vehicleID) {
+		List<CertificateDto> certificateDtos = new ArrayList<CertificateDto>();
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		String SQL_FIND_CERTIFICATE_BY_VEHICLETYPE_ID = Conf.getInstance().getProperty("SQL_FIND_CERTIFICATE_BY_VEHICLETYPE_ID");
+		try {
+			pst = c.prepareStatement(SQL_FIND_CERTIFICATE_BY_VEHICLETYPE_ID);
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				CertificateDto dto = new CertificateDto();
+				dto.id = rs.getLong(1);
+				dto.obtainedAt = rs.getDate(2);
+				dto.mechanic = new MechanicDto();
+				dto.mechanic.id = rs.getLong(3);
+				dto.vehicleType = new VehicleTypeDto();
+				dto.vehicleType.id = rs.getLong(4);
+				certificateDtos.add(dto);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException("ERROR");
+		}
+		return certificateDtos;
+	}
+
 }
