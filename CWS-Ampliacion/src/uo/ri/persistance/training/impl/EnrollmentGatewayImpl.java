@@ -109,4 +109,25 @@ public class EnrollmentGatewayImpl implements EnrollmentGateway {
 		}
 	}
 
+	@Override
+	public List<Long> findCoursesByMechanicId(Long mechanic_id) {
+		List<Long> coursesID = new ArrayList<Long>();
+		String SQL_FIND_ALL_COURSES_BY_MECHANIC = Conf.getInstance().getProperty("SQL_FIND_ALL_COURSES_BY_MECHANIC");
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			pst = c.prepareStatement(SQL_FIND_ALL_COURSES_BY_MECHANIC);
+			pst.setLong(1, mechanic_id);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				coursesID.add(rs.getLong(1));
+			}
+			return coursesID;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			Jdbc.close(rs, pst);
+		}
+	}
+
 }

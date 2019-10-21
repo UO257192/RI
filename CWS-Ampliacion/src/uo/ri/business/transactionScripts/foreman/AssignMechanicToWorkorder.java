@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import alb.util.jdbc.Jdbc;
 import uo.ri.common.BusinessException;
 import uo.ri.conf.Factory;
-import uo.ri.persistance.mechanic.MechanicGateway;
 import uo.ri.persistance.workorder.WorkOrderGateway;
 
 public class AssignMechanicToWorkorder {
@@ -16,7 +15,7 @@ public class AssignMechanicToWorkorder {
 	public AssignMechanicToWorkorder(Long workorderID, Long mechanicID) {
 		super();
 		this.workorderID = workorderID;
-		this.workorderID = workorderID;
+		this.mechanicID = mechanicID;
 	}
 
 	/*
@@ -25,9 +24,6 @@ public class AssignMechanicToWorkorder {
 	 * work order is not in OPEN status
 	 */
 	public void execute() throws BusinessException {
-		if (!existMechanic(mechanicID)) {
-			throw new BusinessException("The mechanic does not exist");
-		}
 		try (Connection c = Jdbc.getConnection()) {
 			c.setAutoCommit(false);
 			WorkOrderGateway gateway = Factory.persistance.getWorkOrderGateway();
@@ -38,16 +34,6 @@ public class AssignMechanicToWorkorder {
 			throw new RuntimeException("ERROR");
 		}
 
-	}
-
-	private boolean existMechanic(Long mechanicID) {
-		try (Connection c = Jdbc.getConnection()) {
-			MechanicGateway gateway = Factory.persistance.getMechanicCrudService();
-			gateway.setConnection(c);
-			return gateway.findByID(mechanicID) == null;
-		} catch (SQLException e) {
-			throw new RuntimeException("ERROR");
-		}
 	}
 
 }

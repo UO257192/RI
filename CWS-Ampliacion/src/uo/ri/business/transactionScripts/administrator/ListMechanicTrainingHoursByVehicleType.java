@@ -39,7 +39,8 @@ public class ListMechanicTrainingHoursByVehicleType {
 					TrainingHoursRow trainingHoursRow = new TrainingHoursRow();
 					trainingHoursRow.enrolledHours = totalHours;
 					trainingHoursRow.mechanicFullName = name;
-					if(lastVehicleTypeName.equals("") || lastVehicleTypeName.equals(vehicleTypeDto.name)) {
+					if(lastVehicleTypeName.equals("") || !lastVehicleTypeName.equals(vehicleTypeDto.name)) {
+						lastVehicleTypeName = vehicleTypeDto.name;
 						trainingHoursRow.vehicleTypeName = vehicleTypeDto.name;
 					}else {
 						trainingHoursRow.vehicleTypeName = "";
@@ -106,7 +107,7 @@ public class ListMechanicTrainingHoursByVehicleType {
 
 	public List<Long> findCoursesForMechanicAndVehicleType(Long mechanicID, Long vehicleTypeID) {
 		// sacamos cursos aprobados por mechanic_id
-		List<Long> coursesIDForMechanic = findPassedCoursessByMechanicId(mechanicID);
+		List<Long> coursesIDForMechanic = findCoursesByMechanicId(mechanicID);
 
 		// sacarmos cursos dedicados a vehicleType
 		List<Long> coursesIDForVehicleType = findCoursesByVehicleType(vehicleTypeID);
@@ -152,11 +153,11 @@ public class ListMechanicTrainingHoursByVehicleType {
 		}
 	}
 
-	public List<Long> findPassedCoursessByMechanicId(Long mechanic_id) {
+	public List<Long> findCoursesByMechanicId(Long mechanic_id) {
 		try (Connection c = Jdbc.getConnection()) {
 			EnrollmentGateway gateway = Factory.persistance.getEnrollmentGateway();
 			gateway.setConnection(c);
-			return gateway.findPassedCoursessByMechanicId(mechanic_id);
+			return gateway.findCoursesByMechanicId(mechanic_id);
 		} catch (SQLException e) {
 			throw new RuntimeException("ERROR");
 		}
