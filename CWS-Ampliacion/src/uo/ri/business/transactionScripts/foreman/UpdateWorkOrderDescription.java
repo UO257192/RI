@@ -24,7 +24,12 @@ public class UpdateWorkOrderDescription {
 			WorkOrderGateway gateway = Factory.persistance.getWorkOrderGateway();
 			gateway.setConnection(c);
 			if(!workOrderDto.status.equals("OPEN") && workOrderDto.status.equals("ASSIGNED")) {
+				c.rollback();
 				throw new BusinessException("The WorkORder: "+  workOrderDto.id + " is openned or assigned.");
+			}
+			if(gateway.findWorkOrderByID(workOrderDto.id) == null) {
+				c.rollback();
+				throw new BusinessException("WorkOrder: " + workOrderDto.id + " does not exist");
 			}
 			gateway.updateWorkOrder(workOrderDto);
 			c.commit();

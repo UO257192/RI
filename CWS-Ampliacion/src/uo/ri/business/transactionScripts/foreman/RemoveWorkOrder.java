@@ -23,6 +23,10 @@ public class RemoveWorkOrder {
 			c.setAutoCommit(false);
 			WorkOrderGateway gateway = Factory.persistance.getWorkOrderGateway();
 			gateway.setConnection(c);
+			if(gateway.findWorkOrderByID(workOrderID) == null) {
+				c.rollback();
+				throw new BusinessException("WorkOrder: " + workOrderID + " does not exist");
+			}
 			gateway.remove(workOrderID);
 			c.commit();
 		} catch (SQLException e) {
@@ -35,6 +39,7 @@ public class RemoveWorkOrder {
 			InterventionGateway gateway = Factory.persistance.getInterventionGateway();
 			gateway.setConnection(c);
 			if (gateway.hasInterventions(workOrderID)) {
+				c.rollback();
 				throw new BusinessException("WorkOrder: " + workOrderID + " has interventions");
 			}
 

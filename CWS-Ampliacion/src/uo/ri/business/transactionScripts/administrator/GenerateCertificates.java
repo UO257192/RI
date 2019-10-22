@@ -10,6 +10,7 @@ import uo.ri.business.dto.VehicleTypeDto;
 import uo.ri.common.BusinessException;
 import uo.ri.conf.Factory;
 import uo.ri.persistance.certificate.CertificateGateway;
+import uo.ri.persistance.mechanic.MechanicGateway;
 import uo.ri.persistance.training.CourseGateway;
 import uo.ri.persistance.training.DedicationGateway;
 import uo.ri.persistance.training.EnrollmentGateway;
@@ -27,6 +28,7 @@ public class GenerateCertificates {
 					int totalHours = 0;
 					List<Long> coursesIDs = findCoursesForMechanicAndVehicleType(mechanicID, vehicleTypeDto.id);
 					for (Long courseID : coursesIDs) {
+						System.out.println(courseID + "" +mechanicID + "" +vehicleTypeDto.id );
 						int hours = getCourseDuration(courseID);
 						int pertentage = getPercentageForCourseVehicleType(courseID, vehicleTypeDto.id);
 						int attendance = getAttendanceForMechanicInCourse(courseID, mechanicID);
@@ -42,11 +44,19 @@ public class GenerateCertificates {
 		return certificatesGenerated;
 	}
 
-	public void generateCretificate(Long mechanicID, Long vehicleTypeID) {
+	public void generateCretificate(Long mechanicID, Long vehicleTypeID) throws BusinessException {
 		try (Connection c = Jdbc.getConnection()) {
 			c.setAutoCommit(false);
 			CertificateGateway gateway = Factory.persistance.getCertificateGateway();
+			MechanicGateway gateMechanicGateway = Factory.persistance.getMechanicCrudService();
+			VehicleTypeGateway gateVehicleTypeGateway = Factory.persistance.getVehicleTypeGateway();
+			gateVehicleTypeGateway.setConnection(c);
+			gateMechanicGateway.setConnection(c);
 			gateway.setConnection(c);
+			if(gateMechanicGateway.findByID(mechanicID) == null) {
+				c.rollback();
+				throw new BusinessException("Mechanic does not exist");
+			}
 			gateway.generateCertificate(mechanicID, vehicleTypeID);
 			c.commit();
 		} catch (SQLException e) {

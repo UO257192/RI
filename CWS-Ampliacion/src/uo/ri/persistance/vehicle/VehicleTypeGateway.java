@@ -21,4 +21,6 @@ public interface VehicleTypeGateway {
 	 */
 	List<VehicleTypeDto> findAll();
 	
+	VehicleTypeDto findTypeByID(Long type);
+	
 }

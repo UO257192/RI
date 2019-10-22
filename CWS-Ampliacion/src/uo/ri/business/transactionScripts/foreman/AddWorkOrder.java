@@ -24,6 +24,7 @@ public class AddWorkOrder {
 			gateway.setConnection(c);
 			this.workOrderDto.date =  new java.sql.Date(new java.util.Date().getTime());
 			if(gateway.findWorkOrderByData(this.workOrderDto)){
+				c.rollback();
 				throw new BusinessException("A WorkOrder already exist for date: " + this.workOrderDto.date + " and for vehicle: " + this.workOrderDto.id);
 			}
 			gateway.save(workOrderDto);

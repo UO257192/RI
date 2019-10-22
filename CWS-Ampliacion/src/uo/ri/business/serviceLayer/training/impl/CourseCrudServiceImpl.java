@@ -6,13 +6,15 @@ import uo.ri.business.dto.CourseDto;
 import uo.ri.business.dto.VehicleTypeDto;
 import uo.ri.business.serviceLayer.training.CourseCrudService;
 import uo.ri.business.transactionScripts.administrator.FindAllCourses;
+import uo.ri.business.transactionScripts.administrator.ListVehicleTypes;
+import uo.ri.business.transactionScripts.administrator.RegisterNewCourse;
 import uo.ri.common.BusinessException;
 
 public class CourseCrudServiceImpl implements CourseCrudService {
 
 	@Override
 	public CourseDto registerNew(CourseDto dto) throws BusinessException {
-		// TODO Auto-generated method stub
+		RegisterNewCourse  ca = new RegisterNewCourse(dto);
 		return null;
 	}
 
@@ -36,8 +38,8 @@ public class CourseCrudServiceImpl implements CourseCrudService {
 
 	@Override
 	public List<VehicleTypeDto> findAllVehicleTypes() throws BusinessException {
-		// TODO Auto-generated method stub
-		return null;
+		ListVehicleTypes lv = new ListVehicleTypes();
+		return lv.execute();
 	}
 
 	@Override
