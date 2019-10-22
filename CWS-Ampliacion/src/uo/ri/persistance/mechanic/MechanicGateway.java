@@ -15,7 +15,8 @@ public interface MechanicGateway {
 	void setConnection(Connection c);
 
 	/**
-	 * Add a new mechanic to the system with the data specified in the dto. The id value will be ignored
+	 * Add a new mechanic to the system with the data specified in the dto. The id
+	 * value will be ignored
 	 * 
 	 * @param mechanic dto
 	 */
@@ -43,11 +44,14 @@ public interface MechanicGateway {
 	List<MechanicDto> findAll();
 
 	/**
-	 * 
-	 * @param idMechanic
-	 * @return
+	 * @param id of the mechanic
+	 * @return the dto for the mechanic or null if there is none with the id
 	 */
 	MechanicDto findByID(Long idMechanic);
 
+	/**
+	 * @param dni of the mechanic
+	 * @return the dto for the mechanic or null if there is none with the dni
+	 */
 	MechanicDto findByDNI(String dni);
 }

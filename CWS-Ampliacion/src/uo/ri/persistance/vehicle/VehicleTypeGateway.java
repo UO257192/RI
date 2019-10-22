@@ -7,8 +7,18 @@ import uo.ri.business.dto.VehicleTypeDto;
 
 public interface VehicleTypeGateway {
 
+	/**
+	 * Set the database connection
+	 * 
+	 * @param database connection
+	 */
 	void setConnection(Connection c);
 	
+	/**
+	 * @return the list of all vehicle types registered in the system. It might be an
+	 *         empty list if there is no vehicle type
+	 * 
+	 */
 	List<VehicleTypeDto> findAll();
 	
 }
