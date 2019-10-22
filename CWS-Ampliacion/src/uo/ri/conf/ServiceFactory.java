@@ -6,7 +6,9 @@ import uo.ri.business.serviceLayer.invoice.InvoiceService;
 import uo.ri.business.serviceLayer.invoice.impl.InvoiceServiceImpl;
 import uo.ri.business.serviceLayer.mechanic.MechanicCrudService;
 import uo.ri.business.serviceLayer.mechanic.impl.MechanicCrudServiceImpl;
+import uo.ri.business.serviceLayer.training.CourseCrudService;
 import uo.ri.business.serviceLayer.training.CourseReportService;
+import uo.ri.business.serviceLayer.training.impl.CourseCrudServiceImpl;
 import uo.ri.business.serviceLayer.training.impl.CourseReportServiceImpl;
 import uo.ri.business.serviceLayer.vehicle.VehicleCrudService;
 import uo.ri.business.serviceLayer.vehicle.impl.VehicleCrudServiceImpl;
@@ -67,6 +69,15 @@ public class ServiceFactory {
 	 */
 	public CourseReportService getCourseReportService() {
 		return new CourseReportServiceImpl();
+	}
+
+	/**
+	 * Create a new instance of the implementation of CourseCrudService
+	 * 
+	 * @return a new CourseCrudServiceImpl
+	 */
+	public CourseCrudService forCourseCrudService() {
+		return new CourseCrudServiceImpl();
 	}
 
 }

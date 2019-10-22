@@ -1,7 +1,8 @@
 package uo.ri.ui.administrator;
 
 import alb.util.menu.BaseMenu;
-import uo.ri.ui.administrator.action.GenerateCertificatesAction;
+import uo.ri.ui.administrator.certificate.action.GenerateCertificatesAction;
+import uo.ri.ui.administrator.mechanic.MechanicsMenu;
 
 public class MainMenu extends BaseMenu {
 
@@ -18,5 +19,5 @@ public class MainMenu extends BaseMenu {
 	public static void main(String[] args) {
 		new MainMenu().execute();
 	}
-
+	
 }

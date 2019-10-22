@@ -1,6 +1,7 @@
 package uo.ri.persistance.training;
 
 import java.sql.Connection;
+import java.util.List;
 
 import uo.ri.business.dto.CourseDto;
 
@@ -18,4 +19,8 @@ public interface CourseGateway {
 	 * @return the dto for the course or null if there is none with the id
 	 */
 	CourseDto findCourseByID(Long courseID);
+	
+	
+	
+	List<CourseDto> findAll();
 }

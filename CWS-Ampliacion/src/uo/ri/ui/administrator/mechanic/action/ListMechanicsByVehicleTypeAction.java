@@ -1,4 +1,4 @@
-package uo.ri.ui.administrator.action;
+package uo.ri.ui.administrator.mechanic.action;
 
 import java.util.List;
 
