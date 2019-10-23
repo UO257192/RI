@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="uo.ri.cws.domain.Client"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="uo.ri.cws.domain.VehicleType"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="uo.ri.cws.domain.Associations.Order"/>
+<fullyQualifiedTypeName name="uo.ri.cws.domain.WorkOrder"/>
+<fullyQualifiedTypeName name="javax.print.attribute.HashAttributeSet"/>
+<fullyQualifiedTypeName name="uo.ri.cws.domain.Mechanic"/>
+<fullyQualifiedTypeName name="alb.util.assertion.StateCheck"/>
+<fullyQualifiedTypeName name="uo.ri.cws.domain.Invoice.InvoiceStatus"/>
+<fullyQualifiedTypeName name="uo.ri.cws.domain.Associations.ToInvoice"/>
+<fullyQualifiedTypeName name="uo.ri.cws.domain.Associations"/>
+<fullyQualifiedTypeName name="uo.ri.cws.domain.Associations.Intervene"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="uo.ri.cws.domain.CreditCard"/>
+<fullyQualifiedTypeName name="uo.ri.cws.domain.Cash"/>
+<fullyQualifiedTypeName name="uo.ri.cws.domain.Voucher"/>
+<fullyQualifiedTypeName name="alb.util.assertion.Argument"/>
+</qualifiedTypeNameHistroy>

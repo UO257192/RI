@@ -1,0 +1,22 @@
+2019-10-17 11:10:57,521 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-10-17 11:12:09,854 [Worker-2: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: uo.alb:AlbUtil:1.0.0-SNAPSHOT @ C:\Users\Elmer\Documents\JPA\AlbUtil\pom.xml.
+2019-10-17 11:12:09,854 [Worker-7: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: uo.alb:AlbUtil:1.0.0-SNAPSHOT @ C:\Users\Elmer\Documents\JPA\AlbUtil\pom.xml.
+2019-10-17 11:12:11,484 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-17 11:12:11,485 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Elmer\Documents\JPA\AlbUtil\src\main\resources
+2019-10-17 11:12:11,838 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-17 11:12:11,838 [Worker-2: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Elmer\Documents\JPA\AlbUtil\src\test\resources
+2019-10-17 11:12:11,840 [Worker-3: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: uo.alb:AlbUtil:1.0.0-SNAPSHOT @ C:\Users\Elmer\Documents\JPA\AlbUtil\pom.xml.
+2019-10-17 11:12:12,801 [Worker-10: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-17 11:12:12,801 [Worker-10: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Elmer\Documents\JPA\AlbUtil\src\main\resources
+2019-10-17 11:12:12,803 [Worker-10: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-17 11:12:12,804 [Worker-10: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Elmer\Documents\JPA\AlbUtil\src\test\resources
+2019-10-17 11:13:42,949 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-10-17 11:13:44,519 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-17 11:13:44,520 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Elmer\Documents\JPA\AlbUtil\src\main\resources
+2019-10-17 11:13:44,522 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-17 11:13:44,523 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Elmer\Documents\JPA\AlbUtil\src\test\resources
+2019-10-17 13:28:04,215 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-10-17 13:28:33,047 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-17 13:28:33,048 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Elmer\Documents\JPA\AlbUtil\src\main\resources
+2019-10-17 13:28:33,052 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-17 13:28:33,052 [Worker-1: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Elmer\Documents\JPA\AlbUtil\src\test\resources
