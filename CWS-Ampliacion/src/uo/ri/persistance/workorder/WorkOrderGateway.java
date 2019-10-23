@@ -77,12 +77,31 @@ public interface WorkOrderGateway {
 	 */
 	void updateWorkorderTotal(Long workOrderID, double total);
 
-	
+	/**
+	 * Assign a invoice to a WorkOrder
+	 * @param invoiceId
+	 * @param workOrderID
+	 */
 	void linkWorkOrderInvoice(long invoiceId, Long workOrderID);
 
+	/**
+	 * Update the workorder status
+	 * @param breakdownId
+	 * @param status
+	 */
 	void updateWorkOrderStatus(Long breakdownId, String status);
 
+	/**
+	 * Calculate the total amount of labors to a workorder
+	 * @param workOrderID
+	 * @return total labor amount
+	 */
 	double checkTotalLabor(Long workOrderID);
 
+	/**
+	 * Calculate the total amount of parts to a workorder
+	 * @param workOrderID
+	 * @return total parts amount
+	 */
 	double checkTotalParts(Long workOrderID);
 }

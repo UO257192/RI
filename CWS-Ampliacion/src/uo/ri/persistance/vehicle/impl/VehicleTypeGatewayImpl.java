@@ -47,30 +47,4 @@ public class VehicleTypeGatewayImpl implements VehicleTypeGateway {
 		}
 	}
 
-	@Override
-	public VehicleTypeDto findTypeByID(Long type) {
-		VehicleTypeDto vehicleTypeDto = new VehicleTypeDto();
-		String SQL_FIND_ALL_TYPES = Conf.getInstance().getProperty("SQL_FIND_ALL_TYPES");
-		PreparedStatement pst = null;
-		ResultSet rs = null;
-		try {
-			pst = c.prepareStatement(SQL_FIND_ALL_TYPES);
-			rs = pst.executeQuery();
-			while (rs.next()) {
-				VehicleTypeDto dto = new VehicleTypeDto();
-				dto.id = rs.getLong(1);
-				dto.minTrainigHours = rs.getInt(2);
-				dto.name = rs.getString(3);
-				dto.pricePerHour = rs.getDouble(4);
-				vehicleTypeDtos.add(dto);
-			}
-			return vehicleTypeDtos;
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		} finally {
-			Jdbc.close(rs, pst);
-		}
-	}
-
-
 }

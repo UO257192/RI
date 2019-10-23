@@ -95,10 +95,8 @@ public class GenerateCertificates {
 	}
 
 	public List<Long> findCoursesForMechanicAndVehicleType(Long mechanicID, Long vehicleTypeID) {
-		// sacamos cursos aprobados por mechanic_id
 		List<Long> coursesIDForMechanic = findPassedCoursessByMechanicId(mechanicID);
 
-		// sacarmos cursos dedicados a vehicleType
 		List<Long> coursesIDForVehicleType = findCoursesByVehicleType(vehicleTypeID);
 
 		List<Long> courses = new ArrayList<Long>();
