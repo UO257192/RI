@@ -2,12 +2,23 @@ package uo.ri.cws.domain;
 
 public class Voucher extends PaymentMean {
 	private String code;
-	private double available;
+	private double available = 0.0;
 	private String description;
 
 	public Voucher(String code) {
 		super();
 		this.code = code;
+	}
+	
+	public Voucher(Client client, String code) {
+		this(code);
+		Associations.Pay.link(client, this);
+	}
+	
+	public Voucher(String code, double available, String description) {
+		this(code);
+		this.available = available;
+		this.description = description;
 	}
 
 	public String getCode() {
@@ -20,6 +31,10 @@ public class Voucher extends PaymentMean {
 
 	public String getDescription() {
 		return description;
+	}
+	
+	void updateDisponible() {
+		this.available = available - this.getAvailable();
 	}
 	
 	@Override

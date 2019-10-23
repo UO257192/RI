@@ -32,6 +32,15 @@ public class Associations {
 	}
 
 	public static class Pay {
+		public static void link(Client client, PaymentMean paymentMean) {
+			paymentMean._setClient(client);
+			client._getPaymentMeans().add(paymentMean);
+		}
+		
+		public static void unlink(Client client, PaymentMean paymentMean) {
+			client._getPaymentMeans().remove(paymentMean);
+			paymentMean._setClient(null);
+		}
 
 	}
 
@@ -56,10 +65,30 @@ public class Associations {
 			workOrder._setInvoice(invoice);
 			invoice._getWorkOrders().add(workOrder);	
 		}
+		public static void unlink(Invoice invoice, WorkOrder workOrder) {
+			invoice._getWorkorders().remove(workOrder);
+			workOrder._setInvoice(null);
+		}
 
 	}
 
 	public static class Charges {
+		public static void link(PaymentMean paymentMean, Charge chars, Invoice invoice) {
+			chars._setPaymentMean(paymentMean);
+			chars._setInvoice(invoice);
+			paymentMean._getCharges().add(chars);
+			invoice._getCharges().add(chars);
+		}
+
+		public static void unlink(Charge charge) {
+			PaymentMean mp = charge.getPaymentMean();
+			Invoice f = charge.getInvoice();
+			
+			mp._getCharges().remove(charge);
+			f._getCharges().remove(charge);
+			charge._setPaymentMean(null);
+			charge._setInvoice(null);
+		}
 
 	}
 
@@ -100,7 +129,19 @@ public class Associations {
 	}
 
 	public static class Sustitute {
-
+		public static void link(Intervention intervention, Substitution substitution, SparePart sparePart) {
+			substitution._setIntervention(intervention);
+			substitution._setSparePart(sparePart);
+			substitution.getIntervention()._getSustitutions().add(substitution);
+			substitution.getSparePart()._getSustitutions().add(substitution);
+		}
+		
+		public static void unlink(Substitution substitution) {
+			substitution.getIntervention()._getSustitutions().remove(substitution);
+			substitution.getSparePart()._getSustitutions().remove(substitution);
+			substitution._setIntervention(null);
+			substitution._setSparePart(null);
+		}
 	}
 
 }

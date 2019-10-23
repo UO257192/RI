@@ -77,7 +77,11 @@ public class WorkOrder {
 	 *  - The work order is not linked with the invoice
 	 */
 	public void markAsInvoiced() {
-
+		if(!this.status.equals(WorkOrderStatus.FINISHED))
+			throw new IllegalStateException("La averia no está en estado TERMINADA");
+		if(this.invoice == null)
+			throw new IllegalStateException("La avería no está enlazada con una factura");
+		this.status = WorkOrderStatus.INVOICED;
 	}
 
 	/**
@@ -90,7 +94,15 @@ public class WorkOrder {
 	 *  - The work order is not linked with a mechanic
 	 */
 	public void markAsFinished() {
-		//calcular amount
+		if(!this.status.equals(WorkOrderStatus.ASSIGNED))
+			throw new IllegalStateException("La avería no está en estado ASIGNADA");
+		if(this.mechanic == null)
+			throw new IllegalStateException("La avería no está enlazada con un mecánico");
+		amount = 0L;
+		for(Intervention intervention:interventions)
+			amount += intervention.getAmount();
+		Associations.Assign.unlink(mechanic, this);
+		this.status = WorkOrderStatus.FINISHED;
 	}
 
 	/**
@@ -102,7 +114,11 @@ public class WorkOrder {
 	 *  - The work order is still linked with the invoice
 	 */
 	public void markBackToFinished() {
-
+		if(!this.status.equals(WorkOrderStatus.INVOICED))
+			throw new IllegalStateException("La avería debe estar en estado FACTURADA");
+		if(this.invoice != null)
+			throw new IllegalStateException("La avería aún está enlazada con la factura");
+		this.status = WorkOrderStatus.FINISHED;
 	}
 
 	/**
@@ -114,7 +130,13 @@ public class WorkOrder {
 	 *  - The work order is already linked with another mechanic
 	 */
 	public void assignTo(Mechanic mechanic) {
-
+		// Solo se puede asignar una averia que está ABIERTA
+		if(!this.status.equals(WorkOrderStatus.OPEN))
+			throw new IllegalStateException("Solo se puede saignar una avería ABIERTA");
+		// linkado de averia y mecanico
+		Associations.Assign.link(mechanic, this);
+		// la averia pasa a ASIGNADA
+		this.status = WorkOrderStatus.ASSIGNED;
 	}
 
 	/**
@@ -125,7 +147,11 @@ public class WorkOrder {
 	 * 	- The work order is not in ASSIGNED status
 	 */
 	public void desassign() {
-
+		// Se verifica que está en estado TERMINADA
+		if(!this.status.equals(WorkOrderStatus.FINISHED))
+			throw new IllegalStateException("La avería no está en estado TERMINADA");
+		// Se pasa la averia a ABIERTA
+		this.status = WorkOrderStatus.OPEN;
 	}
 
 	/**
@@ -136,7 +162,10 @@ public class WorkOrder {
 	 * 	- The work order is not in FINISHED status
 	 */
 	public void reopen() {
-
+		if(!this.status.equals(WorkOrderStatus.ASSIGNED))
+			throw new IllegalStateException("La avería no está en estado ASIGNADA");
+		Associations.Assign.unlink(mechanic, this);
+		this.status = WorkOrderStatus.OPEN;
 	}
 
 	public Vehicle getVehicle() {

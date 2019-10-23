@@ -20,6 +20,7 @@ public class Vehicle {
 	 */
 	private VehicleType vehicleType = null;
 	
+	
 	/*
 	 * Relacion subre averia (order)
 	 */

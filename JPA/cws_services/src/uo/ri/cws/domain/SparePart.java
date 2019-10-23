@@ -1,12 +1,24 @@
 package uo.ri.cws.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class SparePart {
 	private String code;
 	private String description;
 	private double price;
+	
+	private Set<Substitution> substitutions = new HashSet<Substitution>();
+	
 	public SparePart(String code) {
 		super();
 		this.code = code;
+	}
+	
+	public SparePart(String code, String description, double price) {
+		this(code);
+		this.description = description;
+		this.price = price;
 	}
 	public String getCode() {
 		return code;
@@ -17,6 +29,15 @@ public class SparePart {
 	public double getPrice() {
 		return price;
 	}
+	
+	Set<Substitution> _getSustitutions() {
+		return substitutions;
+	}
+	
+	public Set<Substitution> getSustitutions() {
+		return new HashSet<Substitution>(substitutions);
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

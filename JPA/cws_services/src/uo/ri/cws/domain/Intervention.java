@@ -1,6 +1,8 @@
 package uo.ri.cws.domain;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import alb.util.assertion.Argument;
 
@@ -13,6 +15,8 @@ public class Intervention {
 
 	private Date date;
 	private int minutes;
+	
+	private Set<Substitution> substitutions = new HashSet<Substitution>();
 
 	public Intervention(Mechanic mechanic, WorkOrder workOrder, int i) {
 		Argument.isNotNull(mechanic);
@@ -21,6 +25,13 @@ public class Intervention {
 		Associations.Intervene.link(workOrder, this, mechanic);
 	}
 
+	Set<Substitution> _getSustitutions() {
+		return substitutions;
+	}
+	
+	public Set<Substitution> getSustitutions() {
+		return new HashSet<Substitution>(substitutions);
+	}
 	void _setWorkOrder(WorkOrder workOrder) {
 		this.workOrder = workOrder;
 	}
@@ -43,6 +54,9 @@ public class Intervention {
 
 	public int getMinutes() {
 		return minutes;
+	}
+	public void setMinutes(int minutes) {
+		this.minutes = minutes;
 	}
 
 	@Override
@@ -80,6 +94,14 @@ public class Intervention {
 		} else if (!workOrder.equals(other.workOrder))
 			return false;
 		return true;
+	}
+	
+	public double getAmount() {
+		double amount = 0L;
+		for(Substitution sustitucion : substitutions)
+			amount += sustitucion.getAmount();
+		amount += ((double)workOrder.getVehicle().getVehicleType().getPricePerHour())* ((double)minutes/60L);
+		return amount;
 	}
 
 }

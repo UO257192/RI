@@ -25,6 +25,16 @@ public class Client {
 		return new HashSet<>(vehicles);
 	}
 
+	private Set<PaymentMean> paymentMeans = new HashSet<PaymentMean>();
+	
+	Set<PaymentMean> _getPaymentMeans() {
+		return paymentMeans;
+	}
+	
+	public Set<PaymentMean> getPaymentMeans() {
+		return new HashSet<PaymentMean>(paymentMeans);
+	}
+	
 	public Client(String dni) {
 		Argument.isTrue(dni != null);
 		this.dni = dni;

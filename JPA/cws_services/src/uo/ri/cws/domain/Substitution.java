@@ -10,6 +10,13 @@ public class Substitution {
 		this.sparePart = sparePart;
 		this.intervention = intervention;
 	}
+	
+	public Substitution(SparePart sparePart, Intervention intervention, int quantity) {
+		this(sparePart,intervention);
+		if(quantity < 1)
+			throw new IllegalArgumentException("La cantidad no puede ser inferior a 1");
+		this.quantity = quantity;
+	}
 	public SparePart getSparePart() {
 		return sparePart;
 	}
@@ -18,6 +25,14 @@ public class Substitution {
 	}
 	public int getQuantity() {
 		return quantity;
+	}
+	
+	void _setSparePart(SparePart sparePart) {
+		this.sparePart = sparePart;
+	}
+
+	void _setIntervention(Intervention intervention) {
+		this.intervention = intervention;
 	}
 	@Override
 	public int hashCode() {
@@ -54,8 +69,8 @@ public class Substitution {
 				+ "]";
 	}
 	
-	
-
-	
+	public double getAmount() {
+		return (double) quantity * sparePart.getPrice();
+	}
 	
 }

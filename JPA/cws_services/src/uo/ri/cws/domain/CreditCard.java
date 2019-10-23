@@ -2,12 +2,26 @@ package uo.ri.cws.domain;
 
 import java.util.Date;
 
+import alb.util.date.Dates;
+
 public class CreditCard extends PaymentMean {
+
 	private String number;
 	private String type;
 	private Date validThru;
-	
-	
+
+	public CreditCard(String number) {
+		super();
+		this.number = number;
+	}
+
+	public CreditCard(String number, String type, Date validThru) {
+		this(number);
+		if (validThru.getTime() < Dates.today().getTime())
+			throw new IllegalStateException("La tarjeta ha expirado");
+		this.type = type;
+		this.validThru = new Date(validThru.getTime());
+	}
 
 	public String getNumber() {
 		return number;
