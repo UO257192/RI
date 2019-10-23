@@ -28,7 +28,6 @@ public class GenerateCertificates {
 					int totalHours = 0;
 					List<Long> coursesIDs = findCoursesForMechanicAndVehicleType(mechanicID, vehicleTypeDto.id);
 					for (Long courseID : coursesIDs) {
-						System.out.println(courseID + "" +mechanicID + "" +vehicleTypeDto.id );
 						int hours = getCourseDuration(courseID);
 						int pertentage = getPercentageForCourseVehicleType(courseID, vehicleTypeDto.id);
 						int attendance = getAttendanceForMechanicInCourse(courseID, mechanicID);
