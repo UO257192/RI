@@ -37,8 +37,11 @@ public class CertificateGatewayImpl implements CertificateGateway {
 				dto.obtainedAt = rs.getDate(2);
 				dto.mechanic = new MechanicDto();
 				dto.mechanic.id = rs.getLong(3);
+				dto.mechanic.name = rs.getString(4);
+				dto.mechanic.surname = rs.getString(5);
 				dto.vehicleType = new VehicleTypeDto();
-				dto.vehicleType.id = rs.getLong(4);
+				dto.vehicleType.id = rs.getLong(6);
+				dto.vehicleType.name = rs.getString(7);
 				certificateDtos.add(dto);
 			}
 		} catch (SQLException e) {

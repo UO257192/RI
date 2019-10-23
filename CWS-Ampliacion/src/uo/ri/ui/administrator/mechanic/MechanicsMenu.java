@@ -4,7 +4,7 @@ import alb.util.menu.BaseMenu;
 import uo.ri.ui.administrator.mechanic.action.AddMechanicAction;
 import uo.ri.ui.administrator.mechanic.action.DeleteMechanicAction;
 import uo.ri.ui.administrator.mechanic.action.ListMechanicsAction;
-import uo.ri.ui.administrator.mechanic.action.ListMechanicsByVehicleTypeAction;
+import uo.ri.ui.administrator.mechanic.action.ListTrainingHoursRowAction;
 import uo.ri.ui.administrator.mechanic.action.UpdateMechanicAction;
 
 public class MechanicsMenu extends BaseMenu {
@@ -17,7 +17,7 @@ public class MechanicsMenu extends BaseMenu {
 			{ "Update mechanic", 	UpdateMechanicAction.class }, 
 			{ "Delete mechanic", 				DeleteMechanicAction.class }, 
 			{ "List mechanics", 				ListMechanicsAction.class },
-			{ "List of mechanics who have attended the training by type of vehicle", ListMechanicsByVehicleTypeAction.class},
+			{ "List of mechanics who have attended the training by type of vehicle", ListTrainingHoursRowAction.class},
 		};
 	}
 

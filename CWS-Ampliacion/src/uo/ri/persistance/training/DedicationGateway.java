@@ -35,4 +35,8 @@ public interface DedicationGateway {
 	 * @return % dedicated
 	 */
 	int findPercentageForCourse(Long courseID, Long vehicletypeID);
+
+	void add(Long courseId, Long key, Integer value);
+	
+	void removeByCourseID(Long id);
 }

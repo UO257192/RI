@@ -130,4 +130,24 @@ public class EnrollmentGatewayImpl implements EnrollmentGateway {
 		}
 	}
 
+	@Override
+	public int findRegistrationByCourse(Long id) {
+		String SQL_FIND_REGISTRATION_TO_COURSE = Conf.getInstance().getProperty("SQL_FIND_REGISTRATION_TO_COURSE");
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			pst = c.prepareStatement(SQL_FIND_REGISTRATION_TO_COURSE);
+			pst.setLong(1, id);
+			rs = pst.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+			return 0;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			Jdbc.close(rs, pst);
+		}
+	}
+
 }

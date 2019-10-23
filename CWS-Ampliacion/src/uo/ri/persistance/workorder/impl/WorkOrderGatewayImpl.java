@@ -231,7 +231,6 @@ public class WorkOrderGatewayImpl implements WorkOrderGateway {
 
 	@Override
 	public void assignMechanic(Long workorderID, Long mechanicID) {
-		System.out.println(mechanicID);
 		PreparedStatement pst = null;
 		String SQL_UPDATE_WORKORDER_MECHANIC = Conf.getInstance().getProperty("SQL_UPDATE_WORKORDER_MECHANIC");
 		try {

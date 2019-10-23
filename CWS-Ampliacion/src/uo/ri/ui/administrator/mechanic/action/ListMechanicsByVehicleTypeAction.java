@@ -15,7 +15,7 @@ public class ListMechanicsByVehicleTypeAction implements Action {
 	@Override
 	public void execute() throws BusinessException {
 
-		Console.println("\nList of mechanics who have attended the training by type of vehicle\n");
+		Console.println("\nList of mechanics certificated for type of vehicle\n");
 		CourseReportService service = Factory.service.getCourseReportService();
 		List<TrainingHoursRow> trainingHoursRows = service.findTrainingByVehicleTypeAndMechanic();
 		for (TrainingHoursRow trainingHoursRow : trainingHoursRows) {

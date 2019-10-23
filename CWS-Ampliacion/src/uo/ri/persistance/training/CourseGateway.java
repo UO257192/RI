@@ -23,4 +23,16 @@ public interface CourseGateway {
 	
 	
 	List<CourseDto> findAll();
+
+	void add(CourseDto dto);
+	
+	Long findMaxCourse();
+	
+	CourseDto findByName(String name);
+	
+	CourseDto findByCode(String code);
+	
+	void delete(Long id);
+	
+	void update(CourseDto dto);
 }

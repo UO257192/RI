@@ -152,5 +152,13 @@ public class Printer {
 			Console.printf("\t %d %d percent\n", id, percent)
 		);
 	}
+	
+	public static void printCertificateRow(CertificateDto r) {
+
+		Console.printf("%-20.20s\t%-30.30s\t from %td/%<tm/%<tY\n"
+				, r.vehicleType.name
+				, r.mechanic.surname + ", " + r.mechanic.name
+				, r.obtainedAt);
+	}
 
 }

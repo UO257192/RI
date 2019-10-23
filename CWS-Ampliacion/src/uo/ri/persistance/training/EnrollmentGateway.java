@@ -50,4 +50,11 @@ public interface EnrollmentGateway {
 	 *         mechanic id. It might be an empty list if there is no enrollment
 	 */
 	List<Long> findCoursesByMechanicId(Long mechanic_id);
+	
+	/**
+	 * Find number of mechanics registred into a course
+	 * @param id
+	 * @return
+	 */
+	int findRegistrationByCourse(Long id);
 }
