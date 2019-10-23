@@ -193,7 +193,7 @@ public class CourseGatewayImpl implements CourseGateway {
 
 	@Override
 	public void update(CourseDto dto) {
-		String SQL = Conf.getInstance().getProperty("SQL_UPDATE_MECHANIC");
+		String SQL = Conf.getInstance().getProperty("SQL_UPDATE_COURSE");
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		try {
@@ -204,6 +204,7 @@ public class CourseGatewayImpl implements CourseGateway {
 			pst.setDate(4, new java.sql.Date(dto.startDate.getTime()));
 			pst.setDate(5, new java.sql.Date(dto.endDate.getTime()));
 			pst.setInt(6, dto.hours);
+			pst.setLong(7, dto.id);
 			pst.executeUpdate();
 
 		} catch (SQLException e) {
