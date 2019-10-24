@@ -22,9 +22,8 @@ public class ListMechanicTrainingHoursByVehicleType {
 	public List<TrainingHoursRow> execute() {
 		List<TrainingHoursRow> trainingHoursRows = new ArrayList<TrainingHoursRow>();
 		List<VehicleTypeDto> vehicleTypeDtos = findAllVehicleTypes();
-		String lastVehicleTypeName = "";
+		List<Long> mechanicIDs = findPassedMechanics();
 		for (VehicleTypeDto vehicleTypeDto : vehicleTypeDtos) {
-			List<Long> mechanicIDs = findPassedMechanics();
 			for (Long mechanicID : mechanicIDs) {
 				int totalHours = 0;
 				String name = "";
@@ -35,23 +34,18 @@ public class ListMechanicTrainingHoursByVehicleType {
 					totalHours += hours * attendance / 100;
 					name = findMechanicFullNameByID(mechanicID);
 				}
-				if(totalHours>0) {
+				if (totalHours > 0) {
 					TrainingHoursRow trainingHoursRow = new TrainingHoursRow();
 					trainingHoursRow.enrolledHours = totalHours;
 					trainingHoursRow.mechanicFullName = name;
-					if(lastVehicleTypeName.equals("") || !lastVehicleTypeName.equals(vehicleTypeDto.name)) {
-						lastVehicleTypeName = vehicleTypeDto.name;
-						trainingHoursRow.vehicleTypeName = vehicleTypeDto.name;
-					}else {
-						trainingHoursRow.vehicleTypeName = "";
-					}
+					trainingHoursRow.vehicleTypeName = vehicleTypeDto.name;
 					trainingHoursRows.add(trainingHoursRow);
 				}
 			}
 		}
 		return trainingHoursRows;
 	}
-	
+
 	public String findMechanicFullNameByID(Long mechanicID) {
 		try (Connection c = Jdbc.getConnection()) {
 			MechanicGateway gateway = Factory.persistance.getMechanicCrudService();

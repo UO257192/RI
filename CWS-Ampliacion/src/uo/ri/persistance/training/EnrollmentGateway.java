@@ -57,4 +57,44 @@ public interface EnrollmentGateway {
 	 * @return
 	 */
 	int findRegistrationByCourse(Long id);
+
+	/**
+	 * @return the list of enrollments registered in the system for an specific
+	 *         mechanic. It might be an empty list if there is no enrollment
+	 * 
+	 */
+	List<EnrollmentDto> findEnrollmentByCourseID(Long id);
+	
+	/**
+	 * 
+	 * @param courseID
+	 * @param mechanicID
+	 * @return return a enrollment dto for a courseID and mechanicID 
+	 */
+	EnrollmentDto findEnrollment(Long courseID, Long mechanicID);
+	
+	/**
+	 * Insert a new enrollment into the database
+	 * @param dto
+	 */
+	void add(EnrollmentDto dto);
+
+	/**
+	 * 
+	 * @return the last id generated
+	 */
+	Long findLastID(); 
+	
+	/**
+	 * Delete a enrollment by id
+	 * @param enrollment id
+	 */
+	void delete(Long id);
+	
+	/**
+	 * Find enrollment by id
+	 * @param enrollment id
+	 * @return enrollment dto if id exist: null if not
+	 */
+	EnrollmentDto findEnrollmentByID(Long id);
 }

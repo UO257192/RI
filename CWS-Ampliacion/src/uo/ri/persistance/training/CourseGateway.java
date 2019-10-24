@@ -20,10 +20,16 @@ public interface CourseGateway {
 	 */
 	CourseDto findCourseByID(Long courseID);
 	
-	
-	
+	/**
+	 * 
+	 * @returnthe list of courses registered in the system. It might be an empty list if there is no course
+	 */
 	List<CourseDto> findAll();
 
+	/**
+	 * Insert a new Course into database
+	 * @param course dto
+	 */
 	void add(CourseDto dto);
 	
 	Long findMaxCourse();

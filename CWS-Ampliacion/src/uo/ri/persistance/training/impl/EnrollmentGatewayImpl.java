@@ -9,6 +9,7 @@ import java.util.List;
 
 import alb.util.jdbc.Jdbc;
 import uo.ri.business.dto.EnrollmentDto;
+import uo.ri.business.dto.MechanicDto;
 import uo.ri.conf.Conf;
 import uo.ri.persistance.training.EnrollmentGateway;
 
@@ -149,5 +150,141 @@ public class EnrollmentGatewayImpl implements EnrollmentGateway {
 			Jdbc.close(rs, pst);
 		}
 	}
+
+	@Override
+	public List<EnrollmentDto> findEnrollmentByCourseID(Long id) {
+		List<EnrollmentDto> enrollmentDtos = new ArrayList<EnrollmentDto>();
+		String SQL_FIND_ENROLLMENTS_BY_COURSEID = Conf.getInstance().getProperty("SQL_FIND_ENROLLMENTS_BY_COURSEID");
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			pst = c.prepareStatement(SQL_FIND_ENROLLMENTS_BY_COURSEID);
+			pst.setLong(1, id);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				EnrollmentDto dto = new EnrollmentDto();
+				dto.id = rs.getLong(1);
+				dto.attendance = rs.getInt(2);
+				dto.passed = rs.getBoolean(3);
+				dto.courseId = "" + rs.getLong(4);
+				dto.mechanicId = "" + rs.getLong(5);
+				dto.mechanic = new MechanicDto();
+				dto.mechanic.name = rs.getString(6);
+				dto.mechanic.surname = rs.getString(7);
+				enrollmentDtos.add(dto);
+			}
+			return enrollmentDtos;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			Jdbc.close(rs, pst);
+		}
+	}
+
+	@Override
+	public EnrollmentDto findEnrollment(Long courseID, Long mechanicID) {
+		EnrollmentDto dto = null;
+		String SQL = Conf.getInstance().getProperty("SQL_FIND_ENROLLMENT_BY_IDS");
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			pst = c.prepareStatement(SQL);
+			pst.setLong(1, courseID);
+			pst.setLong(2, mechanicID);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				dto = new EnrollmentDto();
+				dto.id = rs.getLong(1);
+				dto.attendance = rs.getInt(2);
+				dto.passed = rs.getBoolean(3);
+				dto.courseId = "" + rs.getLong(4);
+				dto.mechanicId = "" + rs.getLong(5);
+			}
+			return dto;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			Jdbc.close(rs, pst);
+		}
+	}
+
+	@Override
+	public void add(EnrollmentDto dto) {
+		String SQL = Conf.getInstance().getProperty("SQL_ADD_ENROLLMENT");
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			pst = c.prepareStatement(SQL);
+			pst.setInt(1, dto.attendance);
+			pst.setBoolean(2, dto.passed);
+			pst.setLong(3, Long.parseLong(dto.courseId));
+			pst.setLong(4, Long.parseLong(dto.mechanicId));
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			Jdbc.close(rs, pst);
+		}
+	}
+	
+	@Override
+	public Long findLastID() {
+		String SQL = Conf.getInstance().getProperty("SQL_FIND_MAX_ID");
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			pst = c.prepareStatement(SQL);
+			rs = pst.executeQuery();
+			return rs.next()? rs.getLong(1) : null;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			Jdbc.close(rs, pst);
+		}
+	}
+
+	@Override
+	public void delete(Long id) {
+		String SQL_DELETE_ENROLLMENT = Conf.getInstance().getProperty("SQL_DELETE_ENROLLMENT");
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			pst = c.prepareStatement(SQL_DELETE_ENROLLMENT);
+			pst.setLong(1, id);
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			Jdbc.close(rs, pst);
+		}
+	}
+
+	@Override
+	public EnrollmentDto findEnrollmentByID(Long id) {
+		EnrollmentDto dto = null;
+		String SQL = Conf.getInstance().getProperty("SQL_FIND_ENROLLMENT_BY_ID");
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			pst = c.prepareStatement(SQL);
+			pst.setLong(1, id);
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				dto = new EnrollmentDto();
+				dto.id = rs.getLong(1);
+				dto.attendance = rs.getInt(2);
+				dto.passed = rs.getBoolean(3);
+				dto.courseId = "" + rs.getLong(4);
+				dto.mechanicId = "" + rs.getLong(5);
+			}
+			return dto;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			Jdbc.close(rs, pst);
+		}
+	}
+	
+	
 
 }

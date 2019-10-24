@@ -36,7 +36,17 @@ public interface DedicationGateway {
 	 */
 	int findPercentageForCourse(Long courseID, Long vehicletypeID);
 
+	/**
+	 * Insert a new dedication into database
+	 * @param courseId
+	 * @param vehicle type id
+	 * @param percentage 
+	 */
 	void add(Long courseId, Long key, Integer value);
 	
+	/**
+	 * Delete a course in database for specific id
+	 * @param course id
+	 */
 	void removeByCourseID(Long id);
 }

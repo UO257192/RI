@@ -9,6 +9,7 @@ import uo.ri.business.dto.ContractCategoryDto;
 import uo.ri.business.dto.ContractDto;
 import uo.ri.business.dto.ContractTypeDto;
 import uo.ri.business.dto.CourseDto;
+import uo.ri.business.dto.EnrollmentDto;
 import uo.ri.business.dto.InvoiceDto;
 import uo.ri.business.dto.MechanicDto;
 import uo.ri.business.dto.PaymentMeanDto;
@@ -125,40 +126,33 @@ public class Printer {
 	}
 
 	public static void printTrainingHoursRow(TrainingHoursRow r) {
-		Console.println((r.vehicleTypeName.equals("") ? r.vehicleTypeName: r.vehicleTypeName+"\n") + "\t"+r.mechanicFullName + "\t" +  r.enrolledHours);
-		//Console.printf("%-20.20s %-30.30s\t%d hours\n", r.vehicleTypeName.equals("") ? "\n": r.vehicleTypeName+"\n", r.mechanicFullName, r.enrolledHours);
+		Console.printf("%-20.20s \t%-30.30s\t%d hours\n", r.vehicleTypeName, r.mechanicFullName, r.enrolledHours);
 	}
+
 	public static void printVehicleType(VehicleTypeDto vt) {
 
-		Console.printf("\t%d %-10.10s %5.2f %d\n"
-				, vt.id
-				, vt.name
-				, vt.pricePerHour
-				, vt.minTrainigHours
-			);
+		Console.printf("\t%d %-10.10s %5.2f %d\n", vt.id, vt.name, vt.pricePerHour, vt.minTrainigHours);
 	}
+
 	public static void printCourse(CourseDto c) {
 
-		Console.printf("%d\t%s %s %-35.35s %td/%<tm/%<tY %td/%<tm/%<tY %d\n"
-				, c.id
-				, c.code
-				, c.name
-				, c.description
-				, c.startDate
-				, c.endDate
-				, c.hours
-			);
-		c.percentages.forEach((id, percent) ->
-			Console.printf("\t %d %d percent\n", id, percent)
-		);
+		Console.printf("%d\t%s %s %-35.35s %td/%<tm/%<tY %td/%<tm/%<tY %d\n", c.id, c.code, c.name, c.description,
+				c.startDate, c.endDate, c.hours);
+		c.percentages.forEach((id, percent) -> Console.printf("\t %d %d percent\n", id, percent));
 	}
-	
+
 	public static void printCertificateRow(CertificateDto r) {
 
-		Console.printf("%-20.20s\t%-30.30s\t from %td/%<tm/%<tY\n"
-				, r.vehicleType.name
-				, r.mechanic.surname + ", " + r.mechanic.name
-				, r.obtainedAt);
+		Console.printf("%-20.20s\t%-30.30s\t from %td/%<tm/%<tY\n", r.vehicleType.name,
+				r.mechanic.surname + ", " + r.mechanic.name, r.obtainedAt);
+	}
+	
+	public static void printAttendingMechanic(EnrollmentDto att) {
+		Console.printf("%-30.30s\t%d\t%s\n"
+				, att.mechanic.surname + ", " + att.mechanic.name
+				, att.attendance
+				, att.passed ? "passed" : "failed"
+			);
 	}
 
 }
