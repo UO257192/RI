@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import uo.ri.business.dto.WorkOrderDto;
 import uo.ri.conf.Conf;
@@ -128,7 +130,7 @@ public class WorkOrderGatewayImpl implements WorkOrderGateway {
 			pst = c.prepareStatement(SQL_ADD_WORKORDER);
 			pst.setLong(1, dto.vehicleId);
 			pst.setString(2, dto.description);
-			pst.setDate(3,  new java.sql.Date(new java.util.Date().getTime()));
+			pst.setTimestamp(3, new Timestamp(new Date().getTime()));
 			pst.setString(4, "OPEN");
 			pst.executeUpdate();
 		}catch (SQLException e) {

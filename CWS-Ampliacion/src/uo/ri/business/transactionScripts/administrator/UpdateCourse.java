@@ -25,9 +25,15 @@ public class UpdateCourse {
 			c.setAutoCommit(false);
 			CourseGateway courseGateway = Factory.persistance.getCourseGateway();
 			courseGateway.setConnection(c);
-			if (courseGateway.findCourseByID(dto.id) == null) {
+			CourseDto aux = courseGateway.findCourseByID(dto.id);
+			if (aux == null) {
 				c.rollback();
 				throw new BusinessException("This course does not exist");
+			}
+			
+			if(aux.startDate.compareTo(dto.startDate) == 0) {
+				c.rollback();
+				throw new BusinessException("Delete the course if you want to update the start date");
 			}
 
 			if (dto.startDate.after(dto.endDate)) {
