@@ -34,7 +34,7 @@ public class InterventionTest {
 	public void testAmountsZero() {
 		Intervention i = new Intervention(mechanic, workOrder, 0);
 
-		assertTrue( i.getAmount() == 0.0 );
+		assertTrue( i.computeAmount() == 0.0 );
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class InterventionTest {
 	public void testAmountOneHour() {
 		Intervention i = new Intervention(mechanic, workOrder, 60);
 
-		assertTrue( i.getAmount() == vehicleType.getPricePerHour() );
+		assertTrue( i.computeAmount() == vehicleType.getPricePerHour() );
 	}
 
 	/**
@@ -56,7 +56,7 @@ public class InterventionTest {
 		SparePart r = new SparePart("R1001", "junta la trocla", 100.0);
 		new Substitution(r, i, 1);
 
-		assertTrue( i.getAmount() == r.getPrice() );
+		assertTrue( i.computeAmount() == r.getPrice() );
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class InterventionTest {
 					   50.0  // 60 mins * 50 €/hora tipo vehiculo
 				+ 2 * 100.0; // 2 repuestos a 100.0
 
-		assertTrue( i.getAmount() == TOTAL );
+		assertTrue( i.computeAmount() == TOTAL );
 	}
 
 }

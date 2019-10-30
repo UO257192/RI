@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc274175-be22-4fc7-9267-ee3e7f658633" name="Default Changelist" comment="" />
+    <list default="true" id="dc274175-be22-4fc7-9267-ee3e7f658633" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/data/_gitignore.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/data/test.lck" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/data/test.lck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/data/test.log" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/data/test.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/data/test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/data/test.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/eclipselink.log" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/eclipselink.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Associations.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Associations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Cash.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Cash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Certificate.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Certificate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Charge.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Charge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Dedication.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Dedication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Enrollment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Intervention.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Intervention.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Invoice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Mechanic.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Mechanic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/PaymentMean.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/PaymentMean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/SparePart.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/SparePart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/VehicleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/VehicleType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Voucher.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Voucher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/WorkOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/WorkOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/test/uo/ri/cws/AllTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/test/uo/ri/cws/AllTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/test/uo/ri/cws/domain/InterventionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/test/uo/ri/cws/domain/InterventionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/test/uo/ri/cws/extended/AllTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/test/uo/ri/cws/extended/AllTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/test/uo/ri/cws/extended/enrollment/GetAttendedHoursForTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/test/uo/ri/cws/extended/enrollment/GetAttendedHoursForTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/test/uo/ri/cws/extended/mechanic/GetEnrollmentsForTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/test/uo/ri/cws/extended/mechanic/GetEnrollmentsForTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cws_services/test/uo/ri/cws/extended/mechanic/IsCertifiedForTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/test/uo/ri/cws/extended/mechanic/IsCertifiedForTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eclipselink.log" beforeDir="false" afterPath="$PROJECT_DIR$/eclipselink.log" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,17 +50,22 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="JsbtTreeLayoutManager">
     <layout place="tools.popupGrunt">
       <scroll-view-position x="0" y="0" />
     </layout>
   </component>
   <component name="ProjectId" id="1SmiN2gYgl66IsAtOBqfpskmhI2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -60,7 +97,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LoadEntityManagerFactory">
+  <component name="RunManager" selected="JUnit.AllTests">
     <configuration name="LoadEntityManagerFactory" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="uo.ri.cws.LoadEntityManagerFactory" />
       <module name="cws_services" />
@@ -70,17 +107,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="1.startup" type="BatchConfigurationType" factoryName="Batch" temporary="true">
-      <module name="cws_services" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\Elmer\Desktop\ri.jpa.cws.p6.skeleton-20191030T085057Z-001\ri.jpa.cws.p6.skeleton\cws_services\data" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SCRIPT_NAME" value="1.startup.bat" />
-      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,13 +148,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AllTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cws_services" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="uo.ri.cws.extended.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="uo.ri.cws.extended" />
+      <option name="MAIN_CLASS_NAME" value="uo.ri.cws.extended.AllTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AllTests" />
         <item itemvalue="Application.LoadEntityManagerFactory" />
         <item itemvalue="JUnit.AllTests (1)" />
-        <item itemvalue="Batch.1.startup" />
-        <item itemvalue="Batch.3.reset" />
-        <item itemvalue="Batch.2.runManagerSwing" />
       </list>
     </recent_temporary>
   </component>
@@ -148,10 +187,22 @@
       <workItem from="1572426034267" duration="9668000" />
       <workItem from="1572438698658" duration="2086000" />
       <workItem from="1572440917822" duration="1897000" />
+      <workItem from="1572465094812" duration="8151000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

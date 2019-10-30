@@ -44,7 +44,7 @@ public class Voucher extends PaymentMean {
 		return available;
 	}
 
-	public String getDescription() {
+	public String setDescripcion() {
 		return description;
 	}
 
