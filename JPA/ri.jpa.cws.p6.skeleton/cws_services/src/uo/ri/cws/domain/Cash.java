@@ -1,0 +1,34 @@
+package uo.ri.cws.domain;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.util.Objects;
+
+@Entity
+@Table(name="tCashs")
+public class Cash extends PaymentMean {
+
+    public Cash() {};
+
+    public Cash(Client cliente) {
+        Associations.Pay.link(cliente, this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PaymentMean that = (PaymentMean) o;
+        return getClient().equals(that.getClient());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getClient());
+    }
+
+    @Override
+    public String toString() {
+        return "Cash{ " + super.toString() + " }";
+    }
+}

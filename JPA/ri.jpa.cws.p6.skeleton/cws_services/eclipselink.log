@@ -1,0 +1,183 @@
+[EL Info]: 2019-10-30 14:10:19.849--ServerSession(2045036434)--EclipseLink, version: Eclipse Persistence Services - 2.7.0.v20170811-d680af5
+[EL Info]: connection: 2019-10-30 14:10:20.266--ServerSession(2045036434)--/file:/C:/Users/Elmer/Desktop/ri.jpa.cws.p6.skeleton-20191030T085057Z-001/ri.jpa.cws.p6.skeleton/cws_services/bin/_carworkshop login successful
+[EL Warning]: properties: 2019-10-30 14:10:20.267--ServerSession(2045036434)--Unknown eclipselink.ddl-generation value provided [drop-and-creat-tables] for the persistence unit [carworkshop]. Valid options are: [none, create-tables, drop-tables, drop-and-create-tables, create-or-extend-tables]
+[EL Fine]: sql: 2019-10-30 14:10:20.334--ClientSession(823575379)--Connection(258112787)--INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.334--ClientSession(823575379)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.344--UnitOfWork(288379405)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCLIENTS
+Error Code: -5501
+Call: INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+Query: InsertObjectQuery(Client{dni='dni', name='nombre', surname='apellidos', email='null', phone='null', address=Address [street=street, city=city, zipCode=zipcode]})
+[EL Fine]: sql: 2019-10-30 14:10:20.354--ServerSession(2045036434)--Connection(258112787)--SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.354--ServerSession(2045036434)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.356--UnitOfWork(2050462663)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCHARGES
+Error Code: -5501
+Call: SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+Query: ReadObjectQuery(referenceClass=Charge )
+[EL Fine]: sql: 2019-10-30 14:10:20.378--ClientSession(765242091)--Connection(258112787)--INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.379--ClientSession(765242091)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.379--UnitOfWork(1117871068)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCLIENTS
+Error Code: -5501
+Call: INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+Query: InsertObjectQuery(Client{dni='dni', name='nombre', surname='apellidos', email='null', phone='null', address=Address [street=street, city=city, zipCode=zipcode]})
+[EL Fine]: sql: 2019-10-30 14:10:20.381--ServerSession(2045036434)--Connection(258112787)--SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.381--ServerSession(2045036434)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.382--UnitOfWork(1151704483)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCHARGES
+Error Code: -5501
+Call: SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+Query: ReadObjectQuery(referenceClass=Charge )
+[EL Fine]: sql: 2019-10-30 14:10:20.4--ClientSession(324404955)--Connection(258112787)--INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.401--ClientSession(324404955)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.401--UnitOfWork(1368173251)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCLIENTS
+Error Code: -5501
+Call: INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+Query: InsertObjectQuery(Client{dni='dni', name='nombre', surname='apellidos', email='null', phone='null', address=Address [street=street, city=city, zipCode=zipcode]})
+[EL Fine]: sql: 2019-10-30 14:10:20.402--ServerSession(2045036434)--Connection(258112787)--SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.403--ServerSession(2045036434)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.404--UnitOfWork(1745043985)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCHARGES
+Error Code: -5501
+Call: SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+Query: ReadObjectQuery(referenceClass=Charge )
+[EL Fine]: sql: 2019-10-30 14:10:20.426--ClientSession(2129821055)--Connection(258112787)--INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.426--ClientSession(2129821055)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.427--UnitOfWork(1225568095)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCLIENTS
+Error Code: -5501
+Call: INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+Query: InsertObjectQuery(Client{dni='dni', name='nombre', surname='apellidos', email='null', phone='null', address=Address [street=street, city=city, zipCode=zipcode]})
+[EL Fine]: sql: 2019-10-30 14:10:20.428--ServerSession(2045036434)--Connection(258112787)--SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.428--ServerSession(2045036434)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.429--UnitOfWork(1664598529)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCHARGES
+Error Code: -5501
+Call: SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+Query: ReadObjectQuery(referenceClass=Charge )
+[EL Fine]: sql: 2019-10-30 14:10:20.452--ClientSession(428696898)--Connection(258112787)--INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.452--ClientSession(428696898)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.453--UnitOfWork(1581267786)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCLIENTS
+Error Code: -5501
+Call: INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+Query: InsertObjectQuery(Client{dni='dni', name='nombre', surname='apellidos', email='null', phone='null', address=Address [street=street, city=city, zipCode=zipcode]})
+[EL Fine]: sql: 2019-10-30 14:10:20.454--ServerSession(2045036434)--Connection(258112787)--SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.454--ServerSession(2045036434)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.455--UnitOfWork(1360518503)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCHARGES
+Error Code: -5501
+Call: SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+Query: ReadObjectQuery(referenceClass=Charge )
+[EL Fine]: sql: 2019-10-30 14:10:20.471--ClientSession(1719072416)--Connection(258112787)--INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.472--ClientSession(1719072416)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.472--UnitOfWork(2092801316)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCLIENTS
+Error Code: -5501
+Call: INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+Query: InsertObjectQuery(Client{dni='dni', name='nombre', surname='apellidos', email='null', phone='null', address=Address [street=street, city=city, zipCode=zipcode]})
+[EL Fine]: sql: 2019-10-30 14:10:20.473--ServerSession(2045036434)--Connection(258112787)--SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.474--ServerSession(2045036434)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.475--UnitOfWork(376635015)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCHARGES
+Error Code: -5501
+Call: SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+Query: ReadObjectQuery(referenceClass=Charge )
+[EL Fine]: sql: 2019-10-30 14:10:20.493--ClientSession(1758624236)--Connection(258112787)--INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.494--ClientSession(1758624236)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.494--UnitOfWork(630028734)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCLIENTS
+Error Code: -5501
+Call: INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+Query: InsertObjectQuery(Client{dni='dni', name='nombre', surname='apellidos', email='null', phone='null', address=Address [street=street, city=city, zipCode=zipcode]})
+[EL Fine]: sql: 2019-10-30 14:10:20.495--ServerSession(2045036434)--Connection(258112787)--SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.495--ServerSession(2045036434)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.496--UnitOfWork(351877391)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCHARGES
+Error Code: -5501
+Call: SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+Query: ReadObjectQuery(referenceClass=Charge )
+[EL Fine]: sql: 2019-10-30 14:10:20.517--ClientSession(2143139988)--Connection(258112787)--INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.518--ClientSession(2143139988)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.519--UnitOfWork(813823788)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCLIENTS
+Error Code: -5501
+Call: INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+Query: InsertObjectQuery(Client{dni='dni', name='nombre', surname='apellidos', email='null', phone='null', address=Address [street=street, city=city, zipCode=zipcode]})
+[EL Fine]: sql: 2019-10-30 14:10:20.52--ServerSession(2045036434)--Connection(258112787)--SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.52--ServerSession(2045036434)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.521--UnitOfWork(826865256)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCHARGES
+Error Code: -5501
+Call: SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+Query: ReadObjectQuery(referenceClass=Charge )
+[EL Fine]: sql: 2019-10-30 14:10:20.539--ClientSession(2044482328)--Connection(258112787)--INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.54--ClientSession(2044482328)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.541--UnitOfWork(149225732)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCLIENTS
+Error Code: -5501
+Call: INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+Query: InsertObjectQuery(Client{dni='dni', name='nombre', surname='apellidos', email='null', phone='null', address=Address [street=street, city=city, zipCode=zipcode]})
+[EL Fine]: sql: 2019-10-30 14:10:20.541--ServerSession(2045036434)--Connection(258112787)--SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.542--ServerSession(2045036434)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.543--UnitOfWork(937744315)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCHARGES
+Error Code: -5501
+Call: SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+Query: ReadObjectQuery(referenceClass=Charge )
+[EL Fine]: sql: 2019-10-30 14:10:20.56--ClientSession(512456259)--Connection(258112787)--INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.56--ClientSession(512456259)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.561--UnitOfWork(1364497552)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCLIENTS
+Error Code: -5501
+Call: INSERT INTO tClients (ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+	bind => [10 parameters bound]
+Query: InsertObjectQuery(Client{dni='dni', name='nombre', surname='apellidos', email='null', phone='null', address=Address [street=street, city=city, zipCode=zipcode]})
+[EL Fine]: sql: 2019-10-30 14:10:20.562--ServerSession(2045036434)--Connection(258112787)--SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2019-10-30 14:10:20.562--ServerSession(2045036434)--CALL 1
+[EL Warning]: 2019-10-30 14:10:20.563--UnitOfWork(1911155630)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.7.0.v20170811-d680af5): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios suficientes o objeto no encontrado: TCHARGES
+Error Code: -5501
+Call: SELECT ID, AMOUNT, VERSION, INVOICE_ID, PAYMENTMEAN_ID FROM tCharges WHERE (ID = ?)
+	bind => [1 parameter bound]
+Query: ReadObjectQuery(referenceClass=Charge )

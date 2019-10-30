@@ -6,12 +6,12 @@ import java.util.Optional;
 import uo.ri.business.dto.CertificateDto;
 import uo.ri.business.dto.WorkOrderDto;
 import uo.ri.business.serviceLayer.workorder.WorkOrderService;
-import uo.ri.business.transactionScripts.foreman.AddWorkOrder;
-import uo.ri.business.transactionScripts.foreman.AssignMechanicToWorkorder;
-import uo.ri.business.transactionScripts.foreman.FindCertificatesByVehicleTypeId;
-import uo.ri.business.transactionScripts.foreman.FindWorkOrderByID;
-import uo.ri.business.transactionScripts.foreman.RemoveWorkOrder;
-import uo.ri.business.transactionScripts.foreman.UpdateWorkOrderDescription;
+import uo.ri.business.transactionScripts.administrator.certificate.FindCertificatesByVehicleTypeId;
+import uo.ri.business.transactionScripts.foreman.workorder.AddWorkOrder;
+import uo.ri.business.transactionScripts.foreman.workorder.AssignMechanicToWorkorder;
+import uo.ri.business.transactionScripts.foreman.workorder.FindWorkOrderByID;
+import uo.ri.business.transactionScripts.foreman.workorder.RemoveWorkOrder;
+import uo.ri.business.transactionScripts.foreman.workorder.UpdateWorkOrderDescription;
 import uo.ri.common.BusinessException;
 
 public class WorkOrderServiceImpl implements WorkOrderService {

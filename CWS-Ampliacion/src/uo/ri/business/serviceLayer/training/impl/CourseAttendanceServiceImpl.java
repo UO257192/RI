@@ -6,10 +6,10 @@ import uo.ri.business.dto.CourseDto;
 import uo.ri.business.dto.EnrollmentDto;
 import uo.ri.business.dto.MechanicDto;
 import uo.ri.business.serviceLayer.training.CourseAttendanceService;
-import uo.ri.business.transactionScripts.administrator.FindAllCourses;
-import uo.ri.business.transactionScripts.administrator.FindAllEnrollmentsByCourse;
-import uo.ri.business.transactionScripts.administrator.ListMechanics;
-import uo.ri.business.transactionScripts.administrator.RegisterNewAttendance;
+import uo.ri.business.transactionScripts.administrator.course.FindAllCourses;
+import uo.ri.business.transactionScripts.administrator.courseAttendance.FindAllEnrollmentsByCourse;
+import uo.ri.business.transactionScripts.administrator.courseAttendance.RegisterNewAttendance;
+import uo.ri.business.transactionScripts.administrator.mechanic.ListMechanics;
 import uo.ri.common.BusinessException;
 
 public class CourseAttendanceServiceImpl implements CourseAttendanceService {

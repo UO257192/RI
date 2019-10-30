@@ -108,9 +108,15 @@ public class WorkOrderBilling {
 			for (Long workOrderID : workOrderIDS) {
 				String status = gateway.checkWorkOrderStatus(workOrderID);
 				if (status.equals("")) {
+					c.rollback();
 					throw new BusinessException("Workorder " + workOrderID + " doesn't exist");
 				}
+				if ("INVOICED".equalsIgnoreCase(status)) {
+					c.rollback();
+					throw new BusinessException("Workorder " + workOrderID + " is already invoiced");
+				}
 				if (!"FINISHED".equalsIgnoreCase(status)) {
+					c.rollback();
 					throw new BusinessException("Workorder " + workOrderID + " is not finished yet");
 				}
 			}
@@ -156,9 +162,6 @@ public class WorkOrderBilling {
 			c.commit();
 		} catch (SQLException e) {
 			throw new RuntimeException("ERROR");
-		}
-		if(totalLabor == -1) {
-			throw new BusinessException("Workorder does not exist or it can not be charged");
 		}
 		return totalLabor;
 	}

@@ -32,13 +32,35 @@ public interface CourseGateway {
 	 */
 	void add(CourseDto dto);
 	
+	/**
+	 * Find the last course id generated
+	 * @return course id
+	 */
 	Long findMaxCourse();
 	
+	/**
+	 * Find course by name
+	 * @param course name
+	 * @return course dto
+	 */
 	CourseDto findByName(String name);
 	
+	/**
+	 * Find course by code
+	 * @param course code
+	 * @return course dto
+	 */
 	CourseDto findByCode(String code);
 	
+	/**
+	 * Delete Course
+	 * @param course id
+	 */
 	void delete(Long id);
 	
+	/**
+	 * Update Course 
+	 * @param course dto
+	 */
 	void update(CourseDto dto);
 }

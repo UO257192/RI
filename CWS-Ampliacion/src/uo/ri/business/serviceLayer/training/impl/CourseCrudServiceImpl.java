@@ -5,12 +5,12 @@ import java.util.List;
 import uo.ri.business.dto.CourseDto;
 import uo.ri.business.dto.VehicleTypeDto;
 import uo.ri.business.serviceLayer.training.CourseCrudService;
-import uo.ri.business.transactionScripts.administrator.DeleteCourse;
-import uo.ri.business.transactionScripts.administrator.FindAllCourses;
-import uo.ri.business.transactionScripts.administrator.FindCourseByID;
-import uo.ri.business.transactionScripts.administrator.ListVehicleTypes;
-import uo.ri.business.transactionScripts.administrator.RegisterNewCourse;
-import uo.ri.business.transactionScripts.administrator.UpdateCourse;
+import uo.ri.business.transactionScripts.administrator.course.DeleteCourse;
+import uo.ri.business.transactionScripts.administrator.course.FindAllCourses;
+import uo.ri.business.transactionScripts.administrator.course.FindCourseByID;
+import uo.ri.business.transactionScripts.administrator.course.RegisterNewCourse;
+import uo.ri.business.transactionScripts.administrator.course.UpdateCourse;
+import uo.ri.business.transactionScripts.administrator.vehicleType.ListVehicleTypes;
 import uo.ri.common.BusinessException;
 
 public class CourseCrudServiceImpl implements CourseCrudService {

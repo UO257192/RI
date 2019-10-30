@@ -246,4 +246,21 @@ public class WorkOrderGatewayImpl implements WorkOrderGateway {
 		
 	}
 
+	@Override
+	public boolean mechanicAssigned(Long mechanicid) {
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		String SQL_CHECK_WORKORDER_ASSING = Conf.getInstance().getProperty("SQL_CHECK_WORKORDER_ASSING");
+		try {
+			pst = c.prepareStatement(SQL_CHECK_WORKORDER_ASSING);
+			pst.setLong(1, mechanicid);
+			rs = pst.executeQuery();
+			rs.next();
+			return rs.getInt(1) > 0;
+
+		}catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 }

@@ -104,4 +104,11 @@ public interface WorkOrderGateway {
 	 * @return total parts amount
 	 */
 	double checkTotalParts(Long workOrderID);
+	
+	/**
+	 * Check if the workorder has a mechanic assigned
+	 * @param mechanicid
+	 * @return
+	 */
+	boolean mechanicAssigned(Long mechanicid);
 }
