@@ -1,17 +1,18 @@
 package uo.ri.cws.extended.course;
 
-import org.junit.Before;
-import org.junit.Test;
-import uo.ri.cws.domain.Course;
-import uo.ri.cws.domain.Dedication;
-import uo.ri.cws.domain.VehicleType;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.ri.cws.domain.Course;
+import uo.ri.cws.domain.Dedication;
+import uo.ri.cws.domain.VehicleType;
 
 public class AddDedicationsTests {
 
@@ -31,7 +32,7 @@ public class AddDedicationsTests {
 	 */
 	@Test
 	public void testDedicationsAmount100() {
-		Map<VehicleType, Integer> percentages = new HashMap<>();
+		Map<VehicleType, Integer> percentages=new HashMap<VehicleType, Integer>();
 		percentages.put(car,25);
 		percentages.put(truck,75);
 		
@@ -50,9 +51,10 @@ public class AddDedicationsTests {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testDedicationsLessThan100() {
-		Map<VehicleType, Integer> percentages = new HashMap<>();
+		Map<VehicleType, Integer> percentages=new HashMap<VehicleType, Integer>();
 		percentages.put(car,25);
 		percentages.put(truck,25);
+		
 		course.addDedications(percentages);
 	}
 
@@ -61,9 +63,10 @@ public class AddDedicationsTests {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testDedicationsGreaterThan100() {
-		Map<VehicleType, Integer> percentages = new HashMap<>();
+		Map<VehicleType, Integer> percentages=new HashMap<VehicleType, Integer>();
 		percentages.put(car,25);
 		percentages.put(truck,85);
+		
 		course.addDedications(percentages);
 	}
 
@@ -72,15 +75,17 @@ public class AddDedicationsTests {
 	 */
 	@Test
 	public void testAddMoreDedicationsThrowsException() {
-		Map<VehicleType, Integer> percentages = new HashMap<>();
+		Map<VehicleType, Integer> percentages=new HashMap<VehicleType, Integer>();
 		percentages.put(car,100);
 		course.addDedications(percentages);
-
-		percentages = new HashMap<>();
-		percentages.put(car,25);
-		percentages.put(truck,85);
+		
+		Map<VehicleType, Integer> percentages2=new HashMap<VehicleType, Integer>();
+		percentages2.put(car,25);
+		percentages2.put(truck,75);
+		
+		
 		try {
-			course.addDedications(percentages);
+			course.addDedications(percentages2);
 			fail("An IllegalStateException must be thrown");
 			
 		} catch (IllegalStateException expected) {

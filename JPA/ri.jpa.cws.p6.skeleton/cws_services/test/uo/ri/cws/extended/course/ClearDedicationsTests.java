@@ -1,16 +1,17 @@
 package uo.ri.cws.extended.course;
 
-import org.junit.Before;
-import org.junit.Test;
-import uo.ri.cws.domain.Course;
-import uo.ri.cws.domain.Dedication;
-import uo.ri.cws.domain.VehicleType;
+import static org.junit.Assert.assertTrue;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.ri.cws.domain.Course;
+import uo.ri.cws.domain.Dedication;
+import uo.ri.cws.domain.VehicleType;
 
 public class ClearDedicationsTests {
 
@@ -23,10 +24,10 @@ public class ClearDedicationsTests {
 		car = new VehicleType("car");
 		truck = new VehicleType("truck");
 		course = new Course("C1");
-
-		Map<VehicleType, Integer> percentages = new HashMap<>();
-		percentages.put(car,25);
-		percentages.put(truck,75);
+		
+		Map<VehicleType, Integer> percentages=new HashMap<VehicleType, Integer>();
+		percentages.put(car, 25);
+		percentages.put(truck, 75);
 		
 		course.addDedications(percentages);
 	}
@@ -55,8 +56,8 @@ public class ClearDedicationsTests {
 	 */
 	@Test
 	public void testClearDedicationsBeforeAddDedications() {
-		Map<VehicleType, Integer> percentages = new HashMap<>();
-		percentages.put(car,100);
+		Map<VehicleType, Integer> percentages=new HashMap<VehicleType, Integer>();
+		percentages.put(car, 100);
 		
 		course.clearDedications();
 		course.addDedications(percentages);

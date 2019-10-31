@@ -93,7 +93,7 @@ public class Intervention extends BaseEntity{
     public double computeAmount() {
         double amount = 0L;
         for (Substitution substitution : substitucions)
-            amount += substitution.getImporte();
+            amount += substitution.computeAmount();
         amount += workOrder.getVehicle().getVehicleType().getPricePerHour() * ((double) minutes / 60L);
         return amount;
     }

@@ -1,17 +1,18 @@
 package uo.ri.cws.extended.enrollment;
 
-import alb.util.date.Dates;
-import org.junit.Before;
-import org.junit.Test;
-import uo.ri.cws.domain.Course;
-import uo.ri.cws.domain.Enrollment;
-import uo.ri.cws.domain.Mechanic;
-import uo.ri.cws.domain.VehicleType;
+import static org.junit.Assert.assertEquals;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
+
+import alb.util.date.Dates;
+import uo.ri.cws.domain.Course;
+import uo.ri.cws.domain.Enrollment;
+import uo.ri.cws.domain.Mechanic;
+import uo.ri.cws.domain.VehicleType;
 
 public class GetAttendedHoursForTests {
 
@@ -25,13 +26,13 @@ public class GetAttendedHoursForTests {
 		mechanic = new Mechanic("123");
 		car = new VehicleType("car");
 		truck = new VehicleType("truck");
-
+		
 		course = new Course("course", "1o1", "description",
 				Dates.fromDdMmYyyy(11, 11, 2019),
 				Dates.fromDdMmYyyy(25, 11, 2019),
 				100 /* hours */
 			);
-
+		
 		Map<VehicleType, Integer> dedications = new HashMap<>();
 		dedications.put( car, 	25 /* % */);
 		dedications.put( truck, 75 /* % */);
@@ -50,7 +51,7 @@ public class GetAttendedHoursForTests {
 
 
 	/**
-	 * Returns right attended hours for truck with 100 % attendance
+	 * Returns right attended hours for truck with 100 % attendance 
 	 */
 	@Test
 	public void testRightForTruck() {
@@ -61,7 +62,7 @@ public class GetAttendedHoursForTests {
 
 
 	/**
-	 * Returns 0 attended hours for a non involved vehicle type with 100 % attendance
+	 * Returns 0 attended hours for a non involved vehicle type with 100 % attendance 
 	 */
 	@Test
 	public void testZeroForOtherType() {
@@ -71,7 +72,7 @@ public class GetAttendedHoursForTests {
 		assertEquals( 0, e.getAttendedHoursFor( other ));
 	}
 
-
+	
 	/**
 	 * Returns right attended hours for car with 85 % attendance
 	 */
@@ -84,7 +85,7 @@ public class GetAttendedHoursForTests {
 	}
 
 	/**
-	 * Returns right attended hours for truck with 85 % attendance
+	 * Returns right attended hours for truck with 85 % attendance 
 	 */
 	@Test
 	public void testRightForTruckWith85Attendance() {

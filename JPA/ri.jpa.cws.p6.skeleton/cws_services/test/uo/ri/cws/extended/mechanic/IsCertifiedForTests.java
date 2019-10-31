@@ -20,7 +20,7 @@ public class IsCertifiedForTests {
 		mechanic = new Mechanic("123");
 		car = new VehicleType("car");
 		truck = new VehicleType("truck");
-
+		
 		new Certificate(mechanic, car);		// auto link
 	}
 
@@ -31,7 +31,7 @@ public class IsCertifiedForTests {
 	public void testCertifiedForCarNotForTruck() {
 		assertTrue( mechanic.isCertifiedFor( car ) );
 		assertTrue( ! mechanic.isCertifiedFor( truck ) );
-
+		
 		assertTrue( ! mechanic.isCertifiedFor( null ) );
 	}
 

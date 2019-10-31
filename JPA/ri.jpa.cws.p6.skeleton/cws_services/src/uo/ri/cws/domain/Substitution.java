@@ -53,7 +53,7 @@ public class Substitution extends BaseEntity{
 		this.quantity = quantity;
 	}
 	
-	public double getImporte() {
+	public double computeAmount() {
 		return (double) quantity * sparePart.getPrice();
 	}
 }

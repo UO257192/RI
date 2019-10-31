@@ -1,9 +1,19 @@
 package uo.ri.cws.domain;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import uo.ri.cws.domain.Associations;
+import uo.ri.cws.domain.Client;
+import uo.ri.cws.domain.Intervention;
+import uo.ri.cws.domain.Mechanic;
+import uo.ri.cws.domain.SparePart;
+import uo.ri.cws.domain.Substitution;
+import uo.ri.cws.domain.Vehicle;
+import uo.ri.cws.domain.VehicleType;
+import uo.ri.cws.domain.WorkOrder;
 
 
 public class InterventionTest {

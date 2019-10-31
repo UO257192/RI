@@ -1,12 +1,13 @@
 package uo.ri.cws.extended.course;
 
-import alb.util.date.Dates;
-import org.junit.Test;
-import uo.ri.cws.domain.Course;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.Test;
+
+import alb.util.date.Dates;
+import uo.ri.cws.domain.Course;
 
 public class ConstructorValidationTests {
 

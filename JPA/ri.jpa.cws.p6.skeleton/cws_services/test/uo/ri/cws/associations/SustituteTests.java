@@ -1,12 +1,21 @@
 package uo.ri.cws.associations;
 
-import org.junit.Before;
-import org.junit.Test;
-import uo.ri.cws.domain.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Set;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.ri.cws.domain.Associations;
+import uo.ri.cws.domain.Client;
+import uo.ri.cws.domain.Intervention;
+import uo.ri.cws.domain.Mechanic;
+import uo.ri.cws.domain.SparePart;
+import uo.ri.cws.domain.Substitution;
+import uo.ri.cws.domain.Vehicle;
+import uo.ri.cws.domain.VehicleType;
+import uo.ri.cws.domain.WorkOrder;
 
 
 public class SustituteTests {
@@ -43,8 +52,8 @@ public class SustituteTests {
 		assertTrue( sustitution.getIntervention().equals( intervention ));
 		assertTrue( sustitution.getSparePart().equals( sparePart ));
 		
-		assertTrue( sparePart.getSubstitutions().contains( sustitution ));
-		assertTrue( intervention.getSubstitutions().contains( sustitution ));
+		assertTrue( sparePart.getSustituciones().contains( sustitution ));
+		assertTrue( intervention.getSustitutions().contains( sustitution ));
 	}
 
 	@Test
@@ -54,32 +63,32 @@ public class SustituteTests {
 		assertTrue( sustitution.getIntervention() == null);
 		assertTrue( sustitution.getSparePart() == null);
 		
-		assertTrue( ! sparePart.getSubstitutions().contains( sustitution ));
-		assertTrue( sparePart.getSubstitutions().size() == 0 );
+		assertTrue( ! sparePart.getSustituciones().contains( sustitution ));
+		assertTrue( sparePart.getSustituciones().size() == 0 );
 
-		assertTrue( ! intervention.getSubstitutions().contains( sustitution ));
-		assertTrue( intervention.getSubstitutions().size() == 0 );
+		assertTrue( ! intervention.getSustitutions().contains( sustitution ));
+		assertTrue( intervention.getSustitutions().size() == 0 );
 	}
 
 	@Test
 	public void testSafeReturnOnIntervention() {
-		Set<Substitution> sustituciones = intervention.getSubstitutions();
+		Set<Substitution> sustituciones = intervention.getSustitutions();
 		sustituciones.remove( sustitution );
 
 		assertTrue( sustituciones.size() == 0 );
 		assertTrue( "It must be a copy of the collection or a read-only version", 
-			intervention.getSubstitutions().size() == 1
+			intervention.getSustitutions().size() == 1
 		);
 	}
 
 	@Test
 	public void testSafeReturnOnSparePart() {
-		Set<Substitution> sustituciones = sparePart.getSubstitutions();
+		Set<Substitution> sustituciones = sparePart.getSustituciones();
 		sustituciones.remove( sustitution );
 
 		assertTrue( sustituciones.size() == 0 );
 		assertTrue( "It must be a copy of the collection or a read-only version", 
-			sparePart.getSubstitutions().size() == 1
+			sparePart.getSustituciones().size() == 1
 		);
 	}
 

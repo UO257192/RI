@@ -48,7 +48,7 @@ public class Voucher extends PaymentMean {
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public void setDescripcion(String description) {
 		this.description = description;
 	}
 

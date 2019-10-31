@@ -1,14 +1,15 @@
 package uo.ri.cws.domain;
 
-import org.junit.Before;
-import org.junit.Test;
-import uo.ri.cws.domain.Invoice.InvoiceStatus;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.ri.cws.domain.Invoice.InvoiceStatus;
 
 
 /**

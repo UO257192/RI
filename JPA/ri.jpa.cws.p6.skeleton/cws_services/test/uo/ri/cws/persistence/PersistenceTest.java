@@ -1,22 +1,45 @@
 package uo.ri.cws.persistence;
 
-import alb.util.date.Dates;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import uo.ri.cws.domain.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
 
-import static org.junit.Assert.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
+import alb.util.date.Dates;
+import uo.ri.cws.domain.Address;
+import uo.ri.cws.domain.Associations;
+import uo.ri.cws.domain.Cash;
+import uo.ri.cws.domain.Charge;
+import uo.ri.cws.domain.Client;
+import uo.ri.cws.domain.CreditCard;
+import uo.ri.cws.domain.Intervention;
+import uo.ri.cws.domain.Invoice;
+import uo.ri.cws.domain.Mechanic;
+import uo.ri.cws.domain.PaymentMean;
+import uo.ri.cws.domain.SparePart;
+import uo.ri.cws.domain.Substitution;
+import uo.ri.cws.domain.Vehicle;
+import uo.ri.cws.domain.VehicleType;
+import uo.ri.cws.domain.Voucher;
+import uo.ri.cws.domain.WorkOrder;
 
+//TABLE Y NOMBRE
+//ATRIBUTO FECHA ES DIFERENTE EN JAVA QUE EN SQL, EN EL CASO DE 
+// le pongo @Temporal(TemporalTyoe.TIMESTAMP) 
+//EN LA TABLA EN LOS ENUM, EN WORKORDERSTATUS PONEMOS @ENUMERATED(EnumType.String)
 public class PersistenceTest {
 
 	private EntityManagerFactory factory;
@@ -85,8 +108,8 @@ public class PersistenceTest {
 		SparePart r = s.getSparePart();
 		Intervention i = s.getIntervention();
 		
-		assertTrue( r.getSubstitutions().contains(s) );
-		assertTrue( i.getSubstitutions().contains(s) );
+		assertTrue( r.getSustituciones().contains(s) ); 
+		assertTrue( i.getSustitutions().contains(s) );
 
 		trx.commit();
 		mapper.close();		
@@ -231,7 +254,7 @@ public class PersistenceTest {
 		sustitution = new Substitution(sparePart, intervention, 2);
 		
 		Voucher voucher = new Voucher("B-100", 100.0);
-		voucher.setDescription( "Voucher just for testing" );
+		voucher.setDescripcion( "Voucher just for testing" );
 		Associations.Pay.link(client,voucher);
 		
 		CreditCard card = new CreditCard( 

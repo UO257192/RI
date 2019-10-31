@@ -66,7 +66,7 @@ public class SustitutionTests {
 		SparePart r = new SparePart("R1001", "junta la trocla", 100.0);
 		Substitution s = new Substitution(r, intervention, 2);
 
-		assertTrue( s.getImporte() == 200.0 );
+		assertTrue( s.computeAmount() == 200.0 );
 	}
 
 }

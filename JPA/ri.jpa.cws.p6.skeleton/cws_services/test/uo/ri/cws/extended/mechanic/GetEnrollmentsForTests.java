@@ -30,7 +30,7 @@ public class GetEnrollmentsForTests {
 		mechanic = new Mechanic("123");
 		car = new VehicleType("car");
 		truck = new VehicleType("truck");
-
+		
 		onlyTruckCourse = new Course("C1", "truck", "truck description",
 				Dates.fromDdMmYyyy(11, 11, 2019),
 				Dates.fromDdMmYyyy(25, 11, 2019),
@@ -50,18 +50,18 @@ public class GetEnrollmentsForTests {
 		dedications.put( car, 	25 /* % */);
 		dedications.put( truck, 75 /* % */);
 		carAndTruckCourse.addDedications(dedications);
-
+		
 		c1Enrollment = new Enrollment(mechanic, onlyTruckCourse, 100, true);
-		c2Enrollment = new Enrollment(mechanic, carAndTruckCourse, 100, true);
+		c2Enrollment = new Enrollment(mechanic, carAndTruckCourse, 100, true);	
 	}
 
 	/**
-	 * Returns the car course enrollment for "car"
+	 * Returns the car course enrollment for "car"  
 	 */
 	@Test
 	public void testReturnsOneForCar() {
 		Set<Enrollment> es = mechanic.getEnrollmentsFor( car );
-
+		
 		assertTrue( es.size() == 1 );
 		assertTrue( es.contains( c2Enrollment ) );
 	}
@@ -71,8 +71,8 @@ public class GetEnrollmentsForTests {
 	 */
 	@Test
 	public void testReturnsTwoForTruck() {
+		
 		Set<Enrollment> es = mechanic.getEnrollmentsFor( truck );
-
 		assertTrue( es.size() == 2 );
 		assertTrue( es.contains( c1Enrollment ) );
 		assertTrue( es.contains( c2Enrollment ) );
@@ -84,9 +84,9 @@ public class GetEnrollmentsForTests {
 	@Test
 	public void testReturnEmptyForOther() {
 		VehicleType other = new VehicleType("other");
-
+		
 		Set<Enrollment> es = mechanic.getEnrollmentsFor( other );
-
+		
 		assertTrue( es.isEmpty() );
 	}
 
@@ -96,7 +96,7 @@ public class GetEnrollmentsForTests {
 	@Test
 	public void testReturnEmptyForNull() {
 		Set<Enrollment> es = mechanic.getEnrollmentsFor( null );
-
+		
 		assertTrue( es.isEmpty() );
 	}
 
