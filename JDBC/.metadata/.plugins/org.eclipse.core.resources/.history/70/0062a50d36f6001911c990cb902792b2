@@ -1,0 +1,59 @@
+package uo.ri.business.transactionScripts.administrator;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import alb.util.jdbc.Jdbc;
+import uo.ri.business.dto.EnrollmentDto;
+import uo.ri.common.BusinessException;
+import uo.ri.conf.Factory;
+import uo.ri.persistance.mechanic.MechanicGateway;
+import uo.ri.persistance.training.CourseGateway;
+
+public class RegisterNewAttendance {
+	private EnrollmentDto dto;
+	
+	public RegisterNewAttendance(EnrollmentDto dto) {
+		this.dto = dto;
+	}
+	/**
+	 *  - there already is another enrollment registered for the same mechanic
+	 *  	and course, or
+	 *  - the attendance is under 85% and the course is marked as passed, or
+	 *  - the course is not yet finished, or  <- IGNORE THIS, complicates testing
+	 *  - the value for percentage is not in the range 0..100
+	 * @throws BusinessException 
+	 */
+	
+	public EnrollmentDto execute() throws BusinessException {
+		checkMechanic(dto.mechanicId);
+		checkCourse(dto.courseId);
+		checkEnrollment(dto.mechanicId,dto.courseId)
+	
+	}
+	private void checkMechanic(String mechanicId) throws BusinessException {
+		try (Connection c = Jdbc.getConnection()){
+			MechanicGateway gateway = Factory.persistance.getMechanicCrudService();
+			gateway.setConnection(c);
+			if(gateway.findByID(Long.parseLong(mechanicId)) == null) {
+				c.rollback();
+				throw new BusinessException("The mechanic id does not exit");
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException("ERROR");
+		}
+	}
+	
+	private void checkCourse(String courseId) throws BusinessException {
+		try (Connection c = Jdbc.getConnection()){
+			CourseGateway gateway = Factory.persistance.getCourseGateway();
+			gateway.setConnection(c);
+			if(gateway.findCourseByID(Long.parseLong(courseId)) == null){
+				c.rollback();
+				throw new BusinessException("The course id does not exit");
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException("ERROR");
+		}
+	}
+}

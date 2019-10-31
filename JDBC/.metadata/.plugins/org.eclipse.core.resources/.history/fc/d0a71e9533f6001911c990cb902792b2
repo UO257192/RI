@@ -1,0 +1,7 @@
+package uo.ri.business.transactionScripts.administrator;
+
+import uo.ri.business.dto.EnrollmentDto;
+
+public class RegisterNewAttendance {
+	private EnrollmentDto dto;
+}

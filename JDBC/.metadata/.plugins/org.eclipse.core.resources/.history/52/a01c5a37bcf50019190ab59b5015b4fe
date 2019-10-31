@@ -1,0 +1,11 @@
+package uo.ri.business.transactionScripts.administrator;
+
+public class FindCourseByID {
+	private Long id;
+	
+	public FindCourseByID(Long id) {
+		this.id = id;
+	}
+	
+	
+}

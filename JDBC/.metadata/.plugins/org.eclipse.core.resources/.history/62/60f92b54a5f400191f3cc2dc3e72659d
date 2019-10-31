@@ -1,0 +1,36 @@
+package uo.ri.persistance.training;
+
+import java.sql.Connection;
+import java.util.List;
+
+import uo.ri.business.dto.EnrollmentDto;
+
+public interface EnrollmentGateway {
+	
+	/**
+	 * Set the database connection
+	 * 
+	 * @param database connection
+	 */
+	void setConnection(Connection c);
+	
+	/**
+	 * @return the list of enrollments registered in the system for an specific
+	 *         mechanic. It might be an empty list if there is no enrollment
+	 * 
+	 */
+	List<EnrollmentDto> findPassedEnrollmentsByMechanicId(Long mechanic_id);
+	
+	/**
+	 * @return the list of courses id registered in the system for an specific
+	 *         mechanic id. It might be an empty list if there is no enrollment
+	 * 
+	 */
+	List<Long> findPassedCoursessByMechanicId(Long mechanic_id);
+	
+	List<Long> findPassedMechanicIDS();
+	
+	int findAttendanceForCourseAndMechanic(Long courseID, Long mechanicId);
+
+	List<Long> findCoursesByMechanicId(Long mechanic_id);
+}

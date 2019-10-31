@@ -1,0 +1,11 @@
+package uo.ri.business.transactionScripts.administrator;
+
+public class ListMechanicsByVehicleType {
+
+	private Long id;
+	
+	public ListMechanicsByVehicleType(Long id) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

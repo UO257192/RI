@@ -1,0 +1,123 @@
+package uo.ri.business.transactionScripts.administrator;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+import alb.util.console.Console;
+import alb.util.jdbc.Jdbc;
+import uo.ri.business.dto.MechanicDto;
+import uo.ri.common.BusinessException;
+import uo.ri.conf.PersistanceFactory;
+import uo.ri.persistance.mechanic.MechanicGateway;
+import uo.ri.persistance.training.attendance.EnrollmentGateway;
+import uo.ri.persistance.training.course.CourseGateway;
+import uo.ri.persistance.training.course.DedicationGateway;
+
+public class ListTrainingForMechanic {
+
+	private Long mechanic_id;
+
+	public ListTrainingForMechanic(Long id) {
+		this.mechanic_id = id;
+	}
+
+	public void execute() throws BusinessException {
+
+		MechanicDto mechanic = findMechanicById(this.mechanic_id);
+		List<Long> courses_id = findCoursesByMechanicId(mechanic.id);
+		int totalHours = getMechanicTotalHours(courses_id);
+		Console.printf("Total de horas del curso: " + totalHours + "\n");
+
+		Double asistencia = getMechanicAttendance(mechanic.id, courses_id);
+		Console.printf("Total de horas asistidas: " + asistencia + "\n");
+
+		List<Long> vehicletypes = getAllVehicleTypes();
+		for (Long vt_id : vehicletypes) {
+			List<Long> c_ids = findCoursesByVtId(vt_id);
+			Double asistencia_porVt = getMechanicAttendance2(mechanic.id, c_ids,vt_id);
+			Console.printf("\tHoras asistidas para vehiculo id = " + vt_id + " son: " + asistencia_porVt + "\n");
+		}
+
+	}
+
+	private Double getMechanicAttendance2(Long m_id, List<Long> c_ids, Long vt_id) {
+		try (Connection conn = Jdbc.getConnection()) {
+			EnrollmentGateway mg = PersistanceFactory.getCourseAttendanceGateway();
+			mg.setConnection(conn);
+			return mg.getMechanicAttendance2(m_id,c_ids,vt_id);
+		} catch (SQLException e) {
+			throw new RuntimeException("Error de conexion");
+		}
+	}
+
+	private List<Long> findCoursesByVtId(Long vt_id) {
+		try (Connection conn = Jdbc.getConnection()) {
+			DedicationGateway mg = PersistanceFactory.getDedicationGateway();
+			mg.setConnection(conn);
+			return mg.getCoursesForVt(vt_id);
+		} catch (SQLException e) {
+			throw new RuntimeException("Error de conexion");
+		}
+	}
+
+	private List<Long> getAllVehicleTypes() {
+		try (Connection conn = Jdbc.getConnection()) {
+			DedicationGateway mg = PersistanceFactory.getDedicationGateway();
+			mg.setConnection(conn);
+			return mg.getAllVehicleTypes();
+		} catch (SQLException e) {
+			throw new RuntimeException("Error de conexion");
+		}
+	}
+
+	private Double getMechanicAttendance(Long m_id, List<Long> courses_id) {
+		try (Connection conn = Jdbc.getConnection()) {
+			EnrollmentGateway mg = PersistanceFactory.getCourseAttendanceGateway();
+			mg.setConnection(conn);
+			return mg.getMechanicAttendance(m_id, courses_id);
+		} catch (SQLException e) {
+			throw new RuntimeException("Error de conexion");
+		}
+	}
+
+	private int getMechanicTotalHours(List<Long> courses_id) {
+		int total = 0;
+		try (Connection conn = Jdbc.getConnection()) {
+			CourseGateway mg = PersistanceFactory.getCourseGateway();
+			mg.setConnection(conn);
+
+			total = mg.getTotalHours(courses_id);
+			return total;
+		} catch (SQLException e) {
+			throw new RuntimeException("Error de conexion");
+		}
+	}
+
+	private List<Long> findCoursesByMechanicId(Long mechanic_id) {
+		try (Connection conn = Jdbc.getConnection()) {
+			EnrollmentGateway mg = PersistanceFactory.getCourseAttendanceGateway();
+			mg.setConnection(conn);
+			return mg.findByMechanicId(mechanic_id);
+		} catch (SQLException e) {
+			throw new RuntimeException("Error de conexion");
+		}
+	}
+
+	private MechanicDto findMechanicById(Long mechanic_id) throws BusinessException {
+		try (Connection conn = Jdbc.getConnection()) {
+			MechanicGateway mg = PersistanceFactory.getMechanicGateway();
+			conn.setAutoCommit(false);
+			mg.setConnection(conn);
+			if (mg.findById(mechanic_id) == null) {
+				conn.rollback();
+				throw new BusinessException("id del mecanico no encontrado.");
+			}
+			conn.commit();
+			return mg.findById(mechanic_id);
+		} catch (SQLException e) {
+			throw new RuntimeException("Error de conexion");
+		}
+
+	}
+
+}

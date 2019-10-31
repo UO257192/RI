@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Conf.java&apos; to &apos;CWS3/src/uo.ri.conf&apos;&#x0D;&#x0A;- Original project: &apos;CWS0&apos;&#x0D;&#x0A;- Destination element: &apos;CWS3/src/uo.ri.conf&apos;&#x0D;&#x0A;- Original element: &apos;Conf.java&apos;" description="Copy file" destination="=CWS3/src&lt;uo.ri.conf" element1="additionalClasses/conf/Conf.java" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1570701946650" units="0" version="1.0"/>
+</session>

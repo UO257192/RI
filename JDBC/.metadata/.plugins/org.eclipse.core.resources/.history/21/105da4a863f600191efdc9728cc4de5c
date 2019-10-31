@@ -1,0 +1,47 @@
+package uo.ri.business.transactionScripts.administrator;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import alb.util.console.Console;
+import alb.util.jdbc.Jdbc;
+import uo.ri.business.dto.MechanicDto;
+import uo.ri.business.dto.TrainingForMechanicRow;
+import uo.ri.business.dto.VehicleTypeDto;
+import uo.ri.common.BusinessException;
+import uo.ri.conf.Factory;
+import uo.ri.conf.PersistanceFactory;
+import uo.ri.persistance.mechanic.MechanicGateway;
+import uo.ri.persistance.training.CourseGateway;
+import uo.ri.persistance.training.DedicationGateway;
+import uo.ri.persistance.training.EnrollmentGateway;
+import uo.ri.persistance.vehicle.VehicleTypeGateway;
+
+public class ListTrainingForMechanic {
+
+	private Long mechanic_id;
+
+	public ListTrainingForMechanic(Long id) {
+		this.mechanic_id = id;
+	}
+
+	public List<TrainingForMechanicRow> execute() throws BusinessException {
+		List<TrainingForMechanicRow> trainingForMechanicRows = new ArrayList<TrainingForMechanicRow>();
+		List<VehicleTypeDto> vehicleTypeDtos = findAllVehicleTypes();
+		
+
+	}
+
+	public List<VehicleTypeDto> findAllVehicleTypes() {
+		try (Connection c = Jdbc.getConnection()) {
+			VehicleTypeGateway gateway = Factory.persistance.getVehicleTypeGateway();
+			gateway.setConnection(c);
+			return gateway.findAll();
+		} catch (SQLException e) {
+			throw new RuntimeException("ERROR");
+		}
+	}
+
+}

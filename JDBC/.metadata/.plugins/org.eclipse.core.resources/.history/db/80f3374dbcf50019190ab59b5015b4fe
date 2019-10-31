@@ -1,0 +1,15 @@
+package uo.ri.business.transactionScripts.administrator;
+
+import uo.ri.business.dto.CourseDto;
+
+public class FindCourseByID {
+	private Long id;
+	
+	public FindCourseByID(Long id) {
+		this.id = id;
+	}
+	
+	public CourseDto execute() {
+		
+	}
+}

@@ -1,0 +1,49 @@
+package uo.ri.business.transactionScripts.administrator;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Map;
+
+import alb.util.jdbc.Jdbc;
+import uo.ri.business.dto.EnrollmentDto;
+import uo.ri.conf.Factory;
+import uo.ri.persistance.mechanic.MechanicGateway;
+import uo.ri.persistance.training.DedicationGateway;
+
+public class RegisterNewAttendance {
+	private EnrollmentDto dto;
+	
+	public RegisterNewAttendance(EnrollmentDto dto) {
+		this.dto = dto;
+	}
+	/**
+	 * 	 * 	- the mechanic id does not exit, or
+	 * 	- the course id does not exist, or
+	 *  - there already is another enrollment registered for the same mechanic
+	 *  	and course, or
+	 *  - the attendance is under 85% and the course is marked as passed, or
+	 *  - the course is not yet finished, or  <- IGNORE THIS, complicates testing
+	 *  - the value for percentage is not in the range 0..100
+	 */
+	
+	public EnrollmentDto execute() {
+		if(checkMechanic(dto.mechanicId)) {
+			
+		}
+		
+	}
+	private boolean checkMechanic(String mechanicId) {
+		try (Connection c = Jdbc.getConnection()){
+			c.setAutoCommit(false);
+			MechanicGateway gateway = Factory.persistance.getMechanicCrudService();
+			dedicationGateway.setConnection(c);
+			dedicationGateway.removeByCourseID(dto.id);
+			for (Map.Entry<Long, Integer> entry : dto.percentages.entrySet()) {
+				dedicationGateway.add(dto.id,entry.getKey(), entry.getValue());
+			}
+			c.commit();
+		} catch (SQLException e) {
+			throw new RuntimeException("ERROR");
+		}
+	}
+}

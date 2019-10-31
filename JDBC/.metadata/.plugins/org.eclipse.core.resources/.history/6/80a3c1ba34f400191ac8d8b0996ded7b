@@ -1,0 +1,21 @@
+package uo.ri.persistance.invoice;
+
+import java.sql.Connection;
+
+import uo.ri.business.dto.InvoiceDto;
+
+public interface InvoiceGateway {
+	
+	/**
+	 * Set the database connection
+	 * 
+	 * @param database connection
+	 */
+	void setConnection(Connection c);
+	
+	void add(InvoiceDto invoice);
+	
+	Long generateInvoiceNumber();
+	
+	long getGeneratedKey(long invoice_number);
+}

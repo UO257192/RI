@@ -1,0 +1,26 @@
+package uo.ri.ui.administrator;
+
+import alb.util.menu.BaseMenu;
+import uo.ri.ui.administrator.certificate.action.GenerateCertificatesAction;
+import uo.ri.ui.administrator.mechanic.MechanicsMenu;
+import uo.ri.ui.administrator.report.action.ListTrainingByVehicleTypeAction;
+
+public class MainMenu extends BaseMenu {
+
+	public MainMenu() {
+		menuOptions = new Object[][] { 
+			{ "Administrator", null },
+			{ "Mechanics management", 			MechanicsMenu.class }, 
+			{ "Spare parts management", 			SparesMenu.class },
+			{ "Course management", 			SparesMenu.class },
+			{ "Vehicle types management", 	VehicleTypeMenu.class },
+			{ "Reports", 	ListTrainingByVehicleTypeAction.class },
+			{ "Certificate generation", 	GenerateCertificatesAction.class },
+		};
+	}
+
+	public static void main(String[] args) {
+		new MainMenu().execute();
+	}
+	
+}

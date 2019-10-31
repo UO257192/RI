@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc274175-be22-4fc7-9267-ee3e7f658633" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../ri.jpa.cws.2019.extended.db/data/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ri.jpa.cws.2019.extended.db/data/1.startup.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ri.jpa.cws.2019.extended.db/data/2.runManagerSwing.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ri.jpa.cws.2019.extended.db/data/3.reset.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ri.jpa.cws.2019.extended.db/data/4.setLegacy.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ri.jpa.cws.2019.extended.db/data/hsqldb.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ri.jpa.cws.2019.extended.db/data/server.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ri.jpa.cws.2019.extended.db/data/test.script.bck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ri.jpa.cws.2019.extended.db/data/test.script.data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/bin/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/bin/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/bin/uo/ri/cws/domain/Intervention.class" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/bin/uo/ri/cws/domain/Intervention.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/bin/uo/ri/cws/domain/VehicleType.class" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/bin/uo/ri/cws/domain/VehicleType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/bin/uo/ri/cws/domain/WorkOrder$WorkOrderStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/bin/uo/ri/cws/domain/WorkOrder$WorkOrderStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/bin/uo/ri/cws/domain/WorkOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/bin/uo/ri/cws/domain/WorkOrder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/cws_services.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/cws_services.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/data/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/data/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/data/3.reset.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/data/3.reset.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/data/4.setLegacy.bat" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/data/4.setLegacy.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/data/server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/data/server.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/data/test.lck" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/data/test.lck" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/data/test.log" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/data/test.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/data/test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/data/test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/data/test.script" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/data/test.script" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/data/test.script.bck" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/data/test.script.bck" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/data/test.script.data" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/data/test.script.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/eclipselink.log" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/eclipselink.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/src/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Intervention.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/Intervention.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/VehicleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/VehicleType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/WorkOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/cws_services/src/uo/ri/cws/domain/WorkOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eclipselink.log" beforeDir="false" afterPath="$PROJECT_DIR$/eclipselink.log" afterDir="false" />
-    </list>
+    <list default="true" id="dc274175-be22-4fc7-9267-ee3e7f658633" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +134,7 @@
       <updated>1572175127399</updated>
       <workItem from="1572175134231" duration="9950000" />
       <workItem from="1572288684441" duration="20000" />
-      <workItem from="1572511622761" duration="3296000" />
+      <workItem from="1572511622761" duration="3627000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,17 @@
+package uo.ri.business.transactionScripts.administrator;
+
+import uo.ri.business.dto.CourseDto;
+
+public class UpdateCourse {
+	
+	private CourseDto dto;
+	
+	public UpdateCourse(CourseDto dto) {
+		this.dto = dto;
+	}
+	
+	public void execute() {
+		
+	}
+
+}
