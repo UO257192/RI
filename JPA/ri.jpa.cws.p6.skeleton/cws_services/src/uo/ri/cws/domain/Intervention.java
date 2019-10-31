@@ -9,14 +9,15 @@ import java.util.Set;
 @Entity
 @Table(name = "tInterventions", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
-                "workOrder_id", "mechanic_id"
+                "mechanic_id","workOrder_id"
         })
 })
 public class Intervention extends BaseEntity{
     @ManyToOne
-    private WorkOrder workOrder;
-    @ManyToOne
     private Mechanic mechanic;
+    @ManyToOne
+    private WorkOrder workOrder;
+
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
@@ -28,6 +29,7 @@ public class Intervention extends BaseEntity{
     public Intervention(Mechanic mechanic, WorkOrder workOrder) {
         super();
         Associations.Intervene.link(workOrder, this, mechanic);
+        this.date = new Date();
     }
     public Intervention(Mechanic mechanic, WorkOrder workOrder, int minutes) {
         this(mechanic, workOrder);

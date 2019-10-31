@@ -6,7 +6,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "TWORKORDERS")
+@Table(name = "TWORKORDERS", uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "VEHICLE_ID", "MECHANIC_ID","INVOICE_ID" }) })
 public class WorkOrder extends BaseEntity{
 	public enum WorkOrderStatus {
 		OPEN, ASSIGNED, FINISHED, INVOICED
