@@ -82,7 +82,7 @@ public class DtoAssembler {
 
 		dto.clientId = v.getClient().getId();
 		dto.accumulated = v.getAccumulated();
-		dto.code = v.getCodigo();
+		dto.code = v.getCode();
 		dto.description = v.getDescripcion();
 		dto.available = v.getDisponible();
 		return dto;

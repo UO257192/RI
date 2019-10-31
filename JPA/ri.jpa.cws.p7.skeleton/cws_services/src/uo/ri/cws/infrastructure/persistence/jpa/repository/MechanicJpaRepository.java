@@ -4,40 +4,22 @@ import java.util.List;
 import java.util.Optional;
 
 import uo.ri.cws.application.repository.MechanicRepository;
+import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.domain.Mechanic;
+import uo.ri.cws.infrastructure.persistence.jpa.util.BaseJpaRepository;
+import uo.ri.cws.infrastructure.persistence.jpa.util.Jpa;
+
+import javax.persistence.NamedQuery;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 public class MechanicJpaRepository
-//			extends BaseJpaRepository<Mechanic>
-			implements MechanicRepository {
+        extends BaseJpaRepository<Mechanic>
+        implements MechanicRepository {
 
-	@Override
-	public void add(Mechanic t) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void remove(Mechanic t) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Optional<Mechanic> findById(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Mechanic> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Optional<Mechanic> findByDni(String dni) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public Optional<Mechanic> findByDni(String dni) {
+        return Jpa.getManager().createNamedQuery("Mechanic.findByDni", Mechanic.class).setParameter(1, dni).getResultStream().findFirst();
+    }
 
 }
