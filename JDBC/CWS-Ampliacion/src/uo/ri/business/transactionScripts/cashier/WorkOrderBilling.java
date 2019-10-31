@@ -23,6 +23,7 @@ public class WorkOrderBilling {
 	public InvoiceDto execute() throws BusinessException {
 		InvoiceDto invoiceDto = new InvoiceDto();
 		testRepairs(workOrderIDS);
+		
 		invoiceDto.number = generateInvoiceNumber();
 		invoiceDto.date = Dates.today();
 		double amount = calculateTotalInvoice(workOrderIDS); // not vat included

@@ -168,7 +168,7 @@ public class DtoAssembler {
 
 		dto.plate = v.getPlateNumber();
 		dto.clientId = v.getClient().getId();
-		dto.make = v.getMake();
+		dto.make = v.getBrand();
 		dto.vehicleTypeId = v.getVehicleType().getId();
 		dto.model = v.getModel();
 

@@ -14,7 +14,7 @@ public class VehicleType extends BaseEntity {
 	@Column(unique = true, nullable=false)
 	private String name;
 	private double pricePerHour;
-	private int mintraininghours;
+	//private int mintraininghours;
 
 	@OneToMany(mappedBy = "vehicleType")
 	private Set<Vehicle> vehicles = new HashSet<>();

@@ -27,16 +27,15 @@ public class Intervention extends BaseEntity{
     private Set<Substitution> substitucions = new HashSet<>();
 
     public Intervention(Mechanic mechanic, WorkOrder workOrder) {
-        super();
-        Associations.Intervene.link(workOrder, this, mechanic);
         this.date = new Date();
+        Associations.Intervene.link(workOrder, this, mechanic);
     }
     public Intervention(Mechanic mechanic, WorkOrder workOrder, int minutes) {
         this(mechanic, workOrder);
         this.minutes = minutes;
     }
 
-    public Intervention() {
+    Intervention() {
 
     }
 
@@ -94,6 +93,7 @@ public class Intervention extends BaseEntity{
 
     public double getAmount() {
         double amount = 0L;
+        System.out.println("asdasds");
         for (Substitution substitution : substitucions)
             amount += substitution.getImporte();
         amount += workOrder.getVehicle().getVehicleType().getPricePerHour() * ((double) minutes / 60L);

@@ -8,10 +8,8 @@ import java.util.Set;
 @Table(name="tVehicles")
 public class Vehicle extends BaseEntity{
 	@Column(unique=true, nullable=false)private String plateNumber;
-	private String make;
+	private String brand;
 	private String model;
-
-	@Column(name="NUM_WORKORDERS") private int numWorkorders = 0;
 	
 	@ManyToOne private Client client;
 	@ManyToOne private VehicleType vehicleType;
@@ -25,9 +23,9 @@ public class Vehicle extends BaseEntity{
 		this.plateNumber = plateNumber;
 	}
 
-	public Vehicle(String plateNumber, String make, String model) {
+	public Vehicle(String plateNumber, String brand, String model) {
 		this(plateNumber);
-		this.make = make;
+		this.brand = brand;
 		this.model = model;
 	}
 
@@ -35,17 +33,12 @@ public class Vehicle extends BaseEntity{
 		return plateNumber;
 	}
 
-	public String getMake() {
-		return make;
+	public String getBrand() {
+		return brand;
 	}
 
 	public String getModel() {
 		return model;
-	}
-
-	public int getNumWorkorders() {
-		numWorkorders = workOrders.size();
-		return numWorkorders;
 	}
 
 	public Client getClient() {
@@ -98,13 +91,12 @@ public class Vehicle extends BaseEntity{
 
 	@Override
 	public String toString() {
-		return "Vehicle [plateNumber=" + plateNumber + ", make=" + make + ", model=" + model + ", numWorkorders="
-				+ numWorkorders + ", client=" + client + ", vehicleType=" + vehicleType + "]";
+		return "Vehicle{" +
+				"plateNumber='" + plateNumber + '\'' +
+				", brand='" + brand + '\'' +
+				", model='" + model + '\'' +
+				", client=" + client +
+				", vehicleType=" + vehicleType +
+				'}';
 	}
-	
-	void incrementNumerofWorkorders(){
-		numWorkorders++;
-	}
-	
-	
 }
