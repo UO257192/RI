@@ -1,15 +1,15 @@
-[EL Info]: 2019-10-31 18:29:54.045--ServerSession(129498568)--EclipseLink, version: Eclipse Persistence Services - 2.7.0.v20170811-d680af5
-[EL Info]: connection: 2019-10-31 18:29:54.673--ServerSession(129498568)--/file:/C:/Users/Elmer/Documents/RI/JPA/ri.jpa.cws.p7.skeleton/cws_services/bin/_carworkshop login successful
-[EL Fine]: sql: 2019-10-31 18:29:54.707--ServerSession(129498568)--Connection(1504937617)--SELECT (MAX(NUMBER) + 1) FROM tInvoices
-[EL Fine]: sql: 2019-10-31 18:29:54.716--ServerSession(129498568)--Connection(1504937617)--SELECT ID, AMOUNT, DATE, DESCRIPTION, STATUS, VERSION, INVOICE_ID, MECHANIC_ID, VEHICLE_ID FROM TWORKORDERS WHERE (ID IN (?))
+[EL Info]: 2019-10-31 19:54:08.178--ServerSession(1309129055)--EclipseLink, version: Eclipse Persistence Services - 2.7.0.v20170811-d680af5
+[EL Info]: connection: 2019-10-31 19:54:08.659--ServerSession(1309129055)--/file:/C:/Users/Elmer/Documents/GitHub/RI/JPA/ri.jpa.cws.p7.skeleton/cws_services/bin/_carworkshop login successful
+[EL Fine]: sql: 2019-10-31 19:54:08.697--ServerSession(1309129055)--Connection(608519258)--SELECT (MAX(NUMBER) + 1) FROM tInvoices
+[EL Fine]: sql: 2019-10-31 19:54:08.708--ServerSession(1309129055)--Connection(608519258)--SELECT ID, AMOUNT, DATE, DESCRIPTION, STATUS, VERSION, INVOICE_ID, MECHANIC_ID, VEHICLE_ID FROM TWORKORDERS WHERE (ID IN (?))
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2019-10-31 18:29:54.726--ServerSession(129498568)--Connection(1504937617)--SELECT ID, BRAND, MODEL, PLATENUMBER, VERSION, CLIENT_ID, VEHICLETYPE_ID FROM tVehicles WHERE (ID = ?)
+[EL Fine]: sql: 2019-10-31 19:54:08.717--ServerSession(1309129055)--Connection(608519258)--SELECT ID, BRAND, MODEL, PLATENUMBER, VERSION, CLIENT_ID, VEHICLETYPE_ID FROM tVehicles WHERE (ID = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2019-10-31 18:29:54.727--ServerSession(129498568)--Connection(1504937617)--SELECT ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE FROM tClients WHERE (ID = ?)
+[EL Fine]: sql: 2019-10-31 19:54:08.719--ServerSession(1309129055)--Connection(608519258)--SELECT ID, DNI, EMAIL, NAME, PHONE, SURNAME, VERSION, CITY, STREET, ZIPCODE FROM tClients WHERE (ID = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2019-10-31 18:29:54.731--ServerSession(129498568)--Connection(1504937617)--SELECT ID, NAME, PRICEPERHOUR, VERSION FROM tVehicleTypes WHERE (ID = ?)
+[EL Fine]: sql: 2019-10-31 19:54:08.723--ServerSession(1309129055)--Connection(608519258)--SELECT ID, NAME, PRICEPERHOUR, VERSION FROM tVehicleTypes WHERE (ID = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2019-10-31 18:29:54.743--ClientSession(473053293)--Connection(1504937617)--INSERT INTO tInvoices (ID, AMOUNT, DATE, NUMBER, STATUS, VAT, VERSION) VALUES (?, ?, ?, ?, ?, ?, ?)
+[EL Fine]: sql: 2019-10-31 19:54:08.738--ClientSession(1566511282)--Connection(608519258)--INSERT INTO tInvoices (ID, AMOUNT, DATE, NUMBER, STATUS, VAT, VERSION) VALUES (?, ?, ?, ?, ?, ?, ?)
 	bind => [7 parameters bound]
-[EL Fine]: sql: 2019-10-31 18:29:54.746--ClientSession(473053293)--Connection(1504937617)--UPDATE TWORKORDERS SET STATUS = ?, INVOICE_ID = ?, VERSION = ? WHERE ((ID = ?) AND (VERSION = ?))
+[EL Fine]: sql: 2019-10-31 19:54:08.741--ClientSession(1566511282)--Connection(608519258)--UPDATE TWORKORDERS SET STATUS = ?, INVOICE_ID = ?, VERSION = ? WHERE ((ID = ?) AND (VERSION = ?))
 	bind => [5 parameters bound]

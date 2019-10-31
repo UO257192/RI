@@ -1,24 +1,15 @@
 package uo.ri.cws.application.service.invoice.create.command;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import alb.util.date.Dates;
-import alb.util.jdbc.Jdbc;
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.repository.InvoiceRepository;
-import uo.ri.cws.application.repository.MechanicRepository;
 import uo.ri.cws.application.repository.WorkOrderRepository;
 import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.invoice.InvoiceDto;
-import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.application.util.DtoAssembler;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Invoice;
-import uo.ri.cws.domain.WorkOrder;
 
 public class CreateInvoiceFor implements Command<InvoiceDto> {
 

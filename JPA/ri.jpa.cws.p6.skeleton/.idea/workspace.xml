@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc274175-be22-4fc7-9267-ee3e7f658633" name="Default Changelist" comment="" />
+    <list default="true" id="dc274175-be22-4fc7-9267-ee3e7f658633" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,8 +118,6 @@
       <list>
         <item itemvalue="JUnit.AllTests (1)" />
         <item itemvalue="Application.LoadEntityManagerFactory" />
-        <item itemvalue="Batch.1.startup" />
-        <item itemvalue="Batch.2.runManagerSwing" />
         <item itemvalue="JUnit.AllTests" />
       </list>
     </recent_temporary>
@@ -135,6 +135,7 @@
       <workItem from="1572175134231" duration="9950000" />
       <workItem from="1572288684441" duration="20000" />
       <workItem from="1572511622761" duration="3861000" />
+      <workItem from="1572547195599" duration="83000" />
     </task>
     <servers />
   </component>
@@ -146,7 +147,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

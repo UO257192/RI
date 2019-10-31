@@ -18,7 +18,7 @@ public class WorkOrder extends BaseEntity{
 	private String description;
 	private double amount = 0.0;
 	@Enumerated(EnumType.STRING)
-	private WorkOrderStatus status = WorkOrderStatus.OPEN;
+	private WorkOrderStatus status;
 
 	@ManyToOne
 	private Vehicle vehicle;
