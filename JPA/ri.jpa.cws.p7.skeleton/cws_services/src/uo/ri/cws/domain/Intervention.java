@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "tInterventions", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
-                "mechanic_id","workOrder_id"
+                "mechanic_id","workorder_id"
         })
 })
 public class Intervention extends BaseEntity{
@@ -18,13 +18,16 @@ public class Intervention extends BaseEntity{
     @ManyToOne
     private WorkOrder workOrder;
 
-
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     private int minutes;
 
     @OneToMany(mappedBy = "intervention")
     private Set<Substitution> substitucions = new HashSet<>();
+
+    Intervention() {
+
+    }
 
     public Intervention(Mechanic mechanic, WorkOrder workOrder) {
         this.date = new Date();
@@ -33,10 +36,6 @@ public class Intervention extends BaseEntity{
     public Intervention(Mechanic mechanic, WorkOrder workOrder, int minutes) {
         this(mechanic, workOrder);
         this.minutes = minutes;
-    }
-
-    Intervention() {
-
     }
 
     public WorkOrder getWorkOrder() {
@@ -67,6 +66,10 @@ public class Intervention extends BaseEntity{
         return substitucions;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -93,7 +96,6 @@ public class Intervention extends BaseEntity{
 
     public double getAmount() {
         double amount = 0L;
-        System.out.println("asdasds");
         for (Substitution substitution : substitucions)
             amount += substitution.getImporte();
         amount += workOrder.getVehicle().getVehicleType().getPricePerHour() * ((double) minutes / 60L);

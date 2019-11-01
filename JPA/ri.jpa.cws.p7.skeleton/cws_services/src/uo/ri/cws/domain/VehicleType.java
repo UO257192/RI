@@ -94,7 +94,7 @@ public class VehicleType extends BaseEntity {
 
 	@Override
 	public String toString() {
-		return "VehicleType [name=" + name + ", pricePerHour=" + pricePerHour + ", vehicles=" + vehicles + "]";
+		return "VehicleType [name=" + name + ", pricePerHour=" + pricePerHour + "]";
 	}
 
 }

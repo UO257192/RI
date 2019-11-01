@@ -24,10 +24,13 @@ public class CreateInvoiceFor implements Command<InvoiceDto> {
 	@Override
 	public InvoiceDto execute() throws BusinessException {
 		Long number = invoiceRepository.getNextInvoiceNumber();
-		Invoice invoice = new Invoice(number, workOrderRepository.findByIds(workOrderIds));
-		invoiceRepository.add(invoice);
-		return DtoAssembler.toDto(invoice);
+		invoiceRepository.add(new Invoice(number, workOrderRepository.findByIds(workOrderIds)));
+		return DtoAssembler.toDto(invoiceRepository.findByNumber(number).get());
 	}
 	//1194520b-080c-4e0a-951f-d087328721fd
+    //704cd802-e3f4-421e-b4f3-d9b9856e2f2d
+    //a68ce67f-c9ef-4a6a-aa46-a1a4ad148f42
+    //ca5de9b6-5bc7-42f1-82e6-e99c63d6d4f2
+
 
 }

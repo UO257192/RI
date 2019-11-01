@@ -59,6 +59,7 @@ public class WorkOrder extends BaseEntity{
 	}
 
 	public double getAmount() {
+        computeAmount();
 		return amount;
 	}
 
@@ -128,9 +129,8 @@ public class WorkOrder extends BaseEntity{
 
 	@Override
 	public String toString() {
-		return "WorkOrder [date=" + date + ", description=" + description + ", amount=" + amount + ", status=" + status
-				+ ", vehicle=" + vehicle + ", mechanic=" + mechanic + ", invoice=" + invoice + ", interventions="
-				+ interventions + "]";
+		return "WorkOrder [date=" + date.toString() + ", description=" + description + ", amount=" + amount + ", status=" + status
+				+ ", vehicle=" + vehicle + ", mechanic=" + mechanic + ", invoice=" + invoice + "]";
 	}
 
 	/**
