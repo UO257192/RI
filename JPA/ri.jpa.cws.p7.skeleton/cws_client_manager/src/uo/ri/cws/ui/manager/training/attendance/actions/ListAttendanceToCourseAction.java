@@ -1,5 +1,6 @@
 package uo.ri.cws.ui.manager.training.attendance.actions;
 
+import java.util.Comparator;
 import java.util.List;
 
 import alb.util.menu.Action;
@@ -19,7 +20,30 @@ public class ListAttendanceToCourseAction implements Action {
 		CourseAttendanceService s = Factory.service.forCourseAttendanceService();
 		List<EnrollmentDto> attendance = s.findAttendanceByCourseId( cId );
 
-		attendance.forEach( att -> Printer.printAttendingMechanic(att) );
+		attendance.sort( new TVTRComparator() );
+		attendance.forEach( att ->
+				Printer.printAttendingMechanic(att)
+		);
+	}
+
+
+	/**
+	 * The sorting can be done in the query, but is also frequently done
+	 * at the presentation layer
+	 */
+	private class TVTRComparator implements Comparator<EnrollmentDto> {
+
+		@Override
+		public int compare(EnrollmentDto a,
+						   EnrollmentDto b) {
+
+			int res = a.mechanic.surname.compareTo( b.mechanic.surname );
+			if ( res == 0)  {
+				res = a.mechanic.name.compareTo( b.mechanic.name);
+			}
+			return res;
+		}
+
 	}
 
 }

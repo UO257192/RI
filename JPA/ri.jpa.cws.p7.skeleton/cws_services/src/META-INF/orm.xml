@@ -67,8 +67,32 @@
 		</query>
 	</named-query>
 
+	<named-query name="Course.findTrainingByVehicleTypeAndMechanic">
+		<query>
+			select coalesce(sum((c.hours*e.attendance/100)*d.percentage/100),0)
+			from Enrollment e, Course c, Dedication d
+			where e.mechanic = ?1 and d.vehicleType = ?2 and c = e.course and c = d.course
+		</query>
+	</named-query>
+
+	<named-query name="Course.findEnrolledHoursByVehicleTypeAndMechanic">
+		<query>
+			select coalesce(sum(c.hours*d.percentage/100),0)
+			from Enrollment e, Course c, Dedication d
+			where e.mechanic = ?1 and d.vehicleType = ?2 and c = e.course and c = d.course
+		</query>
+	</named-query>
+
 	<named-query name="Enrollment.findAttendanceByCourseId">
 		<query>select e from Enrollment e where e.course = ?1</query>
+	</named-query>
+
+	<named-query name="Enrollment.findByMechanicCourse">
+		<query>select e from Enrollment e where e.course = ?1 and e.mechanic = ?2</query>
+	</named-query>
+
+	<named-query name="Certificate.findCertificatedByVehicleType">
+		<query>select c from Certificate c order by c.vehicleType.name </query>
 	</named-query>
 <!--
 	Use this format if your query has

@@ -50,6 +50,10 @@ public class WorkOrder extends BaseEntity{
 	WorkOrder() {
 	}
 
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public Date getDate() {
 		return new Date(date.getTime());
 	}

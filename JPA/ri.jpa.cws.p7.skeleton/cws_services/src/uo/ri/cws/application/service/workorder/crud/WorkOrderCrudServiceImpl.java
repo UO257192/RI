@@ -2,9 +2,12 @@ package uo.ri.cws.application.service.workorder.crud;
 
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.service.BusinessException;
+import uo.ri.cws.application.service.training.course.command.UpdateCourse;
 import uo.ri.cws.application.service.workorder.WorkOrderCrudService;
 import uo.ri.cws.application.service.workorder.WorkOrderDto;
-import uo.ri.cws.application.service.workorder.crud.command.RegisterNew;
+import uo.ri.cws.application.service.workorder.crud.command.DeleteWorkOrder;
+import uo.ri.cws.application.service.workorder.crud.command.RegisterNewWorkOrder;
+import uo.ri.cws.application.service.workorder.crud.command.UpdateWorkOrder;
 import uo.ri.cws.application.util.command.CommandExecutor;
 
 import java.util.List;
@@ -16,17 +19,17 @@ public class WorkOrderCrudServiceImpl implements WorkOrderCrudService {
 
     @Override
     public WorkOrderDto registerNew(WorkOrderDto dto) throws BusinessException {
-        return executor.execute(new RegisterNew(dto));
+        return executor.execute(new RegisterNewWorkOrder(dto));
     }
 
     @Override
     public void updateWorkOrder(WorkOrderDto dto) throws BusinessException {
-
+        executor.execute(new UpdateWorkOrder(dto));
     }
 
     @Override
     public void deleteWorkOrder(String id) throws BusinessException {
-
+        executor.execute(new DeleteWorkOrder(id));
     }
 
     @Override

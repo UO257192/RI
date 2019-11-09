@@ -59,4 +59,9 @@ public class JpaRepositoryFactory implements RepositoryFactory {
 		return new CourseJpaRepository();
 	}
 
+	@Override
+	public EnrollmentRepository forEnrollment() {
+		return new EnrollmentJpaRepository();
+	}
+
 }

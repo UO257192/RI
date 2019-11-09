@@ -25,5 +25,7 @@ public interface CourseRepository extends Repository<Course> {
 
 	Optional<BigDecimal> findCourseHoursForCertificate(Mechanic mechanic, VehicleType vehicleType);
 
-	List<Enrollment> findAttendanceByCourseId(Course course);
+	Optional<BigDecimal> findTrainingByVehicleTypeAndMechanic(Mechanic mechanic, VehicleType vehicleType);
+
+	Optional<BigDecimal> findEnrolledHoursByVehicleTypeAndMechanic(Mechanic mechanic, VehicleType vehicleType);
 }

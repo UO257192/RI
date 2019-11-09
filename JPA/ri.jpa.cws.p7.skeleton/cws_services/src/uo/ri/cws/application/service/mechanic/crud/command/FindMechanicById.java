@@ -9,6 +9,8 @@ import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.mechanic.MechanicDto;
 import uo.ri.cws.application.util.DtoAssembler;
 import uo.ri.cws.application.util.command.Command;
+import uo.ri.cws.domain.Course;
+import uo.ri.cws.domain.Mechanic;
 
 public class FindMechanicById implements Command< Optional<MechanicDto>> {
 
@@ -21,7 +23,9 @@ public class FindMechanicById implements Command< Optional<MechanicDto>> {
 
 	@Override
 	public Optional<MechanicDto> execute() throws BusinessException {
-		return Optional.of(DtoAssembler.toDto(mechanicRepository.findById(id).get()));
+		Optional<Mechanic> om = mechanicRepository.findById(id);
+		Mechanic m = om.isPresent() ? om.get() : null;
+		return m == null ? Optional.empty() : Optional.of(DtoAssembler.toDto(m));
 	}
 
 }

@@ -4,12 +4,9 @@ import uo.ri.conf.Factory;
 import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.training.CourseCrudService;
 import uo.ri.cws.application.service.training.CourseDto;
-import uo.ri.cws.application.service.training.course.command.DeleteCourse;
-import uo.ri.cws.application.service.training.course.command.FindAllCourses;
-import uo.ri.cws.application.service.training.course.command.RegisterNewCourse;
+import uo.ri.cws.application.service.training.course.command.*;
 import uo.ri.cws.application.service.vehicletype.FindAllVehicleTypes;
 import uo.ri.cws.application.service.vehicletype.VehicleTypeDto;
-import uo.ri.cws.application.service.workorder.crud.command.RegisterNew;
 import uo.ri.cws.application.util.command.CommandExecutor;
 
 import java.util.List;
@@ -26,7 +23,7 @@ public class CourseCrudServiceImpl implements CourseCrudService {
 
     @Override
     public void updateCourse(CourseDto dto) throws BusinessException {
-
+        executor.execute(new UpdateCourse(dto));
     }
 
     @Override
@@ -46,6 +43,6 @@ public class CourseCrudServiceImpl implements CourseCrudService {
 
     @Override
     public Optional<CourseDto> findCourseById(String cId) throws BusinessException {
-        return Optional.empty();
+        return executor.execute(new FindCourseByID(cId));
     }
 }

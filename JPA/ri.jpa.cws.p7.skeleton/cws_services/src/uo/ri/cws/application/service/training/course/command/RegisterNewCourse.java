@@ -5,6 +5,7 @@ import uo.ri.cws.application.repository.CourseRepository;
 import uo.ri.cws.application.repository.VehicleTypeRepository;
 import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.training.CourseDto;
+import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.application.util.DtoAssembler;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Course;
@@ -13,6 +14,7 @@ import uo.ri.cws.domain.VehicleType;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class RegisterNewCourse implements Command<CourseDto> {
 
@@ -26,10 +28,13 @@ public class RegisterNewCourse implements Command<CourseDto> {
 
     @Override
     public CourseDto execute() throws BusinessException {
+        Optional<Course> ocourse = courseRepository.findByCode(courseDto.code);
+        BusinessCheck.isTrue(!ocourse.isPresent(), "Ya existe un curso con el mismo codigo.");
         Map<VehicleType, Integer> percentages = new HashMap<VehicleType,Integer>();
         for (Map.Entry<String, Integer>  entry : courseDto.percentages.entrySet()) {
-            VehicleType v = vehicleTypeRepository.findById(entry.getKey()).get();
-            percentages.put(v, entry.getValue());
+            Optional<VehicleType> ov = vehicleTypeRepository.findById(entry.getKey());
+            BusinessCheck.isTrue(ov.isPresent(), "No existe este tipo de vehiculo.");
+            percentages.put(ov.get(), entry.getValue());
         }
         Course course = new Course(courseDto.code, courseDto.name, courseDto.description, courseDto.startDate, courseDto.endDate, courseDto.hours, percentages);
         courseRepository.add(course);

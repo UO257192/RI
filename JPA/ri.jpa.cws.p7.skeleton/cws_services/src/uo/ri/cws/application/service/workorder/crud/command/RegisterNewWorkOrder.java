@@ -11,22 +11,26 @@ import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Vehicle;
 import uo.ri.cws.domain.WorkOrder;
 
-public class RegisterNew implements Command<WorkOrderDto> {
+import java.util.Optional;
+
+public class RegisterNewWorkOrder implements Command<WorkOrderDto> {
 
     private WorkOrderDto workOrderDto;
     private VehicleRepository vehicleRepository = Factory.repository.forVehicle();
     private WorkOrderRepository workOrderRepository = Factory.repository.forWorkOrder();
 
-    public RegisterNew(WorkOrderDto workOrderDto) {
+    public RegisterNewWorkOrder(WorkOrderDto workOrderDto) {
         this.workOrderDto = workOrderDto;
     }
 
     @Override
     public WorkOrderDto execute() throws BusinessException {
         BusinessCheck.isTrue(workOrderDto.description.trim().length() > 0, "Description is blank");
-        Vehicle vehicle = vehicleRepository.findById(workOrderDto.vehicleId).get();
-        WorkOrder workOrder = new WorkOrder(vehicle);
+        Optional<Vehicle> ovehicle = vehicleRepository.findById(workOrderDto.vehicleId);
+        BusinessCheck.isTrue(ovehicle.isPresent(), "El vehiculo no existe");
+        WorkOrder workOrder = new WorkOrder(ovehicle.get(), workOrderDto.description);
         workOrderRepository.add(workOrder);
-        return DtoAssembler.toDto(workOrderRepository.findById(workOrder.getId()).get());
+        workOrderDto.id = workOrder.getId();
+        return workOrderDto;
     }
 }

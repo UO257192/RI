@@ -17,7 +17,6 @@ public class CourseJpaRepository
         implements CourseRepository {
 	@Override
 	public Optional<Course> findByCode(String code) {
-		System.out.println(code);
 		return Jpa.getManager()
 				.createNamedQuery("Course.findByCode", Course.class)
 				.setParameter(1, code)
@@ -36,12 +35,22 @@ public class CourseJpaRepository
 	}
 
 	@Override
-	public List<Enrollment> findAttendanceByCourseId(Course course) {
+	public Optional<BigDecimal> findTrainingByVehicleTypeAndMechanic(Mechanic mechanic, VehicleType vehicleType) {
 		return Jpa.getManager()
-				.createNamedQuery("Enrollment.findAttendanceByCourseId", Enrollment.class)
-				.setParameter(1, course)
-				.getResultList();
+				.createNamedQuery("Course.findTrainingByVehicleTypeAndMechanic", BigDecimal.class)
+				.setParameter(1, mechanic)
+				.setParameter(2, vehicleType)
+				.getResultList().stream()
+				.findFirst();
 	}
 
-
+	@Override
+	public Optional<BigDecimal> findEnrolledHoursByVehicleTypeAndMechanic(Mechanic mechanic, VehicleType vehicleType) {
+		return Jpa.getManager()
+				.createNamedQuery("Course.findEnrolledHoursByVehicleTypeAndMechanic", BigDecimal.class)
+				.setParameter(1, mechanic)
+				.setParameter(2, vehicleType)
+				.getResultList().stream()
+				.findFirst();
+	}
 }

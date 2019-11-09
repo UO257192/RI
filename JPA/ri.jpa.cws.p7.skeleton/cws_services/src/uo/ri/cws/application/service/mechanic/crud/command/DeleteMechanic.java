@@ -10,6 +10,7 @@ import uo.ri.cws.domain.Mechanic;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import java.util.Optional;
 
 public class DeleteMechanic implements Command<Void> {
 
@@ -25,9 +26,9 @@ public class DeleteMechanic implements Command<Void> {
 
         BusinessCheck.isTrue(mechanicId.trim().length() != 0);
 
-        Mechanic mechanic = mechanicRepository.findByDni(mechanicId).get();
-        BusinessCheck.isTrue(mechanic != null, "The mechanic dies not exists");
-		mechanicRepository.remove(mechanic);
+        Optional<Mechanic> omechanic = mechanicRepository.findByDni(mechanicId);
+        BusinessCheck.isTrue(omechanic.isPresent(), "El mecanico no existe");
+		mechanicRepository.remove(omechanic.get());
         return null;
     }
 
