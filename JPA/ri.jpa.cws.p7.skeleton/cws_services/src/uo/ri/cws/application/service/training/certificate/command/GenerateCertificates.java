@@ -1,12 +1,13 @@
 package uo.ri.cws.application.service.training.certificate.command;
 
 import uo.ri.conf.Factory;
-import uo.ri.cws.application.repository.*;
+import uo.ri.cws.application.repository.CertificateRepository;
+import uo.ri.cws.application.repository.CourseRepository;
+import uo.ri.cws.application.repository.MechanicRepository;
+import uo.ri.cws.application.repository.VehicleTypeRepository;
 import uo.ri.cws.application.service.BusinessException;
-import uo.ri.cws.application.service.mechanic.MechanicDto;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Certificate;
-import uo.ri.cws.domain.Course;
 import uo.ri.cws.domain.Mechanic;
 import uo.ri.cws.domain.VehicleType;
 
@@ -31,7 +32,7 @@ public class GenerateCertificates implements Command<Integer> {
                 if(!certificateRepository.findCertificateFor(mechanic, vehicleType).isPresent()){
                     Optional<BigDecimal> hours = courseRepository.findCourseHoursForCertificate(mechanic,vehicleType);
                     if(hours.isPresent() && hours.get().toBigInteger().intValue() >= vehicleType.getMinTrainingHours()){
-                        //certificateRepository.add(new Certificate(mechanic,vehicleType));
+                        certificateRepository.add(new Certificate(mechanic,vehicleType));
                         numCertificates++;
                     }
                 }

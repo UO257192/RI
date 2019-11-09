@@ -14,11 +14,9 @@ public class UpdateMechanicAction implements Action {
 
 	@Override
 	public void execute() throws BusinessException {
-		
-		// Ask the user for the mechanic id
+
 		String id = Console.readString("Mechanic id"); 
-		
-		// Invoke the service and show the data
+
 		MechanicCrudService as = Factory.service.forMechanicCrudService();
 
 		Optional<MechanicDto> res = as.findMechanicById(id);
@@ -27,15 +25,12 @@ public class UpdateMechanicAction implements Action {
 		}
 		MechanicDto m = res.get();
 		Printer.printMechanic(m);
-		
-		// Ask for new data
+
 		m.name = Console.readString("Name"); 
-		m.surname = Console.readString("Surname"); // Doi is the identity, cannot be changed
-		
-		// Update
+		m.surname = Console.readString("Surname");
+
 		as.updateMechanic( m );
-		
-		// Show the result
+
 		Console.println("The mechanic has been updated");
 	}
 

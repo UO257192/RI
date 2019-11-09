@@ -1,20 +1,18 @@
 package uo.ri.cws.application.service.training.course.command;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.repository.CourseRepository;
 import uo.ri.cws.application.repository.VehicleTypeRepository;
 import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.training.CourseDto;
 import uo.ri.cws.application.util.BusinessCheck;
-import uo.ri.cws.application.util.DtoAssembler;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Course;
-import uo.ri.cws.domain.Vehicle;
 import uo.ri.cws.domain.VehicleType;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
 
 public class RegisterNewCourse implements Command<CourseDto> {
 

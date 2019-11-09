@@ -1,6 +1,7 @@
 package uo.ri.cws.application.service.workorder.assign.command;
 
-import com.sun.corba.se.spi.orbutil.threadpool.Work;
+import java.util.Optional;
+
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.repository.MechanicRepository;
 import uo.ri.cws.application.repository.WorkOrderRepository;
@@ -9,8 +10,6 @@ import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Mechanic;
 import uo.ri.cws.domain.WorkOrder;
-
-import java.util.Optional;
 
 public class AssignWorkOrderMechanic implements Command<Void> {
     private WorkOrderRepository workOrderRepository = Factory.repository.forWorkOrder();

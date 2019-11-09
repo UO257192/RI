@@ -1,7 +1,8 @@
 package uo.ri.cws.application.service.workorder.crud.command;
 
+import java.util.Optional;
+
 import alb.util.assertion.StateCheck;
-import com.sun.corba.se.spi.orbutil.threadpool.Work;
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.repository.WorkOrderRepository;
 import uo.ri.cws.application.service.BusinessException;
@@ -9,8 +10,6 @@ import uo.ri.cws.application.service.workorder.WorkOrderDto;
 import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.WorkOrder;
-
-import java.util.Optional;
 
 public class UpdateWorkOrder implements Command<Void> {
 

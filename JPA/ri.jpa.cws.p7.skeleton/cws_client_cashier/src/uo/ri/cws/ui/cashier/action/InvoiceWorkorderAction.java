@@ -17,7 +17,6 @@ public class InvoiceWorkorderAction implements Action {
 	public void execute() throws BusinessException {
 		List<String> workOrderIds = new ArrayList<>();
 
-		// Ask the user the work order ids
 		do {
 			String id = Console.readString("Workorder id");
 			workOrderIds.add(id);

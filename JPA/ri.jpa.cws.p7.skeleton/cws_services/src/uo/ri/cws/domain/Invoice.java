@@ -37,9 +37,6 @@ public class Invoice extends BaseEntity{
     }
 
     public Invoice(Long number, Date date) {
-        // check arguments (always), through IllegalArgumentException
-        // store the number
-        // store a copy of the date
         Argument.isNotNull(date);
         Argument.isNotNull(number);
         this.number = number;
@@ -139,9 +136,7 @@ public class Invoice extends BaseEntity{
      * Computed amount and vat (vat depends on the date)
      */
     private void computeAmount() {
-		// iva = ...
 		vat = Dates.fromString("1/7/2012").before(date) ? 21.0 : 18.0;
-		// importe = ...
 		amount = 0L;
 		for(WorkOrder workOrder : workOrders)
 			amount += workOrder.getAmount();
@@ -158,17 +153,12 @@ public class Invoice extends BaseEntity{
      * @see State diagrams on the problem statement document
      */
     public void addWorkOrder(WorkOrder workOrder) {
-		// Verificar que la factura está en estado SIN_ABONAR
 		if(!this.status.equals(InvoiceStatus.NOT_YET_PAID))
 			throw new IllegalStateException("La factura debe estar en estado SIN_ABONAR");
-		// Verificar que La averia está TERMINADA
 		if(!workOrder.getStatus().equals(WorkOrder.WorkOrderStatus.FINISHED))
 			throw new IllegalStateException("La avería debe estar en estado TERMINADA");
-		// linkar factura y averia
 		Associations.ToInvoice.link(workOrder, this);
-		// marcar la averia como FACTURADA ( averia.markAsInvoiced() )
 		workOrder.markAsInvoiced();
-		// calcular el importe
 		this.computeAmount();
     }
 
@@ -180,14 +170,10 @@ public class Invoice extends BaseEntity{
      * @see State diagrams on the problem statement document
      */
     public void removeWorkOrder(WorkOrder workOrder) {
-		// verificar que la factura está sin abonar
 		if(!this.status.equals(InvoiceStatus.NOT_YET_PAID))
 			throw new IllegalStateException("La factura debe estar en estado SIN_ABONAR");
-		// desenlazar factura y averia
 		Associations.ToInvoice.unlink(workOrder, this);
-		// retornar la averia al estado FINALIZADA ( averia.markBackToFinished() )
 		workOrder.markBackToFinished();
-		// volver a calcular el importe
 		this.computeAmount();
     }
 

@@ -11,14 +11,11 @@ public class RemoveCourseAction implements Action {
 	@Override
 	public void execute() throws BusinessException {
 
-		// Ask the user for data
 		String cId = Console.readString("Course id");
 
-		// Invoke the service
 		CourseCrudService cs = Factory.service.forCourseCrudService();
 		cs.deleteCourse( cId );
 
-		// Show result
 		Console.println("Course removed");
 	}
 

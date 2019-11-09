@@ -9,14 +9,12 @@ public class RemoveAttendanceAction implements Action {
 
 	@Override
 	public void execute() throws Exception {
-		// Ask the user for data
+
 		String attId = Console.readString("Attendance id");
 
-		// Invoke the service
 		CourseAttendanceService cs = Factory.service.forCourseAttendanceService();
 		cs.deleteAttendace( attId );
 
-		// Show result
 		Console.println("Course attendance removed");
 	}
 

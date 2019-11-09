@@ -8,10 +8,6 @@ import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Mechanic;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-
 public class AddMechanic implements Command<MechanicDto> {
 
     private MechanicDto dto;

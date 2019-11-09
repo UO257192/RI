@@ -1,16 +1,14 @@
 package uo.ri.cws.infrastructure.persistence.jpa.repository;
 
+import java.math.BigDecimal;
+import java.util.Optional;
+
 import uo.ri.cws.application.repository.CourseRepository;
 import uo.ri.cws.domain.Course;
-import uo.ri.cws.domain.Enrollment;
 import uo.ri.cws.domain.Mechanic;
 import uo.ri.cws.domain.VehicleType;
 import uo.ri.cws.infrastructure.persistence.jpa.util.BaseJpaRepository;
 import uo.ri.cws.infrastructure.persistence.jpa.util.Jpa;
-
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.Optional;
 
 public class CourseJpaRepository
         extends BaseJpaRepository<Course>

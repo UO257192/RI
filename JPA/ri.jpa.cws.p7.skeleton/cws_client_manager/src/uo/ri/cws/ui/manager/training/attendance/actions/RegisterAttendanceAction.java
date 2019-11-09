@@ -14,15 +14,12 @@ public class RegisterAttendanceAction implements Action {
 	@Override
 	public void execute() throws BusinessException {
 
-		// Ask the user for data
 		EnrollmentDto att = new EnrollmentDto();
 		user.fill( att );
 
-		// Invoke the service
 		CourseAttendanceService cs = Factory.service.forCourseAttendanceService();
 		cs.registerNew( att );
 
-		// Show result
 		Console.println("Attendance registered:" + att.id);
 	}
 

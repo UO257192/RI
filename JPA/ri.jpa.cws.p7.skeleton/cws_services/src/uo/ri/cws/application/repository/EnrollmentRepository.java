@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface EnrollmentRepository extends Repository<Enrollment> {
 
-    Optional<Enrollment> findByMechanicCourse(Course course, Mechanic mechanic);
+	Optional<Enrollment> findByMechanicCourse(Course course, Mechanic mechanic);
 
-    List<Enrollment> findAttendanceByCourseId(Course course);
+	List<Enrollment> findAttendanceByCourseId(Course course);
 }

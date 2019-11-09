@@ -16,7 +16,6 @@ public class UpdateCourseAction implements Action {
 	@Override
 	public void execute() throws BusinessException {
 
-		// Ask the user for data
 		String cId = Console.readString("Course id");
 		CourseCrudService cs = Factory.service.forCourseCrudService();
 		Optional<CourseDto> oc = cs.findCourseById( cId );
@@ -25,10 +24,8 @@ public class UpdateCourseAction implements Action {
 		CourseDto c = oc.get();
 		user.fill( c );
 
-		// Invoke the service
 		cs.updateCourse( c );
 
-		// Show result
 		Console.println("Course updated");
 	}
 

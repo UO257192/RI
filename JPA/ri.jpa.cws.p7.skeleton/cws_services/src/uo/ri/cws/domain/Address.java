@@ -15,7 +15,7 @@ public class Address {
 		this.zipCode = zipCode;
 	}
 
-	public Address() {
+	Address() {
 
 	}
 

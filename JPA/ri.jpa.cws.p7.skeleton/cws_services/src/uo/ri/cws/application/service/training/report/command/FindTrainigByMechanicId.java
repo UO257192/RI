@@ -1,21 +1,20 @@
 package uo.ri.cws.application.service.training.report.command;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.repository.CourseRepository;
 import uo.ri.cws.application.repository.MechanicRepository;
 import uo.ri.cws.application.repository.VehicleTypeRepository;
 import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.training.TrainingForMechanicRow;
-import uo.ri.cws.application.service.training.TrainingHoursRow;
 import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Mechanic;
 import uo.ri.cws.domain.VehicleType;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 public class FindTrainigByMechanicId implements Command<List<TrainingForMechanicRow>> {
 

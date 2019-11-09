@@ -198,12 +198,9 @@ public class WorkOrder extends BaseEntity{
 	 *                               mechanic
 	 */
 	public void assignTo(Mechanic mechanic) {
-		// Solo se puede asignar una averia que está ABIERTA
 		if(!this.status.equals(WorkOrderStatus.OPEN))
 			throw new IllegalStateException("Solo se puede saignar una avería ABIERTA");
-		// linkado de averia y mecanico
 		Associations.Assign.link(mechanic, this);
-		// la averia pasa a ASIGNADA
 		this.status = WorkOrderStatus.ASSIGNED;
 	}
 
@@ -229,10 +226,8 @@ public class WorkOrder extends BaseEntity{
 	 * @throws IllegalStateException if - The work order is not in FINISHED status
 	 */
 	public void reopen() {
-		// Se verifica que está en estado TERMINADA
 		if(!this.status.equals(WorkOrderStatus.FINISHED))
 			throw new IllegalStateException("La avería no está en estado TERMINADA");
-		// Se pasa la averia a ABIERTA
 		this.status = WorkOrderStatus.OPEN;
 	}
 

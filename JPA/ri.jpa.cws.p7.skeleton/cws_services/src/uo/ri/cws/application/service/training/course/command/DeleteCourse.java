@@ -1,5 +1,7 @@
 package uo.ri.cws.application.service.training.course.command;
 
+import java.util.Optional;
+
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.repository.CourseRepository;
 import uo.ri.cws.application.repository.EnrollmentRepository;
@@ -7,11 +9,6 @@ import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Course;
-import uo.ri.cws.domain.Enrollment;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 
 public class DeleteCourse implements Command<Void> {
 

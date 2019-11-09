@@ -1,15 +1,11 @@
 package uo.ri.cws.application;
 
+import javax.persistence.EntityManager;
+
 import uo.ri.cws.application.service.BusinessException;
-import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.application.util.command.CommandExecutor;
-import uo.ri.cws.domain.Mechanic;
 import uo.ri.cws.infrastructure.persistence.jpa.util.Jpa;
-
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 
 public class CommandManager implements CommandExecutor {
 

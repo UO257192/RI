@@ -43,7 +43,7 @@ public class Printer {
 	private static void printPaymentMean(PaymentMeanDto medio) {
 		Console.printf("\t%s \t%-8.8s \t%s \n"
 				, medio.id
-				, medio.getClass().getName()  // not the best...
+				, medio.getClass().getName()
 				, medio.accumulated
 		);
 	}

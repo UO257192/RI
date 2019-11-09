@@ -4,8 +4,6 @@ import java.util.Optional;
 
 import uo.ri.cws.application.repository.InvoiceRepository;
 import uo.ri.cws.domain.Invoice;
-import uo.ri.cws.domain.Mechanic;
-import uo.ri.cws.domain.Vehicle;
 import uo.ri.cws.infrastructure.persistence.jpa.util.BaseJpaRepository;
 import uo.ri.cws.infrastructure.persistence.jpa.util.Jpa;
 

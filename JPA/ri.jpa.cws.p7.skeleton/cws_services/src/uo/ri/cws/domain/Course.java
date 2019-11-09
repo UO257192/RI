@@ -1,10 +1,21 @@
 package uo.ri.cws.domain;
 
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import alb.util.assertion.Argument;
 import alb.util.assertion.StateCheck;
-
-import javax.persistence.*;
-import java.util.*;
 
 @Entity
 @Table(name = "TCOURSES")
@@ -145,7 +156,6 @@ public class Course extends BaseEntity{
     }
 
     public void addDedications(Map<VehicleType, Integer> percentages) {
-        Set<Dedication> aux = new HashSet<>();
         int totalPercentages = 0;
         for (Dedication dedication : dedications) {
             if(dedication.getCourse().equals(this)){
