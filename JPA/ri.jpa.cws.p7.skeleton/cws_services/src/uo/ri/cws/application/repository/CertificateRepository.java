@@ -12,4 +12,6 @@ public interface CertificateRepository extends Repository<Certificate> {
 	Optional<Certificate> findCertificateFor(Mechanic mechanic, VehicleType vehicleType);
 
 	List<Certificate> findCertificatedByVehicleType();
+
+	List<Certificate> findMechanicsCertificatedForVehicleType(VehicleType vehicleType);
 }

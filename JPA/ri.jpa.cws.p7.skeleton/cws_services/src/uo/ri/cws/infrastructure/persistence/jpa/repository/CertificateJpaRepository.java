@@ -27,4 +27,12 @@ public class CertificateJpaRepository
                 .createNamedQuery("Certificate.findCertificatedByVehicleType", Certificate.class)
                 .getResultList();
     }
+
+    @Override
+    public List<Certificate> findMechanicsCertificatedForVehicleType(VehicleType vehicleType) {
+        return Jpa.getManager()
+                .createNamedQuery("Certificate.findMechanicsCertificatedForVehicleType", Certificate.class)
+                .setParameter(1, vehicleType)
+                .getResultList();
+    }
 }

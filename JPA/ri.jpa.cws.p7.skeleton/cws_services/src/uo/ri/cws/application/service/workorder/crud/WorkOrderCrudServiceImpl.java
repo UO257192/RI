@@ -8,6 +8,7 @@ import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.workorder.WorkOrderCrudService;
 import uo.ri.cws.application.service.workorder.WorkOrderDto;
 import uo.ri.cws.application.service.workorder.crud.command.DeleteWorkOrder;
+import uo.ri.cws.application.service.workorder.crud.command.FindWorkOrderByID;
 import uo.ri.cws.application.service.workorder.crud.command.RegisterNewWorkOrder;
 import uo.ri.cws.application.service.workorder.crud.command.UpdateWorkOrder;
 import uo.ri.cws.application.util.command.CommandExecutor;
@@ -33,7 +34,7 @@ public class WorkOrderCrudServiceImpl implements WorkOrderCrudService {
 
     @Override
     public Optional<WorkOrderDto> findWorkOrderById(String woId) throws BusinessException {
-        return Optional.empty();
+        return executor.execute(new FindWorkOrderByID(woId));
     }
 
     @Override
