@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import uo.ri.business.dto.CertificateDto;
@@ -112,6 +113,35 @@ public class CertificateGatewayImpl implements CertificateGateway {
 				dto.mechanic.surname = rs.getString(5);
 				dto.vehicleType = new VehicleTypeDto();
 				dto.vehicleType.id = rs.getLong(6);
+				certificateDtos.add(dto);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException("ERROR");
+		}
+		return certificateDtos;
+	}
+
+	@Override
+	public List<CertificateDto> findCertificatesFromDate(Date date) {
+		List<CertificateDto> certificateDtos = new ArrayList<CertificateDto>();
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		String SQL_FIND_CERTIFICATE_BY_VEHICLETYPE_ID = Conf.getInstance().getProperty("SQL_FIND_CERTIFICATE_FROM_DATE");
+		try {
+			pst = c.prepareStatement(SQL_FIND_CERTIFICATE_BY_VEHICLETYPE_ID);
+			pst.setDate(1, new java.sql.Date(date.getTime()));
+			rs = pst.executeQuery();
+			while(rs.next()) {
+				CertificateDto dto = new CertificateDto();
+				dto.id = rs.getLong(1);
+				dto.obtainedAt = rs.getDate(2);
+				dto.mechanic = new MechanicDto();
+				dto.mechanic.id = rs.getLong(3);
+				dto.mechanic.name = rs.getString(4);
+				dto.mechanic.surname = rs.getString(5);
+				dto.vehicleType = new VehicleTypeDto();
+				dto.vehicleType.id = rs.getLong(6);
+				dto.vehicleType.name = rs.getString(7);
 				certificateDtos.add(dto);
 			}
 		} catch (SQLException e) {

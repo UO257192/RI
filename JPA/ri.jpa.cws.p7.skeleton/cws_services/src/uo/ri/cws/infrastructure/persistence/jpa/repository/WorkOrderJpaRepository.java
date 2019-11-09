@@ -17,6 +17,6 @@ public class WorkOrderJpaRepository
 				.createNamedQuery("WorkOrder.findByIds", WorkOrder.class)
 				.setParameter( 1, idsAveria )
 				.getResultList();
-		}
+	}
 
 }

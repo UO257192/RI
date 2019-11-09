@@ -12,9 +12,9 @@ public class ForemanMain {
 
 	public static void main(String[] args) {
 		new ForemanMain()
-			.config()
-			.run()
-			.close();
+				.config()
+				.run()
+				.close();
 	}
 
 	private ForemanMain config() {

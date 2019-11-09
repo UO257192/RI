@@ -1,15 +1,6 @@
 package uo.ri.cws.infrastructure.persistence.jpa.repository;
 
-import uo.ri.cws.application.repository.ClientRepository;
-import uo.ri.cws.application.repository.InterventionRepository;
-import uo.ri.cws.application.repository.InvoiceRepository;
-import uo.ri.cws.application.repository.MechanicRepository;
-import uo.ri.cws.application.repository.PaymentMeanRepository;
-import uo.ri.cws.application.repository.RepositoryFactory;
-import uo.ri.cws.application.repository.SparePartRepository;
-import uo.ri.cws.application.repository.VehicleRepository;
-import uo.ri.cws.application.repository.VehicleTypeRepository;
-import uo.ri.cws.application.repository.WorkOrderRepository;
+import uo.ri.cws.application.repository.*;
 
 public class JpaRepositoryFactory implements RepositoryFactory {
 
@@ -56,6 +47,16 @@ public class JpaRepositoryFactory implements RepositoryFactory {
 	@Override
 	public VehicleTypeRepository forVehicleType() {
 		return new VehicleTypeJpaRepository();
+	}
+
+	@Override
+	public CertificateRepository forCertificate() {
+		return new CertificateJpaRepository();
+	}
+
+	@Override
+	public CourseRepository forCourse() {
+		return new CourseJpaRepository();
 	}
 
 }

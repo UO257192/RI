@@ -24,7 +24,7 @@ public class CashierMain {
 
 		return this;
 	}
-	
+
 	public CashierMain run() {
 		try {
 			new MainMenu().execute();

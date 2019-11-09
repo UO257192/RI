@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/AlbUtil"/>
-	<classpathentry kind="lib" path="C:/Users/Elmer/Documents/RI/CWS0WithAlbUtil/CWS0/lib/hsqldb.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Elmer/Documents/RI/CWS0WithAlbUtil/CWS0/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Elmer/Documents/RI/JDBC/CWS0WithAlbUtil/CWS0/lib/hsqldb.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Elmer/Documents/RI/JDBC/CWS0WithAlbUtil/CWS0/lib/ojdbc6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

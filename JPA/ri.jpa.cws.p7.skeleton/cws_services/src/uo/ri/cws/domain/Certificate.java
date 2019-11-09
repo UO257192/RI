@@ -39,6 +39,9 @@ public class Certificate extends BaseEntity{
         this.mechanic = mechanic;
     }
 
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
     VehicleType _getVehicleType() {
         return vehicleType;
     }

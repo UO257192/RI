@@ -87,7 +87,7 @@ public class PersistenceTest {
 		assertTrue( vehiculos.size() == 1 );
 		assertSame( v.getClient(), cl);
 		assertNotNull( v.getId());
-		assertEquals( v.getBrand(), "seat" );
+		assertEquals( v.getMake(), "seat" );
 		assertEquals( v.getModel(), "ibiza" );
 		assertEquals( v.getPlateNumber(), "1234 GJI" );
 		

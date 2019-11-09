@@ -1,5 +1,6 @@
 package uo.ri.business.serviceLayer.training;
 
+import java.util.Date;
 import java.util.List;
 
 import uo.ri.business.dto.CertificateDto;
@@ -45,5 +46,8 @@ public interface CourseReportService {
 	 * @throws BusinessException, DOES NOT
 	 */
 	List<CertificateDto> findCertificatedByVehicleType()
+			throws BusinessException;
+	
+	List<CertificateDto> findCertificateFromDate(Date date)
 			throws BusinessException;
 }

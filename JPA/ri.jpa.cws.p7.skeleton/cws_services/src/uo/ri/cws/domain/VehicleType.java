@@ -14,7 +14,7 @@ public class VehicleType extends BaseEntity {
 	@Column(unique = true, nullable=false)
 	private String name;
 	private double pricePerHour;
-	//private int mintraininghours;
+	private int mintraininghours;
 
 	@OneToMany(mappedBy = "vehicleType")
 	private Set<Vehicle> vehicles = new HashSet<>();
@@ -67,6 +67,11 @@ public class VehicleType extends BaseEntity {
 	public Set<Certificate> getCertificates() {
 		return new HashSet<Certificate>(certificates);
 	}
+
+	public int getMinTrainingHours() {
+		return mintraininghours;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -1,6 +1,7 @@
 package uo.ri.ui.administrator.report;
 
 import alb.util.menu.BaseMenu;
+import uo.ri.ui.administrator.report.action.ListCertificateByDateAction;
 import uo.ri.ui.administrator.report.action.ListCertificationsByVehicleTypeAction;
 import uo.ri.ui.administrator.report.action.ListTrainingByVehicleTypeAction;
 import uo.ri.ui.administrator.report.action.ListTrainingOfMechanicAction;
@@ -16,7 +17,9 @@ public class ReportsMenu extends BaseMenu {
 			{ "Training by vehicle types",
 					ListTrainingByVehicleTypeAction.class },
 			{ "Certifications by vehicle type",
-					ListCertificationsByVehicleTypeAction.class } 
+					ListCertificationsByVehicleTypeAction.class },
+			{ "Defensa: Certificados a partir de una fecha",
+						ListCertificateByDateAction.class } 
 		};
 	}
 

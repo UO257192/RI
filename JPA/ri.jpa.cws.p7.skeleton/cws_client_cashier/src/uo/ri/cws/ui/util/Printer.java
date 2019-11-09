@@ -27,7 +27,7 @@ public class Printer {
 	public static void printPaymentMeans(List<PaymentMeanDto> medios) {
 		Console.println();
 		Console.println("Medios de pago disponibles");
-		
+
 		Console.printf("\t%s \t%-8.8s \t%s \n", "ID", "Tipo", "Acumulado");
 		for (PaymentMeanDto medio : medios) {
 			printPaymentMean( medio );
@@ -35,7 +35,7 @@ public class Printer {
 	}
 
 	private static void printPaymentMean(PaymentMeanDto medio) {
-		Console.printf("\t%s \t%-8.8s \t%s \n", 
+		Console.printf("\t%s \t%-8.8s \t%s \n",
 				medio.id,
 				medio.getClass().getName(),  // not the best...
 				medio.accumulated
@@ -43,10 +43,10 @@ public class Printer {
 	}
 
 	public static void printWorkOrder(WorkOrderDto rep) {
-		
-		Console.printf("\t%s \t%-40.40s \t%td/%<tm/%<tY \t%-12.12s \t%.2f\n",  
+
+		Console.printf("\t%d \t%-40.40s \t%td/%<tm/%<tY \t%-12.12s \t%.2f\n",
 				rep.id
-				, rep.description 
+				, rep.description
 				, rep.date
 				, rep.status
 				, rep.total
@@ -55,12 +55,12 @@ public class Printer {
 
 	public static void printMechanic(MechanicDto m) {
 
-		Console.printf("\t%s %-10.10s %-25.25s %-25.25s\n",  
+		Console.printf("\t%d %-10.10s %-25.25s %-25.25s\n",
 				m.id
 				, m.dni
 				, m.name
 				, m.surname
-			);
+		);
 	}
 
 }

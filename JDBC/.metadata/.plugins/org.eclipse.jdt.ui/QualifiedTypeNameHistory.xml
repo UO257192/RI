@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="uo.ri.business.transactionScripts.foreman.FindVehicleByPlate"/>
 <fullyQualifiedTypeName name="java.util.Optional"/>
 <fullyQualifiedTypeName name="uo.ri.business.serviceLayer.workorder.impl.WorkOrderServiceImpl"/>
 <fullyQualifiedTypeName name="uo.ri.business.transactionScripts.foreman.UpdateWorkOrderDescription"/>
@@ -17,16 +16,12 @@
 <fullyQualifiedTypeName name="uo.ri.business.serviceLayer.training.CourseCrudService"/>
 <fullyQualifiedTypeName name="uo.ri.business.dto.TrainingHoursRow"/>
 <fullyQualifiedTypeName name="alb.util.console.Printer"/>
-<fullyQualifiedTypeName name="uo.ri.ui.util.Printer"/>
 <fullyQualifiedTypeName name="uo.ri.business.serviceLayer.mechanic.MechanicCrudService"/>
 <fullyQualifiedTypeName name="uo.ri.business.dto.WorkOrderDto"/>
 <fullyQualifiedTypeName name="javax.net.ssl.SSLEngineResult.Status"/>
-<fullyQualifiedTypeName name="alb.util.console.Console"/>
 <fullyQualifiedTypeName name="uo.ri.business.dto.VehicleTypeDto"/>
 <fullyQualifiedTypeName name="uo.ri.business.transactionScripts.administrator.ListMechanicsByVehicleType"/>
 <fullyQualifiedTypeName name="uo.ri.persistance.vehicle.VehicleTypeGateway"/>
-<fullyQualifiedTypeName name="uo.ri.persistance.certificate.CertificateGateway"/>
-<fullyQualifiedTypeName name="uo.ri.business.dto.CertificateDto"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="uo.ri.ui.administrator.courses.CourseCrudMenu"/>
 <fullyQualifiedTypeName name="uo.ri.business.transactionScripts.administrator.RegisterNewCourse"/>
@@ -40,8 +35,6 @@
 <fullyQualifiedTypeName name="alb.util.menu.NotYetImplementedAction"/>
 <fullyQualifiedTypeName name="uo.ri.business.dto.CourseDto"/>
 <fullyQualifiedTypeName name="java.sql.Timestamp"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="alb.util.date.Dates"/>
 <fullyQualifiedTypeName name="uo.ri.business.serviceLayer.training.impl.CourseAttendanceServiceImpl"/>
 <fullyQualifiedTypeName name="uo.ri.business.transactionScripts.administrator.FindAllEnrollments"/>
 <fullyQualifiedTypeName name="uo.ri.business.transactionScripts.administrator.FindAllCourses"/>
@@ -55,9 +48,16 @@
 <fullyQualifiedTypeName name="uo.ri.business.dto.EnrollmentDto"/>
 <fullyQualifiedTypeName name="uo.ri.conf.Factory"/>
 <fullyQualifiedTypeName name="uo.ri.business.dto.TrainingForMechanicRow"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="uo.ri.business.transactionScripts.administrator.ListTrainingForMechanic"/>
 <fullyQualifiedTypeName name="uo.ri.persistance.training.EnrollmentGateway"/>
 <fullyQualifiedTypeName name="uo.ri.persistance.workorder.WorkOrderGateway"/>
+<fullyQualifiedTypeName name="alb.util.date.Dates"/>
+<fullyQualifiedTypeName name="alb.util.console.Console"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="uo.ri.persistance.certificate.CertificateGateway"/>
+<fullyQualifiedTypeName name="uo.ri.ui.administrator.report.action.ListCertificateByDateAction"/>
+<fullyQualifiedTypeName name="uo.ri.business.dto.CertificateDto"/>
+<fullyQualifiedTypeName name="uo.ri.ui.util.Printer"/>
 </qualifiedTypeNameHistroy>

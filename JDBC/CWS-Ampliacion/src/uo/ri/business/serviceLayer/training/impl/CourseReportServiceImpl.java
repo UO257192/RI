@@ -1,11 +1,13 @@
 package uo.ri.business.serviceLayer.training.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import uo.ri.business.dto.CertificateDto;
 import uo.ri.business.dto.TrainingForMechanicRow;
 import uo.ri.business.dto.TrainingHoursRow;
 import uo.ri.business.serviceLayer.training.CourseReportService;
+import uo.ri.business.transactionScripts.administrator.courseReport.ListCertificateFrom;
 import uo.ri.business.transactionScripts.administrator.courseReport.ListMechanicTrainingHoursByVehicleType;
 import uo.ri.business.transactionScripts.administrator.courseReport.ListTrainingForMechanic;
 import uo.ri.business.transactionScripts.administrator.mechanic.ListMechanicsByVehicleType;
@@ -29,6 +31,12 @@ public class CourseReportServiceImpl implements CourseReportService {
 	public List<CertificateDto> findCertificatedByVehicleType() throws BusinessException {
 		ListMechanicsByVehicleType as = new ListMechanicsByVehicleType();
 		return as.execute();
+	}
+
+	@Override
+	public List<CertificateDto> findCertificateFromDate(Date date) throws BusinessException {
+		ListCertificateFrom list = new ListCertificateFrom(date);
+		return list.execute();
 	}
 
 }

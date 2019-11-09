@@ -33,8 +33,12 @@ public class Enrollment extends BaseEntity{
         this.passed = passed;
     }
 
-    Mechanic _getMechanic() {
+    public Mechanic getMechanic() {
         return mechanic;
+    }
+
+    public Course getCourse() {
+        return course;
     }
 
     Course _getCourse() {

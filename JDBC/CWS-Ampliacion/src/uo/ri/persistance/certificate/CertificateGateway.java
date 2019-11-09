@@ -1,6 +1,7 @@
 package uo.ri.persistance.certificate;
 
 import java.sql.Connection;
+import java.util.Date;
 import java.util.List;
 
 import uo.ri.business.dto.CertificateDto;
@@ -38,4 +39,6 @@ public interface CertificateGateway {
 	void generateCertificate(Long mechanicID, Long vehicleTypeID);
 	
 	List<CertificateDto> findCertificatesByVehicleID(Long vehicleID);
+	
+	List<CertificateDto> findCertificatesFromDate(Date date);
 }

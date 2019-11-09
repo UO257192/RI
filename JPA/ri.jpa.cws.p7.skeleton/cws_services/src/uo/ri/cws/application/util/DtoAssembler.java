@@ -1,43 +1,46 @@
 package uo.ri.cws.application.util;
 
+import uo.ri.cws.application.service.client.ClientDto;
+import uo.ri.cws.application.service.invoice.*;
+import uo.ri.cws.application.service.mechanic.MechanicDto;
+import uo.ri.cws.application.service.training.CertificateDto;
+import uo.ri.cws.application.service.training.CourseDto;
+import uo.ri.cws.application.service.training.EnrollmentDto;
+import uo.ri.cws.application.service.vehicle.VehicleDto;
+import uo.ri.cws.application.service.vehicletype.VehicleTypeDto;
+import uo.ri.cws.application.service.workorder.WorkOrderDto;
+import uo.ri.cws.domain.Certificate;
+import uo.ri.cws.domain.Mechanic;
+import uo.ri.cws.domain.Vehicle;
+import uo.ri.cws.domain.VehicleType;
+import uo.ri.cws.domain.Client;
+import uo.ri.cws.domain.Course;
+import uo.ri.cws.domain.Dedication;
+import uo.ri.cws.domain.Enrollment;
+import uo.ri.cws.domain.Invoice;
+import uo.ri.cws.domain.Cash;
+import uo.ri.cws.domain.CreditCard;
+import uo.ri.cws.domain.PaymentMean;
+import uo.ri.cws.domain.Voucher;
+import uo.ri.cws.domain.WorkOrder;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import uo.ri.cws.application.service.client.ClientDto;
-import uo.ri.cws.application.service.invoice.CardDto;
-import uo.ri.cws.application.service.invoice.CashDto;
-import uo.ri.cws.application.service.invoice.InvoiceDto;
-import uo.ri.cws.application.service.invoice.PaymentMeanDto;
-import uo.ri.cws.application.service.invoice.VoucherDto;
-import uo.ri.cws.application.service.mechanic.MechanicDto;
-import uo.ri.cws.application.service.vehicle.VehicleDto;
-import uo.ri.cws.application.service.vehicletype.VehicleTypeDto;
-import uo.ri.cws.application.service.workorder.WorkOrderDto;
-import uo.ri.cws.domain.Cash;
-import uo.ri.cws.domain.Client;
-import uo.ri.cws.domain.CreditCard;
-import uo.ri.cws.domain.Invoice;
-import uo.ri.cws.domain.Mechanic;
-import uo.ri.cws.domain.PaymentMean;
-import uo.ri.cws.domain.Vehicle;
-import uo.ri.cws.domain.VehicleType;
-import uo.ri.cws.domain.Voucher;
-import uo.ri.cws.domain.WorkOrder;
-
 public class DtoAssembler {
 
 	public static ClientDto toDto(Client c) {
-		 ClientDto dto = new ClientDto();
+		ClientDto dto = new ClientDto();
 
-		 dto.id = c.getId();
-		 dto.version = c.getVersion();
+		dto.id = c.getId();
+		dto.version = c.getVersion();
 
-		 dto.dni = c.getDni();
-		 dto.name = c.getName();
-		 dto.surname = c.getSurname();
+		dto.dni = c.getDni();
+		dto.name = c.getName();
+		dto.surname = c.getSurname();
 
-		 return dto;
+		return dto;
 	}
 
 	public static List<ClientDto> toClientDtoList(List<Client> clientes) {
@@ -168,7 +171,7 @@ public class DtoAssembler {
 
 		dto.plate = v.getPlateNumber();
 		dto.clientId = v.getClient().getId();
-		dto.make = v.getBrand();
+		dto.make = v.getMake();
 		dto.vehicleTypeId = v.getVehicleType().getId();
 		dto.model = v.getModel();
 
@@ -181,6 +184,25 @@ public class DtoAssembler {
 				.collect( Collectors.toList() );
 	}
 
+	public static List<CertificateDto> toCertificateDtoList(
+			List<Certificate> list) {
+		return list.stream()
+				.map( a -> toDto( a ) )
+				.collect( Collectors.toList() );
+	}
+
+	public static CertificateDto toDto(Certificate c) {
+		CertificateDto dto = new CertificateDto();
+		dto.id = c.getId();
+		dto.version = c.getVersion();
+
+		dto.mechanic = toDto( c.getMechanic() );
+		dto.vehicleType = toDto( c.getVehicleType() );
+		dto.obtainedAt = c.getDate();
+
+		return dto;
+	}
+
 	public static VehicleTypeDto toDto(VehicleType vt) {
 		VehicleTypeDto dto = new VehicleTypeDto();
 
@@ -189,8 +211,35 @@ public class DtoAssembler {
 
 		dto.name = vt.getNombre();
 		dto.pricePerHour = vt.getPricePerHour();
+		dto.minTrainigHours = vt.getMinTrainingHours();
 
 		return dto;
+	}
+
+	public static CourseDto toDto(Course c) {
+		CourseDto dto = new CourseDto();
+
+		dto.id = c.getId();
+		dto.version = c.getVersion();
+
+		dto.code = c.getCode();
+		dto.name = c.getName();
+		dto.description = c.getDescription();
+		dto.startDate = c.getStartDate();
+		dto.endDate = c.getEndDate();
+
+		for (Dedication d: c.getDedications()) {
+			dto.percentages.put( d.getVehicleType().getId(), d.getPercentage() );
+		}
+
+		return dto;
+	}
+
+	public static List<CourseDto> toCourseDtoList(
+			List<Course> list) {
+		return list.stream()
+				.map( a -> toDto( a ) )
+				.collect( Collectors.toList() );
 	}
 
 	public static List<VehicleTypeDto> toVehicleTypeDtoList(
@@ -198,6 +247,30 @@ public class DtoAssembler {
 		return list.stream()
 				.map( a -> toDto( a ) )
 				.collect( Collectors.toList() );
+	}
+
+	public static List<EnrollmentDto> toEnrollmentDtoList(
+			List<Enrollment> list) {
+		return list.stream()
+				.map( a -> toDto( a ) )
+				.collect( Collectors.toList() );
+	}
+
+	public static EnrollmentDto toDto(Enrollment e) {
+		EnrollmentDto dto = new EnrollmentDto();
+
+		dto.id = e.getId();
+		dto.version = e.getVersion();
+
+		dto.courseId = e.getCourse().getId();
+		dto.mechanicId = e.getMechanic().getId();
+		dto.attendance = e.getAttendance();
+		dto.passed = e.isPassed();
+
+		dto.mechanic = toDto( e.getMechanic() );
+		dto.course = toDto( e.getCourse() );
+
+		return dto;
 	}
 
 }

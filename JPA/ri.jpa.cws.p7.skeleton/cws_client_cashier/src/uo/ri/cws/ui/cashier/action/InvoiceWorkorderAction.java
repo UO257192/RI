@@ -16,16 +16,16 @@ public class InvoiceWorkorderAction implements Action {
 	@Override
 	public void execute() throws BusinessException {
 		List<String> workOrderIds = new ArrayList<>();
-		
-		// Ask the user the work order ids 
+
+		// Ask the user the work order ids
 		do {
 			String id = Console.readString("Workorder id");
 			workOrderIds.add(id);
 		} while ( moreWorkOrders() );
-		
+
 		CreateInvoiceService cs = Factory.service.forCreateInvoiceService();
 		InvoiceDto invoice = cs.createInvoiceFor(workOrderIds);
-		
+
 		Printer.printInvoice( invoice );
 	}
 

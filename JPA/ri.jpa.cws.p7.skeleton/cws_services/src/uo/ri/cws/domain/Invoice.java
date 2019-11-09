@@ -170,7 +170,6 @@ public class Invoice extends BaseEntity{
 		workOrder.markAsInvoiced();
 		// calcular el importe
 		this.computeAmount();
-        System.out.println(workOrder);
     }
 
     /**

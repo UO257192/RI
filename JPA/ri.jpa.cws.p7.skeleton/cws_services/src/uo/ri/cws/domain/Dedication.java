@@ -36,6 +36,10 @@ public class Dedication extends BaseEntity {
         return course;
     }
 
+    Course _getCourse() {
+        return course;
+    }
+
     void _setCourse(Course c){
         this.course = c;
     }

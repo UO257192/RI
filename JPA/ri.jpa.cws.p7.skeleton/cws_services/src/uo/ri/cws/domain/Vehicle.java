@@ -8,7 +8,7 @@ import java.util.Set;
 @Table(name="tVehicles")
 public class Vehicle extends BaseEntity{
 	@Column(unique=true, nullable=false)private String plateNumber;
-	private String brand;
+	private String make;
 	private String model;
 	
 	@ManyToOne private Client client;
@@ -23,9 +23,9 @@ public class Vehicle extends BaseEntity{
 		this.plateNumber = plateNumber;
 	}
 
-	public Vehicle(String plateNumber, String brand, String model) {
+	public Vehicle(String plateNumber, String make, String model) {
 		this(plateNumber);
-		this.brand = brand;
+		this.make = make;
 		this.model = model;
 	}
 
@@ -33,8 +33,8 @@ public class Vehicle extends BaseEntity{
 		return plateNumber;
 	}
 
-	public String getBrand() {
-		return brand;
+	public String getMake() {
+		return make;
 	}
 
 	public String getModel() {
@@ -93,7 +93,7 @@ public class Vehicle extends BaseEntity{
 	public String toString() {
 		return "Vehicle{" +
 				"plateNumber='" + plateNumber + '\'' +
-				", brand='" + brand + '\'' +
+				", brand='" + make + '\'' +
 				", model='" + model + '\'' +
 				", client=" + client +
 				", vehicleType=" + vehicleType +

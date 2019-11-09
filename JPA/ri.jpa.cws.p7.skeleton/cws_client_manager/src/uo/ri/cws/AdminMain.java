@@ -12,9 +12,9 @@ public class AdminMain {
 
 	public static void main(String[] args) {
 		new AdminMain()
-			.configure()
-			.run()
-			.close();
+				.configure()
+				.run()
+				.close();
 	}
 
 	private AdminMain configure() {

@@ -7,4 +7,5 @@ import uo.ri.cws.infrastructure.persistence.jpa.util.BaseJpaRepository;
 public class VehicleTypeJpaRepository extends BaseJpaRepository<VehicleType>
 		implements VehicleTypeRepository {
 
+
 }

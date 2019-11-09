@@ -18,7 +18,7 @@ public class Course extends BaseEntity{
     private String name;
     @Temporal(TemporalType.TIMESTAMP)
     private Date startdate;
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course" , cascade = CascadeType.PERSIST)
     private Set<Dedication> dedications = new HashSet<>();
     @OneToMany(mappedBy = "course")
     private Set<Enrollment> enrollments = new HashSet<>();
@@ -47,6 +47,35 @@ public class Course extends BaseEntity{
         this.startdate = new Date(startDate.getTime());
         this.enddate = new Date(endDate.getTime());
         this.hours = duration;
+    }
+
+    public Course(String code, String name, String description, Date startDate, Date endDate, int duration, Map<VehicleType, Integer> percentages) {
+        this(code, name, description, startDate, endDate, duration);
+        addDedications(percentages);
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setEnddate(Date enddate) {
+        this.enddate = enddate;
+    }
+
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setStartdate(Date startdate) {
+        this.startdate = startdate;
     }
 
     public String getCode() {

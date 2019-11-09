@@ -16,17 +16,17 @@ public class FindNotInvoicedWorkOrders implements Action {
 	public void execute() throws BusinessException {
 		CreateInvoiceService cs = Factory.service.forCreateInvoiceService();
 
-		String dni = Console.readString("Client dni:");
-		
-		Console.println("\nInvoice-pending work orders\n");  
-		
-		List<WorkOrderDto> reps = cs.findWorkOrdersByClientDni( dni ); 
-		
+		String dni = Console.readString("Client doi");
+
+		Console.println("\nInvoice-pending work orders\n");
+
+		List<WorkOrderDto> reps = cs.findWorkOrdersByClientDni( dni );
+
 		if (reps.size() == 0) {
 			Console.printf("There is no pending work orders\n");
 			return;
 		}
-		
+
 		for(WorkOrderDto rep : reps) {
 			Printer.printWorkOrder( rep );
 		}
