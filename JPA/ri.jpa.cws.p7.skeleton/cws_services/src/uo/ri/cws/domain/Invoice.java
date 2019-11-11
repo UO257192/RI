@@ -7,26 +7,19 @@ import alb.util.math.Round;
 import javax.persistence.*;
 import java.util.*;
 
-@Entity
-@Table(name = "tInvoices")
 public class Invoice extends BaseEntity{
     public enum InvoiceStatus {
         NOT_YET_PAID, PAID
     }
 
-    @Column(unique = true, nullable = false)
     private Long number;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     private double amount;
     private double vat;
-    @Enumerated(EnumType.STRING)
     private InvoiceStatus status = InvoiceStatus.NOT_YET_PAID;
 
-    @OneToMany(mappedBy="invoice")
     private Set<WorkOrder> workOrders = new HashSet<>();
-    @OneToMany(mappedBy="invoice")
     private Set<Charge> charges = new HashSet<>();
 
     Invoice() {

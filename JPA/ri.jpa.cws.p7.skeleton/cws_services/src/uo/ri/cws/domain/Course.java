@@ -17,21 +17,14 @@ import javax.persistence.TemporalType;
 import alb.util.assertion.Argument;
 import alb.util.assertion.StateCheck;
 
-@Entity
-@Table(name = "TCOURSES")
 public class Course extends BaseEntity{
-    @Column(unique = true, nullable = false)
     private String code;
     private String description;
-    @Temporal(TemporalType.TIMESTAMP)
     private Date enddate;
     private int hours;
     private String name;
-    @Temporal(TemporalType.TIMESTAMP)
     private Date startdate;
-    @OneToMany(mappedBy = "course" , cascade = CascadeType.PERSIST)
     private Set<Dedication> dedications = new HashSet<>();
-    @OneToMany(mappedBy = "course")
     private Set<Enrollment> enrollments = new HashSet<>();
 
     Course(){}

@@ -8,16 +8,8 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import java.util.Objects;
 
-@Entity
-@Table(name = "TDEDICATIONS",uniqueConstraints = {
-        @UniqueConstraint(columnNames = {
-                "VEHICLETYPE_ID","COURSE_ID"
-        })
-})
 public class Dedication extends BaseEntity {
-    @ManyToOne
     private VehicleType vehicleType;
-    @ManyToOne
     private Course course;
     private int percentage;
 

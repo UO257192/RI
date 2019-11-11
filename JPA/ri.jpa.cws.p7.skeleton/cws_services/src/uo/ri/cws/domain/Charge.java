@@ -6,20 +6,12 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import java.util.Objects;
 
-@Entity
-@Table(name = "tCharges", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {
-                "invoice_id", "paymentMean_id"
-        })
-})
 public class Charge extends BaseEntity{
-    @ManyToOne
     private Invoice invoice;
-    @ManyToOne
     private PaymentMean paymentMean;
     private double amount = 0.0;
 
-	public Charge() {};
+    Charge() {};
 
     public Charge(Invoice invoice, PaymentMean paymentMean, double amount) {
 		if(paymentMean instanceof Voucher)

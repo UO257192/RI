@@ -6,11 +6,10 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 
-@MappedSuperclass
 public abstract class BaseEntity {
 
-	@Id private String id = UUID.randomUUID().toString();
-	@Version private Long version;
+	private String id = UUID.randomUUID().toString();
+	private Long version;
 
 	public BaseEntity() {
 		super();

@@ -4,15 +4,10 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "tPaymentMeans")
 public abstract class PaymentMean extends BaseEntity{
 	private double accumulated = 0.0;
 
-	@ManyToOne
 	private Client client;
-	@OneToMany(mappedBy = "paymentMean")
 	private Set<Charge> charges = new HashSet<>();
 
 	public double getAccumulated() {

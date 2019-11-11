@@ -7,21 +7,14 @@ import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "tMechanics")
 public class Mechanic extends  BaseEntity{
-	@Column(unique = true, nullable = false)
 	private String dni;
 	private String surname;
 	private String name;
 
-	@OneToMany(mappedBy = "mechanic")
 	private Set<Intervention> interventions = new HashSet<>();
-	@OneToMany(mappedBy = "mechanic")
 	private Set<WorkOrder> assigned = new HashSet<>();
-	@OneToMany(mappedBy = "mechanic")
 	private Set<Certificate> certificates = new HashSet<>();
-	@OneToMany(mappedBy = "mechanic")
 	private Set<Enrollment> enrollments = new HashSet<>();
 
 	Mechanic() {

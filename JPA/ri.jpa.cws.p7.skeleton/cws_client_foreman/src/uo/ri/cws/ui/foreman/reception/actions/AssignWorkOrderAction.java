@@ -21,19 +21,19 @@ public class AssignWorkOrderAction implements Action {
 	public void execute() throws BusinessException {
 
 		String woId = Console.readString("Work order id");
-		WorkOrderCrudService workOrderCrudService = Factory.service.forWorkOrderService();
-		Optional<WorkOrderDto> wo = workOrderCrudService.findWorkOrderById(woId);
-		BusinessCheck.isTrue(wo.isPresent(), "No existe el workorder");
+//		WorkOrderCrudService workOrderCrudService = Factory.service.forWorkOrderService();
+//		Optional<WorkOrderDto> wo = workOrderCrudService.findWorkOrderById(woId);
+//		BusinessCheck.isTrue(wo.isPresent(), "No existe el workorder");
+//
+//		VehicleCrudService vehicleCrudService = Factory.service.forVehicleCrudService();
+//		System.out.println(wo.get().vehicleId);
+//		Optional<VehicleDto> vehicle = vehicleCrudService.findVehicleByPlate(wo.get().vehicleId);
+//		BusinessCheck.isTrue(vehicle.isPresent(), "No existe el vehiculo");
 
-		VehicleCrudService vehicleCrudService = Factory.service.forVehicleCrudService();
-		System.out.println(wo.get().vehicleId);
-		Optional<VehicleDto> vehicle = vehicleCrudService.findVehicleByPlate(wo.get().vehicleId);
-		BusinessCheck.isTrue(vehicle.isPresent(), "No existe el vehiculo");
-
-		System.out.println(vehicle.get());
+//		System.out.println(vehicle.get());
 
 		AssignWorkOrderService as = Factory.service.forAssignWorkOrderService();
-		as.findCertificatesByVehicleTypeId(vehicle.get().vehicleTypeId).forEach(Printer::printCertifiedMechanic);
+//		as.findCertificatesByVehicleTypeId(vehicle.get().vehicleTypeId).forEach(Printer::printCertifiedMechanic);
 		String mId = Console.readString("Mechanic id");
 		as.assignWorkOrderToMechanic(woId, mId);
 

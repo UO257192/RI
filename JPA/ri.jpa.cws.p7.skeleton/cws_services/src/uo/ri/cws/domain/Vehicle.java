@@ -4,17 +4,15 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name="tVehicles")
 public class Vehicle extends BaseEntity{
-	@Column(unique=true, nullable=false)private String plateNumber;
+	private String plateNumber;
 	private String make;
 	private String model;
 	
-	@ManyToOne private Client client;
-	@ManyToOne private VehicleType vehicleType;
+	private Client client;
+	private VehicleType vehicleType;
 	
-	@OneToMany(mappedBy = "vehicle") private Set<WorkOrder> workOrders = new HashSet<>();
+	private Set<WorkOrder> workOrders = new HashSet<>();
 	
 	Vehicle() {};
 	

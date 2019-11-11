@@ -25,7 +25,7 @@ public class UpdateCourse  implements Command<Void> {
         Optional<Course> course = courseRepository.findById(dto.id);
         BusinessCheck.isTrue(course.isPresent(), "El curso no existe");
         Course cour = course.get();
-        BusinessCheck.isTrue(!cour.getStartDate().before(Dates.today()), "El curso ya ha empezado");
+        BusinessCheck.isTrue(!cour.getStartDate().before(Dates.today()) && !cour.getEndDate().before(Dates.today()), "El curso ya ha empezado");
         BusinessCheck.isTrue(dto.startDate.after(Dates.today()), "La fecha de inicio del curso es anterior a la actual");
         BusinessCheck.isNotNull(dto.name);
         BusinessCheck.isNotEmpty(dto.name, "El nombre está vacio");

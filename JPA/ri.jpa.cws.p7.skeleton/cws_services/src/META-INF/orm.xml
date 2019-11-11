@@ -5,6 +5,8 @@
   	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
   	version="2.0">
 
+	<access> FIELD </access>
+
 	<!-- Vehicle queries --> 
 	<named-query name="Vehicle.findByPlate">
 		<query>select v from Vehicle v where v.plateNumber = ?1</query>
@@ -115,6 +117,351 @@
 	</named-query>
  -->
 
+	<mapped-superclass class="uo.ri.cws.domain.BaseEntity">
+		<attributes>
+			<id name="id"/>
+			<version name="version"></version>
+		</attributes>
+	</mapped-superclass>
 
+	<entity name="WorkOrder" class="uo.ri.cws.domain.WorkOrder" >
+		<table name="TWorkorders">
+			<unique-constraint>
+				<column-name>VEHICLE_ID</column-name>
+				<column-name>date</column-name>
+			</unique-constraint>
+		</table>
+		<attributes>
+			<id name="id"/>
+			<basic name="description"></basic>
+			<basic name="date">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="amount"></basic>
+			<basic name="status">
+				<enumerated>STRING</enumerated>
+			</basic>
+			<many-to-one name="vehicle"
+						 target-entity="uo.ri.cws.domain.Vehicle"/>
+			<many-to-one name="mechanic"
+						 target-entity="uo.ri.cws.domain.Mechanic"/>
+			<many-to-one name="invoice"
+						 target-entity="uo.ri.cws.domain.Invoice"/>
+			<one-to-many name="interventions" mapped-by="workOrder"
+						 target-entity="uo.ri.cws.domain.Intervention"/>
+		</attributes>
+	</entity>
+
+	<entity name="Voucher" class="uo.ri.cws.domain.Voucher" >
+		<table name="TVouchers">
+			<unique-constraint>
+				<column-name>code</column-name>
+			</unique-constraint>
+		</table>
+		<attributes>
+			<id name="id"/>
+			<basic name="code"></basic>
+			<basic name="available">
+				<column unique="true"></column>
+			</basic>
+			<basic name="description"></basic>
+		</attributes>
+	</entity>
+
+	<entity name="Charge" class="uo.ri.cws.domain.Charge" >
+		<table name="TCharges">
+			<unique-constraint>
+				<column-name>invoice_id</column-name>
+				<column-name>paymentMean_id</column-name>
+			</unique-constraint>
+		</table>
+		<attributes>
+			<basic name="amount"></basic>
+			<many-to-one name="invoice"
+						 target-entity="uo.ri.cws.domain.Invoice"/>
+			<many-to-one name="paymentMean"
+						 target-entity="uo.ri.cws.domain.PaymentMean"/>
+		</attributes>
+	</entity>
+
+	<entity name="Client" class="uo.ri.cws.domain.Client">
+		<table name="TClients">
+			<unique-constraint>
+				<column-name>dni</column-name>
+			</unique-constraint>
+		</table>
+		<attributes>
+			<basic name="dni"></basic>
+			<basic name="name"></basic>
+			<basic name="surname"></basic>
+			<basic name="email"></basic>
+			<basic name="phone"></basic>
+			<one-to-many name="vehicles" mapped-by="client"
+						 target-entity="uo.ri.cws.domain.Vehicle"/>
+			<one-to-many name="paymentMeans" mapped-by="client"
+						 target-entity="uo.ri.cws.domain.PaymentMean"/>
+			<embedded name="address"></embedded>
+		</attributes>
+	</entity>
+
+	<entity name="Invoice" class="uo.ri.cws.domain.Invoice" >
+		<table name="TInvoices">
+			<unique-constraint>
+				<column-name>number</column-name>
+			</unique-constraint>
+		</table>
+		<attributes>
+			<basic name="number"></basic>
+			<basic name="date">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="amount"></basic>
+			<basic name="vat"></basic>
+			<basic name="status">
+				<enumerated>STRING</enumerated>
+			</basic>
+			<one-to-many name="workOrders" mapped-by="invoice"
+						 target-entity="uo.ri.cws.domain.WorkOrder"/>
+			<one-to-many name="charges" mapped-by="invoice"
+						 target-entity="uo.ri.cws.domain.Charge"/>
+		</attributes>
+	</entity>
+
+	<entity name="Intervention" class="uo.ri.cws.domain.Intervention" >
+		<table name="TInterventions">
+			<unique-constraint>
+				<column-name>workorder_id</column-name>
+				<column-name>mechanic_id</column-name>
+			</unique-constraint>
+		</table>
+
+		<attributes>
+			<basic name="minutes"></basic>
+			<many-to-one name="workOrder"
+						 target-entity="uo.ri.cws.domain.WorkOrder"/>
+			<many-to-one name="mechanic"
+						 target-entity="uo.ri.cws.domain.Mechanic"/>
+			<one-to-many name="substitucions" mapped-by="intervention"
+						 target-entity="uo.ri.cws.domain.Substitution"/>
+		</attributes>
+	</entity>
+
+	<entity name="Mechanic" class="uo.ri.cws.domain.Mechanic">
+		<table name="TMechanics">
+			<unique-constraint>
+				<column-name>dni</column-name>
+			</unique-constraint>
+		</table>
+		<attributes>
+			<basic name="dni"></basic>
+			<basic name="surname"></basic>
+			<basic name="name"></basic>
+			<one-to-many name="interventions" mapped-by="mechanic"
+						 target-entity="uo.ri.cws.domain.Intervention"/>
+			<one-to-many name="assigned" mapped-by="mechanic"
+						 target-entity="uo.ri.cws.domain.WorkOrder"/>
+			<one-to-many name="certificates" mapped-by="mechanic"
+						 target-entity="uo.ri.cws.domain.Certificate"/>
+			<one-to-many name="enrollments" mapped-by="mechanic"
+						 target-entity="uo.ri.cws.domain.Enrollment"/>
+		</attributes>
+	</entity>
+
+	<entity name="PaymentMean" class="uo.ri.cws.domain.PaymentMean" >
+		<table name="TPaymentMeans"></table>
+
+		<inheritance strategy="JOINED"></inheritance>
+		<attributes>
+			<basic name="accumulated"></basic>
+			<many-to-one name="client"
+						 target-entity="uo.ri.cws.domain.Client"/>
+			<one-to-many name="charges" mapped-by="paymentMean"
+						 target-entity="uo.ri.cws.domain.Charge"/>
+		</attributes>
+	</entity>
+
+	<entity name="Cash" class="uo.ri.cws.domain.Cash" >
+		<table name="TCashes"></table>
+
+	</entity>
+
+	<entity name="SparePart" class="uo.ri.cws.domain.SparePart" >
+		<table name="TSpareParts">
+			<unique-constraint>
+				<column-name>code</column-name>
+			</unique-constraint>
+		</table>
+
+		<attributes>
+			<basic name="code"></basic>
+			<basic name="description"></basic>
+			<basic name="price"></basic>
+			<one-to-many name="substitutions" mapped-by="sparePart"
+						 target-entity="uo.ri.cws.domain.Substitution"/>
+		</attributes>
+	</entity>
+
+	<entity name="Substitution" class="uo.ri.cws.domain.Substitution" >
+		<table name="TSubstitutions">
+			<unique-constraint>
+				<column-name>SPAREPART_ID</column-name>
+				<column-name>INTERVENTION_ID</column-name>
+			</unique-constraint>
+		</table>
+
+		<attributes>
+			<basic name="quantity"></basic>
+			<many-to-one name="sparePart"
+						 target-entity="uo.ri.cws.domain.SparePart"/>
+			<many-to-one name="intervention"
+						 target-entity="uo.ri.cws.domain.Intervention"/>
+		</attributes>
+	</entity>
+
+	<entity name="CreditCard" class="uo.ri.cws.domain.CreditCard" >
+		<table name="TCreditCards">
+			<unique-constraint>
+				<column-name>number</column-name>
+			</unique-constraint>
+		</table>
+
+		<attributes>
+			<basic name="number"></basic>
+			<basic name="type"></basic>
+			<basic name="validThru">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+		</attributes>
+	</entity>
+
+	<entity name="VehicleType" class="uo.ri.cws.domain.VehicleType" >
+		<table name="TVehicleTypes">
+			<unique-constraint>
+				<column-name>name</column-name>
+			</unique-constraint>
+		</table>
+
+		<attributes>
+			<basic name="name"></basic>
+			<basic name="pricePerHour"></basic>
+			<one-to-many name="vehicles" mapped-by="vehicleType"
+						 target-entity="uo.ri.cws.domain.Vehicle"/>
+			<one-to-many name="dedications" mapped-by="vehicleType"
+						 target-entity="uo.ri.cws.domain.Dedication"/>
+			<one-to-many name="certificates" mapped-by="vehicleType"
+						 target-entity="uo.ri.cws.domain.Certificate"/>
+		</attributes>
+	</entity>
+
+	<entity name="Vehicle" class="uo.ri.cws.domain.Vehicle" >
+		<table name="tVehicles">
+			<unique-constraint>
+				<column-name>plateNumber</column-name>
+			</unique-constraint>
+		</table>
+
+		<attributes>
+			<basic name="make"></basic>
+			<basic name="plateNumber"></basic>
+			<basic name="model"></basic>
+			<many-to-one name="client"
+						 target-entity="uo.ri.cws.domain.Client"/>
+			<many-to-one name="vehicleType"
+						 target-entity="uo.ri.cws.domain.VehicleType"/>
+			<one-to-many name="workOrders" mapped-by="vehicle"
+						 target-entity="uo.ri.cws.domain.WorkOrder"/>
+		</attributes>
+	</entity>
+
+	<entity name="Course" class="uo.ri.cws.domain.Course" >
+		<table name="TCOURSES">
+			<unique-constraint>
+				<column-name>code</column-name>
+			</unique-constraint>
+		</table>
+
+		<attributes>
+			<basic name="code"></basic>
+			<basic name="description"></basic>
+			<basic name="enddate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="hours"></basic>
+			<basic name="name"></basic>
+			<basic name="startdate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<one-to-many name="dedications" mapped-by="course"
+						 target-entity="uo.ri.cws.domain.Dedication">
+				<cascade>
+					<cascade-persist/>
+				</cascade>
+			</one-to-many>
+			<one-to-many name="enrollments" mapped-by="course"
+						 target-entity="uo.ri.cws.domain.Enrollment"/>
+		</attributes>
+	</entity>
+
+	<entity name="Certificate" class="uo.ri.cws.domain.Certificate" >
+		<table name="TCERTIFICATES">
+			<unique-constraint>
+				<column-name>MECHANIC_ID</column-name>
+				<column-name>VEHICLETYPE_ID</column-name>
+			</unique-constraint>
+		</table>
+
+		<attributes>
+			<basic name="date">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<many-to-one name="mechanic"
+						 target-entity="uo.ri.cws.domain.Mechanic"/>
+			<many-to-one name="vehicleType"
+						 target-entity="uo.ri.cws.domain.VehicleType"/>
+		</attributes>
+	</entity>
+
+	<entity name="Dedication" class="uo.ri.cws.domain.Dedication" >
+		<table name="TDEDICATIONS">
+			<unique-constraint>
+				<column-name>COURSE_ID</column-name>
+				<column-name>VEHICLETYPE_ID</column-name>
+			</unique-constraint>
+		</table>
+
+		<attributes>
+			<basic name="percentage"></basic>
+			<many-to-one name="course"
+						 target-entity="uo.ri.cws.domain.Course"/>
+			<many-to-one name="vehicleType"
+						 target-entity="uo.ri.cws.domain.VehicleType"/>
+		</attributes>
+	</entity>
+
+	<entity name="Enrollment" class="uo.ri.cws.domain.Enrollment">
+		<table name="TENROLLMENTS">
+			<unique-constraint>
+				<column-name>COURSE_ID</column-name>
+				<column-name>MECHANIC_ID</column-name>
+			</unique-constraint>
+		</table>
+
+		<attributes>
+			<basic name="attendance"></basic>
+			<basic name="passed"></basic>
+			<many-to-one name="course"
+						 target-entity="uo.ri.cws.domain.Course"/>
+			<many-to-one name="mechanic"
+						 target-entity="uo.ri.cws.domain.Mechanic"/>
+		</attributes>
+	</entity>
+
+	<embeddable class="uo.ri.cws.domain.Address">
+		<attributes>
+			<basic name="city"></basic>
+			<basic name="street"></basic>
+			<basic name="zipCode"></basic>
+		</attributes>
+	</embeddable>
 
 </entity-mappings>

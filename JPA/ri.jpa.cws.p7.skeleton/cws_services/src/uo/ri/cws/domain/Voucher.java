@@ -4,10 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "TVouchers")
 public class Voucher extends PaymentMean {
-	@Column(unique = true)
 	private String code;
 	private double available;
 	private String description;

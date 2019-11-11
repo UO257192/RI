@@ -10,10 +10,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-@Entity
-@Table(name = "tClients")
 public class Client extends BaseEntity{
-	@Column(unique = true, nullable = false)
 	private String dni;
 	private String name;
 	private String surname;
@@ -21,10 +18,10 @@ public class Client extends BaseEntity{
 	private String phone;
 	private Address address;
 	
-	@OneToMany(mappedBy = "client") private Set<Vehicle> vehicles = new HashSet<>();
-	@OneToMany(mappedBy = "client") private Set<PaymentMean> paymentMeans = new HashSet<>();
+	private Set<Vehicle> vehicles = new HashSet<>();
+	private Set<PaymentMean> paymentMeans = new HashSet<>();
 
-	public Client() {};
+	Client() {};
 
 	public Client(String dni) {
 		super();

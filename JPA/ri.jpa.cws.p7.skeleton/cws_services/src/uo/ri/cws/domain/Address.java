@@ -1,13 +1,22 @@
 package uo.ri.cws.domain;
 
-import javax.persistence.Embeddable;
-
-@Embeddable
+/**
+ * Client adress
+ *
+ * @author UO257192
+ */
 public class Address {
 	private String street;
 	private String city;
 	private String zipCode;
 
+	/**
+	 * Address constructor
+	 *
+	 * @param street street
+	 * @param city city
+	 * @param zipCode zipcode
+	 */
 	public Address(String street, String city, String zipCode) {
 		super();
 		this.street = street;
@@ -15,22 +24,41 @@ public class Address {
 		this.zipCode = zipCode;
 	}
 
+	/**
+	 * Adress constructor for jpa
+	 */
 	Address() {
 
 	}
 
+	/**
+	 *
+	 * @return street
+	 */
 	public String getStreet() {
 		return street;
 	}
 
+	/**
+	 *
+	 * @return city
+	 */
 	public String getCity() {
 		return city;
 	}
 
+	/**
+	 *
+	 * @return zipcode
+	 */
 	public String getZipCode() {
 		return zipCode;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;

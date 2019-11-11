@@ -7,15 +7,11 @@ import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "TSPAREPARTS")
 public class SparePart extends BaseEntity{
-	@Column(unique = true, nullable = false)
 	private String code;
 	private String description;
 	private double price;
 
-	@OneToMany(mappedBy ="sparePart")
 	private Set<Substitution> substitutions = new HashSet<>();
 
 	public SparePart(String code) {

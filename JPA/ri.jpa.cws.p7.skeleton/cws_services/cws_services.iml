@@ -97,5 +97,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="org.hibernate:hibernate-core:5.4.8.Final" level="project" />
   </component>
 </module>

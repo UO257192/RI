@@ -4,30 +4,20 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-
-@Entity
-@Table(name = "TWORKORDERS", uniqueConstraints = {
-		@UniqueConstraint(columnNames = { "VEHICLE_ID", "MECHANIC_ID","INVOICE_ID" }) })
 public class WorkOrder extends BaseEntity{
 	public enum WorkOrderStatus {
 		OPEN, ASSIGNED, FINISHED, INVOICED
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 	private String description;
 	private double amount = 0.0;
-	@Enumerated(EnumType.STRING)
 	private WorkOrderStatus status = WorkOrderStatus.OPEN;
 
-	@ManyToOne
 	private Vehicle vehicle;
-	@ManyToOne
 	private Mechanic mechanic;
-	@ManyToOne
 	private Invoice invoice;
 
-	@OneToMany(mappedBy = "workOrder")
 	private Set<Intervention> interventions = new HashSet<>();
 
 	public WorkOrder(Vehicle vehicle) {

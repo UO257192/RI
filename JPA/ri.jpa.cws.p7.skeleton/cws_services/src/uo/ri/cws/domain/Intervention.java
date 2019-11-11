@@ -6,23 +6,13 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-@Entity
-@Table(name = "tInterventions", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {
-                "mechanic_id","workorder_id"
-        })
-})
 public class Intervention extends BaseEntity{
-    @ManyToOne
     private Mechanic mechanic;
-    @ManyToOne
     private WorkOrder workOrder;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     private int minutes;
 
-    @OneToMany(mappedBy = "intervention")
     private Set<Substitution> substitucions = new HashSet<>();
 
     Intervention() {

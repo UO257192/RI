@@ -6,15 +6,10 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity
-@Table(name = "TCERTIFICATES", uniqueConstraints = {
-        @UniqueConstraint(columnNames = { "MECHANIC_ID", "VEHICLETYPE_ID" }) })
 public class Certificate extends BaseEntity{
-    @ManyToOne
+
     private Mechanic mechanic;
-    @ManyToOne
     private VehicleType vehicleType;
-    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
     Certificate() {

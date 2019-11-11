@@ -4,11 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Objects;
 
-@Entity
-@Table(name="tCashes")
 public class Cash extends PaymentMean {
 
-    public Cash() {};
+    Cash() {};
 
     public Cash(Client cliente) {
         Associations.Pay.link( this,cliente);

@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.repository.CourseRepository;
+import uo.ri.cws.application.repository.DedicationRepository;
 import uo.ri.cws.application.repository.EnrollmentRepository;
 import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.util.BusinessCheck;
@@ -14,6 +15,7 @@ public class DeleteCourse implements Command<Void> {
 
     private CourseRepository courseRepository = Factory.repository.forCourse();
     private EnrollmentRepository enrollmentRepository = Factory.repository.forEnrollment();
+    private DedicationRepository dedicationRepository = Factory.repository.forDedication();
     private String id;
 
     public DeleteCourse(String id) {
@@ -22,11 +24,13 @@ public class DeleteCourse implements Command<Void> {
 
     @Override
     public Void execute() throws BusinessException {
-        Optional<Course> course = courseRepository.findById(id);
-        BusinessCheck.isTrue(course.isPresent(), "That course does not exists");
-        BusinessCheck.isTrue(enrollmentRepository.findAttendanceByCourseId(course.get()).isEmpty(), "El curso tiene mecanicos apuntados");
-        course.get().clearDedications();
-        courseRepository.remove(course.get());
+        Optional<Course> ocourse = courseRepository.findById(id);
+        BusinessCheck.isTrue(ocourse.isPresent(), "That course does not exists");
+        Course course = ocourse.get();
+        BusinessCheck.isTrue(enrollmentRepository.findAttendanceByCourseId(course).isEmpty(), "El curso tiene mecanicos apuntados");
+        course.getDedications().forEach(d -> dedicationRepository.remove(d));
+        course.clearDedications();
+        courseRepository.remove(course);
         return null;
     }
 }
