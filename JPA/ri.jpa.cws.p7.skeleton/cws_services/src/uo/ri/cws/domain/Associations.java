@@ -1,7 +1,17 @@
 package uo.ri.cws.domain;
 
+/**
+ * Associations classes
+ *
+ * @author UO257192
+ */
 public class Associations {
 
+	/**
+	 * Associations class for Enrollment
+	 *
+	 * @author UO257192
+	 */
 	public static class Enroll{
 		public static void link(Mechanic mechanic,  Enrollment enrollment, Course course) {
 			enrollment._setCourse(course);
