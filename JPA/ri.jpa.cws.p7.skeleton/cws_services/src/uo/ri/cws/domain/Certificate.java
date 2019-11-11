@@ -23,7 +23,6 @@ public class Certificate extends BaseEntity{
     public Certificate(Mechanic mechanic, VehicleType vehicleType) {
         Argument.isNotNull(mechanic);
         Argument.isNotNull(vehicleType);
-        this.vehicleType = vehicleType;
         this.date = new Date();
         Associations.Certify.link(mechanic,this, vehicleType);
     }

@@ -64,4 +64,9 @@ public class JpaRepositoryFactory implements RepositoryFactory {
 		return new EnrollmentJpaRepository();
 	}
 
+	@Override
+	public DedicationRepository forDedication() {
+		return new DedicationJpaRepository();
+	}
+
 }

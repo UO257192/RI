@@ -26,6 +26,7 @@ public class AssignWorkOrderAction implements Action {
 		BusinessCheck.isTrue(wo.isPresent(), "No existe el workorder");
 
 		VehicleCrudService vehicleCrudService = Factory.service.forVehicleCrudService();
+		System.out.println(wo.get().vehicleId);
 		Optional<VehicleDto> vehicle = vehicleCrudService.findVehicleByPlate(wo.get().vehicleId);
 		BusinessCheck.isTrue(vehicle.isPresent(), "No existe el vehiculo");
 

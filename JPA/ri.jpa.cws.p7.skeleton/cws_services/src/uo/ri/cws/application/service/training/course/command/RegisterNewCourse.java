@@ -6,12 +6,14 @@ import java.util.Optional;
 
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.repository.CourseRepository;
+import uo.ri.cws.application.repository.DedicationRepository;
 import uo.ri.cws.application.repository.VehicleTypeRepository;
 import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.training.CourseDto;
 import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Course;
+import uo.ri.cws.domain.Dedication;
 import uo.ri.cws.domain.VehicleType;
 
 public class RegisterNewCourse implements Command<CourseDto> {
@@ -19,6 +21,7 @@ public class RegisterNewCourse implements Command<CourseDto> {
     private CourseDto courseDto;
     private VehicleTypeRepository vehicleTypeRepository = Factory.repository.forVehicleType();
     private CourseRepository courseRepository = Factory.repository.forCourse();
+    private DedicationRepository dedicationRepository = Factory.repository.forDedication();
 
     public RegisterNewCourse(CourseDto courseDto) {
         this.courseDto = courseDto;
@@ -35,7 +38,10 @@ public class RegisterNewCourse implements Command<CourseDto> {
             percentages.put(ov.get(), entry.getValue());
         }
         Course course = new Course(courseDto.code, courseDto.name, courseDto.description, courseDto.startDate, courseDto.endDate, courseDto.hours, percentages);
+
         courseRepository.add(course);
+
+        course.getDedications().forEach(d -> dedicationRepository.add(d));
         courseDto.id = courseRepository.findByCode(courseDto.code).get().getId();
         return courseDto;
     }

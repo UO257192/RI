@@ -25,4 +25,6 @@ public interface RepositoryFactory {
 	CourseRepository forCourse();
 
 	EnrollmentRepository forEnrollment();
+
+	DedicationRepository forDedication();
 }
