@@ -8,6 +8,11 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import java.util.Objects;
 
+/**
+ * Enrollment class. TENROLLMENTS table.
+ * <p>
+ * * @author UO257192
+ */
 public class Enrollment extends BaseEntity{
     private Mechanic mechanic;
     private Course course;
@@ -16,6 +21,13 @@ public class Enrollment extends BaseEntity{
 
     Enrollment(){}
 
+    /**
+     * Enrollment class constructor
+     * @param mechanic Mechanic
+     * @param course Course
+     * @param attendance Attendance percentage
+     * @param passed Passed
+     */
     public Enrollment(Mechanic mechanic, Course course, int attendance, boolean passed) {
         Argument.isTrue((passed && attendance >= 85) || (!passed && attendance >= 85));
         Argument.isNotNull(mechanic);
@@ -25,34 +37,69 @@ public class Enrollment extends BaseEntity{
         this.passed = passed;
     }
 
+    /**
+     *
+     * @return Mechanic
+     */
     public Mechanic getMechanic() {
         return mechanic;
     }
 
+    /**
+     *
+     * @return Course
+     */
     public Course getCourse() {
         return course;
     }
 
+    /**
+     * Internal use
+     * @return Course
+     */
     Course _getCourse() {
         return course;
     }
 
+    /**
+     * Internal use
+     * Set Mechanic
+     * @param mechanic Mechanic
+     */
     void _setMechanic(Mechanic mechanic) {
         this.mechanic = mechanic;
     }
 
+    /**
+     * Internal use
+     * Set Course
+     * @param course Course
+     */
     void _setCourse(Course course) {
         this.course = course;
     }
 
+    /**
+     *
+     * @return Course attendance
+     */
     public int getAttendance() {
         return attendance;
     }
 
+    /**
+     *
+     * @return true if mechanic passed : false if not
+     */
     public boolean isPassed() {
         return passed;
     }
 
+    /**
+     *
+     * @param o Object to compare
+     * @return Enrollment class Equals
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,11 +109,19 @@ public class Enrollment extends BaseEntity{
                 course.equals(that.course);
     }
 
+    /**
+     *
+     * @return Enrollment class hashcode
+     */
     @Override
     public int hashCode() {
         return Objects.hash(mechanic, course);
     }
 
+    /**
+     *
+     * @return Enrollment class toString
+     */
     @Override
     public String toString() {
         return "Enrollment{" +
@@ -77,7 +132,11 @@ public class Enrollment extends BaseEntity{
                 '}';
     }
 
-
+    /**
+     * Get the number of hours attended for a specific vehicle type
+     * @param vehicleType VehicleType
+     * @return Hours attendede
+     */
     public int getAttendedHoursFor(VehicleType vehicleType) {
         int total=0;
         for (Dedication dedication: course._getDedications()) {

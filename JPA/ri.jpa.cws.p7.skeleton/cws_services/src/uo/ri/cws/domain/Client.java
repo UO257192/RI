@@ -10,97 +10,164 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Client extends BaseEntity{
-	private String dni;
-	private String name;
-	private String surname;
-	private String email;
-	private String phone;
-	private Address address;
-	
-	private Set<Vehicle> vehicles = new HashSet<>();
-	private Set<PaymentMean> paymentMeans = new HashSet<>();
+/**
+ * Client class. TCLIENTS table.
+ * <p>
+ * * @author UO257192
+ */
+public class Client extends BaseEntity {
+    private String dni;
+    private String name;
+    private String surname;
+    private String email;
+    private String phone;
+    private Address address;
 
-	Client() {};
+    private Set<Vehicle> vehicles = new HashSet<>();
+    private Set<PaymentMean> paymentMeans = new HashSet<>();
 
-	public Client(String dni) {
-		super();
-		Argument.isTrue(dni != null && dni.length() > 0);
-		this.dni = dni;
-	}
+    Client() {
+    }
 
-	public Client(String dni, String name, String surname) {
-		this(dni);
-		this.name = name;
-		this.surname = surname;
-	}
+    /**
+     * Client class constructor
+     *
+     * @param dni Client dni
+     */
+    public Client(String dni) {
+        super();
+        Argument.isTrue(dni != null && dni.length() > 0);
+        this.dni = dni;
+    }
 
-	public String getDni() {
-		return dni;
-	}
+    /**
+     * Client class constructor
+     *
+     * @param dni     Client dni
+     * @param name    Client name
+     * @param surname Client surname
+     */
+    public Client(String dni, String name, String surname) {
+        this(dni);
+        this.name = name;
+        this.surname = surname;
+    }
 
-	public String getName() {
-		return name;
-	}
+    /**
+     * @return Client dni
+     */
+    public String getDni() {
+        return dni;
+    }
 
-	public String getSurname() {
-		return surname;
-	}
+    /**
+     * @return Client name
+     */
+    public String getName() {
+        return name;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    /**
+     * @return Client surname
+     */
+    public String getSurname() {
+        return surname;
+    }
 
-	public String getPhone() {
-		return phone;
-	}
+    /**
+     * @return Client email
+     */
+    public String getEmail() {
+        return email;
+    }
 
-	public Address getAddress() {
-		return address;
-	}
+    /**
+     * @return Client phone
+     */
+    public String getPhone() {
+        return phone;
+    }
 
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+    /**
+     * @return Client Address
+     */
+    public Address getAddress() {
+        return address;
+    }
 
-	public Set<Vehicle> getVehicles() {
-		return new HashSet<>(vehicles);
-	}
+    /**
+     * Set client address
+     *
+     * @param address
+     */
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
-	public Set<PaymentMean> getPaymentMeans() {
-		return new HashSet<>(paymentMeans);
-	}
+    /**
+     * @return a copy of the vehicles owned by client
+     */
+    public Set<Vehicle> getVehicles() {
+        return new HashSet<>(vehicles);
+    }
 
-	Set<Vehicle> _getVehicles() {
-		return vehicles;
-	}
+    /**
+     * @return a copy of the paymentmeans of the client
+     */
+    public Set<PaymentMean> getPaymentMeans() {
+        return new HashSet<>(paymentMeans);
+    }
 
-	Set<PaymentMean> _getPaymentMeans() {
-		return paymentMeans;
-	}
+    /**
+     * Internal use
+     *
+     * @return the vehicles owned by client
+     */
+    Set<Vehicle> _getVehicles() {
+        return vehicles;
+    }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		Client client = (Client) o;
-		return dni.equals(client.dni);
-	}
+    /**
+     * Internal use
+     *
+     * @return the paymentmeans of the client
+     */
+    Set<PaymentMean> _getPaymentMeans() {
+        return paymentMeans;
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(dni);
-	}
+    /**
+     * @param o Object to compare
+     * @return Client class equals
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return dni.equals(client.dni);
+    }
 
-	@Override
-	public String toString() {
-		return "Client{" +
-				"dni='" + dni + '\'' +
-				", name='" + name + '\'' +
-				", surname='" + surname + '\'' +
-				", email='" + email + '\'' +
-				", phone='" + phone + '\'' +
-				", address=" + address +
-				'}';
-	}
+    /**
+     * @return Client class hashcode
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(dni);
+    }
+
+    /**
+     * @return Client class toString
+     */
+    @Override
+    public String toString() {
+        return "Client{" +
+                "dni='" + dni + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address=" + address +
+                '}';
+    }
 }

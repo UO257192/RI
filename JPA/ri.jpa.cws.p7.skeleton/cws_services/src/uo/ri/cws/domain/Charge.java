@@ -1,27 +1,36 @@
 package uo.ri.cws.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import java.util.Objects;
 
-public class Charge extends BaseEntity{
+/**
+ * Charge class. TCHARGES table.
+ * <p>
+ * * @author UO257192
+ */
+public class Charge extends BaseEntity {
     private Invoice invoice;
     private PaymentMean paymentMean;
     private double amount = 0.0;
 
-    Charge() {};
+    Charge() {
+    }
 
+    /**
+     * Charge class constructor
+     *
+     * @param invoice     Invoice associated to the Charge
+     * @param paymentMean PaymentMean associated to the Charge
+     * @param amount      Charge amount
+     */
     public Charge(Invoice invoice, PaymentMean paymentMean, double amount) {
-		if(paymentMean instanceof Voucher)
-			if(((Voucher) paymentMean).getDisponible() < amount)
-				throw new IllegalStateException("El medio de pago indicado no tiene suficiente dinero");
-		paymentMean.setAccumulated(paymentMean.getAccumulated() + amount);
-		if(paymentMean instanceof Voucher)
-			((Voucher) paymentMean).updateAvailable();
-		this.amount = amount;
-		Associations.Charges.link(paymentMean,this,invoice);
+        if (paymentMean instanceof Voucher)
+            if (((Voucher) paymentMean).getDisponible() < amount)
+                throw new IllegalStateException("El medio de pago indicado no tiene suficiente dinero");
+        paymentMean.setAccumulated(paymentMean.getAccumulated() + amount);
+        if (paymentMean instanceof Voucher)
+            ((Voucher) paymentMean).updateAvailable();
+        this.amount = amount;
+        Associations.Charges.link(paymentMean, this, invoice);
     }
 
     /**
@@ -30,52 +39,83 @@ public class Charge extends BaseEntity{
      * @throws IllegalStateException if the invoice is already settled
      */
     public void rewind() {
-		if(this.invoice.getStatus().equals(Invoice.InvoiceStatus.PAID))
-			throw new IllegalStateException("La factura no puede estar ABONADA");
-		this.paymentMean.setAccumulated(this.paymentMean.getAccumulated() - this.amount);
-		Associations.Charges.unlink(this);
+        if (this.invoice.getStatus().equals(Invoice.InvoiceStatus.PAID))
+            throw new IllegalStateException("La factura no puede estar ABONADA");
+        this.paymentMean.setAccumulated(this.paymentMean.getAccumulated() - this.amount);
+        Associations.Charges.unlink(this);
     }
 
-	public Invoice getInvoice() {
-		return invoice;
-	}
+    /**
+     * @return Invoice associated to the Charge
+     */
+    public Invoice getInvoice() {
+        return invoice;
+    }
 
-	void _setInvoice(Invoice invoice) {
-		this.invoice = invoice;
-	}
+    /**
+     * Internal use.
+     * Set Invoice associated to the Charge.
+     *
+     * @param invoice new Invoice associated to the Charge
+     */
+    void _setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
 
-	public PaymentMean getPaymentMean() {
-		return paymentMean;
-	}
+    /**
+     * @return PaymentMean associated to the Charge
+     */
+    public PaymentMean getPaymentMean() {
+        return paymentMean;
+    }
 
-	void _setPaymentMean(PaymentMean paymentMean) {
-		this.paymentMean = paymentMean;
-	}
+    /**
+     * Interal use.
+     * Set PaymentMean associated to the Charge.
+     *
+     * @param paymentMean new PaymentMean associated to the Charge
+     */
+    void _setPaymentMean(PaymentMean paymentMean) {
+        this.paymentMean = paymentMean;
+    }
 
-	public double getAmount() {
-		return amount;
-	}
+    /**
+     * @return Charge amount
+     */
+    public double getAmount() {
+        return amount;
+    }
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		Charge charge = (Charge) o;
-		return invoice.equals(charge.invoice) &&
-				paymentMean.equals(charge.paymentMean);
-	}
+    /**
+     * @param o Object to compare
+     * @return Charge class Equals
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Charge charge = (Charge) o;
+        return invoice.equals(charge.invoice) &&
+                paymentMean.equals(charge.paymentMean);
+    }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(invoice, paymentMean);
-	}
+    /**
+     * @return Charge class hashcode
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(invoice, paymentMean);
+    }
 
-	@Override
-	public String toString() {
-		return "Charge{" +
-				"invoice=" + invoice +
-				", paymentMean=" + paymentMean +
-				", amount=" + amount +
-				'}';
-	}
+    /**
+     * @return Charge class toString
+     */
+    @Override
+    public String toString() {
+        return "Charge{" +
+                "invoice=" + invoice +
+                ", paymentMean=" + paymentMean +
+                ", amount=" + amount +
+                '}';
+    }
 }
