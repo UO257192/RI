@@ -67,10 +67,6 @@ public class CreditCard extends PaymentMean {
         return new Date(validThru.getTime());
     }
 
-    /**
-     * @param o Object to compare
-     * @return CreditCard equals
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -79,17 +75,11 @@ public class CreditCard extends PaymentMean {
         return number.equals(that.number);
     }
 
-    /**
-     * @return CreditCard class hashcode
-     */
     @Override
     public int hashCode() {
         return Objects.hash(number);
     }
 
-    /**
-     * @return CreditCard class toString
-     */
     @Override
     public String toString() {
         return "CreditCard{" +

@@ -34,6 +34,7 @@ public class AssignWorkOrderMechanic implements Command<Void> {
         BusinessCheck.isTrue(om.isPresent(), "El mecanico no existe");
         WorkOrder workOrder = ow.get();
         Mechanic mechanic = om.get();
+        BusinessCheck.isTrue(mechanic.isCertifiedFor(workOrder.getVehicle().getVehicleType()), "El mecanico no está certificado para el tipo de vehiculo asignado a la workorder");
         workOrder.assignTo(mechanic);
         return null;
     }

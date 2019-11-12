@@ -86,10 +86,6 @@ public class Charge extends BaseEntity {
         return amount;
     }
 
-    /**
-     * @param o Object to compare
-     * @return Charge class Equals
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -99,17 +95,11 @@ public class Charge extends BaseEntity {
                 paymentMean.equals(charge.paymentMean);
     }
 
-    /**
-     * @return Charge class hashcode
-     */
     @Override
     public int hashCode() {
         return Objects.hash(invoice, paymentMean);
     }
 
-    /**
-     * @return Charge class toString
-     */
     @Override
     public String toString() {
         return "Charge{" +

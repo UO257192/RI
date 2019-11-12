@@ -84,11 +84,6 @@ public class Dedication extends BaseEntity {
         return percentage;
     }
 
-    /**
-     *
-     * @param o Object to compare
-     * @return Dedication class equals
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -99,19 +94,11 @@ public class Dedication extends BaseEntity {
                 course.equals(that.course);
     }
 
-    /**
-     *
-     * @return Dedication class hashcode
-     */
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), vehicleType, course);
     }
 
-    /**
-     *
-     * @return Dedication class toString
-     */
     @Override
     public String toString() {
         return "Dedication{" +

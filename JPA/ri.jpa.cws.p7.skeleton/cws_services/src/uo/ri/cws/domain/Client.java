@@ -136,10 +136,6 @@ public class Client extends BaseEntity {
         return paymentMeans;
     }
 
-    /**
-     * @param o Object to compare
-     * @return Client class equals
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -148,17 +144,11 @@ public class Client extends BaseEntity {
         return dni.equals(client.dni);
     }
 
-    /**
-     * @return Client class hashcode
-     */
     @Override
     public int hashCode() {
         return Objects.hash(dni);
     }
 
-    /**
-     * @return Client class toString
-     */
     @Override
     public String toString() {
         return "Client{" +

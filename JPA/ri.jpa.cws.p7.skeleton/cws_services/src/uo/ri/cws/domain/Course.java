@@ -1,21 +1,9 @@
 package uo.ri.cws.domain;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 import alb.util.assertion.Argument;
 import alb.util.assertion.StateCheck;
+
+import java.util.*;
 
 /**
  * Course class. TCOURSES table.
@@ -218,10 +206,6 @@ public class Course extends BaseEntity {
         return enrollments;
     }
 
-    /**
-     * @param o Object to compare
-     * @return Course class equals
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -231,17 +215,11 @@ public class Course extends BaseEntity {
         return code.equals(course.code);
     }
 
-    /**
-     * @return Course class hashcode
-     */
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), code);
     }
 
-    /**
-     * @return Course class toString
-     */
     @Override
     public String toString() {
         return "Course{" +

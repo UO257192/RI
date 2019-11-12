@@ -80,10 +80,6 @@ public class Certificate extends BaseEntity {
         this.vehicleType = vehicleType;
     }
 
-    /**
-     * @param o Object to compare
-     * @return Certificate class Equals
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -94,17 +90,11 @@ public class Certificate extends BaseEntity {
                 vehicleType.equals(that.vehicleType);
     }
 
-    /**
-     * @return Certificate class hashcode
-     */
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), mechanic, vehicleType);
     }
 
-    /**
-     * @return Certificate class toString
-     */
     @Override
     public String toString() {
         return "Certificate{" +

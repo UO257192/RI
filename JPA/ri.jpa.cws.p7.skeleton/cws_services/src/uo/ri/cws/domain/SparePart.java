@@ -1,12 +1,13 @@
 package uo.ri.cws.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * SparePart class. TSPAREPARTS table.
+ * <p>
+ * * @author UO257192
+ */
 public class SparePart extends BaseEntity{
 	private String code;
 	private String description;

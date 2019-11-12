@@ -37,9 +37,6 @@ public abstract class BaseEntity {
         return version;
     }
 
-    /**
-     * @return BaseEntity class hashcode
-     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -48,10 +45,6 @@ public abstract class BaseEntity {
         return result;
     }
 
-    /**
-     * @param obj Object to compare
-     * @return BaseEntity class Equals
-     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

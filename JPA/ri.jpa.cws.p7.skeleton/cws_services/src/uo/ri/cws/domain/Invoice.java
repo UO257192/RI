@@ -4,9 +4,13 @@ import alb.util.assertion.Argument;
 import alb.util.date.Dates;
 import alb.util.math.Round;
 
-import javax.persistence.*;
 import java.util.*;
 
+/**
+ * Invoice class. TINVOICES table.
+ * <p>
+ * * @author UO257192
+ */
 public class Invoice extends BaseEntity{
     public enum InvoiceStatus {
         NOT_YET_PAID, PAID
@@ -25,10 +29,19 @@ public class Invoice extends BaseEntity{
     Invoice() {
     }
 
+    /**
+     * Invoice class constructor
+     * @param number Invoice number
+     */
     public Invoice(Long number) {
         this(number, new Date());
     }
 
+    /**
+     * Invoice class constructor
+     * @param number Invoice number
+     * @param date Invoice date
+     */
     public Invoice(Long number, Date date) {
         Argument.isNotNull(date);
         Argument.isNotNull(number);
@@ -36,6 +49,11 @@ public class Invoice extends BaseEntity{
         this.date = new Date(date.getTime());
     }
 
+    /**
+     * Invoice class constructor
+     * @param number Invoice number
+     * @param workOrders WorkOrders to invoice
+     */
     public Invoice(Long number, List<WorkOrder> workOrders) {
         this(number);
         for (WorkOrder workOrder : workOrders) {
@@ -43,40 +61,78 @@ public class Invoice extends BaseEntity{
         }
     }
 
+    /**
+     * Invoice class constructor
+     * @param number Invoice number
+     * @param date Invoice date
+     * @param workOrders WorkOrders to invoice
+     */
     public Invoice(Long number, Date date, List<WorkOrder> workOrders) {
         this(number, workOrders);
         this.date = new Date(date.getTime());
     }
 
+    /**
+     *
+     * @return Invoice number
+     */
     public Long getNumber() {
         return number;
     }
 
+    /**
+     *
+     * @return copy of Invoice date
+     */
     public Date getDate() {
         return new Date(date.getTime());
     }
 
+    /**
+     * Set a new date to the invoice
+     * @param date Invoice date
+     */
     public void setDate(Date date) {
         this.date = new Date(date.getTime());
     }
 
+    /**
+     * Compute and returns the amount
+     * @return total amount
+     */
     public double getAmount() {
         computeAmount();
         return amount;
     }
 
+    /**
+     * Set invoice amount
+     * @param amount
+     */
     public void setAmount(double amount) {
         this.amount = amount;
     }
 
+    /**
+     *
+     * @return Invoice vat
+     */
     public double getVat() {
         return vat;
     }
 
+    /**
+     *
+     * @param vat Invoice vat
+     */
     public void setVat(double vat) {
         this.vat = vat;
     }
 
+    /**
+     *
+     * @return Invoice status
+     */
     public InvoiceStatus getStatus() {
         return status;
     }
@@ -85,18 +141,34 @@ public class Invoice extends BaseEntity{
         this.status = status;
     }
 
+    /**
+     *
+     * @return a copy of workorders to invoice
+     */
     public Set<WorkOrder> getWorkOrders() {
         return new HashSet<WorkOrder>(workOrders);
     }
 
+    /**
+     * Internal use
+     * @return workorders to invoic
+     */
     Set<WorkOrder> _getWorkOrders() {
         return workOrders;
     }
 
+    /**
+     *
+     * @return a copy of charges of the invoice
+     */
     public Set<Charge> getCharges() {
         return new HashSet<>(charges);
     }
 
+    /**
+     * Internal use
+     * @return charges of the invoice
+     */
     Set<Charge> _getCharges() {
         return charges;
     }

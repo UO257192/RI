@@ -95,11 +95,6 @@ public class Enrollment extends BaseEntity{
         return passed;
     }
 
-    /**
-     *
-     * @param o Object to compare
-     * @return Enrollment class Equals
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -109,19 +104,11 @@ public class Enrollment extends BaseEntity{
                 course.equals(that.course);
     }
 
-    /**
-     *
-     * @return Enrollment class hashcode
-     */
     @Override
     public int hashCode() {
         return Objects.hash(mechanic, course);
     }
 
-    /**
-     *
-     * @return Enrollment class toString
-     */
     @Override
     public String toString() {
         return "Enrollment{" +

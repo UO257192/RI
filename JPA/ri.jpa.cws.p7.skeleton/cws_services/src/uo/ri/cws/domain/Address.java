@@ -52,9 +52,6 @@ public class Address {
         return zipCode;
     }
 
-    /**
-     * @return Address class hashcode
-     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -65,10 +62,6 @@ public class Address {
         return result;
     }
 
-    /**
-     * @param obj adress
-     * @return true if addresses is equals : false if not
-     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -96,9 +89,6 @@ public class Address {
         return true;
     }
 
-    /**
-     * @return Address class to string
-     */
     @Override
     public String toString() {
         return "Address [street=" + street
