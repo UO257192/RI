@@ -8,7 +8,7 @@ import java.util.Set;
  * <p>
  * * @author UO257192
  */
-public class SparePart extends BaseEntity{
+public class SparePart extends BaseEntity {
 	private String code;
 	private String description;
 	private double price;
@@ -16,7 +16,8 @@ public class SparePart extends BaseEntity{
 	private Set<Substitution> substitutions = new HashSet<>();
 
 	/**
-	 *  SparePart class constructor
+	 * SparePart class constructor
+	 * 
 	 * @param code SparePart code
 	 */
 	public SparePart(String code) {
@@ -26,9 +27,10 @@ public class SparePart extends BaseEntity{
 
 	/**
 	 * SparePart class constructor
-	 * @param code SparePart code
+	 * 
+	 * @param code        SparePart code
 	 * @param description SparePart description
-	 * @param price SparePart price
+	 * @param price       SparePart price
 	 */
 	public SparePart(String code, String description, double price) {
 		this(code);
@@ -47,6 +49,7 @@ public class SparePart extends BaseEntity{
 	public String getCode() {
 		return code;
 	}
+
 	/**
 	 *
 	 * @return SparePart description
@@ -54,6 +57,7 @@ public class SparePart extends BaseEntity{
 	public String getDescription() {
 		return description;
 	}
+
 	/**
 	 *
 	 * @return SparePart price
@@ -64,11 +68,13 @@ public class SparePart extends BaseEntity{
 
 	/**
 	 * Internal use
+	 * 
 	 * @return substitutions in which the sparePart is used
 	 */
 	Set<Substitution> _getSubstitutions() {
 		return substitutions;
 	}
+
 	/**
 	 *
 	 * @return copy of substitutions in which the sparePart is used

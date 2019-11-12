@@ -8,7 +8,7 @@ import java.util.Set;
  * <p>
  * * @author UO257192
  */
-public class Mechanic extends  BaseEntity{
+public class Mechanic extends BaseEntity {
 	private String dni;
 	private String surname;
 	private String name;
@@ -23,6 +23,7 @@ public class Mechanic extends  BaseEntity{
 
 	/**
 	 * Mechanic class constructor
+	 * 
 	 * @param dni Mechanic dni
 	 */
 	public Mechanic(String dni) {
@@ -32,8 +33,9 @@ public class Mechanic extends  BaseEntity{
 
 	/**
 	 * Mechanic class constructor
-	 * @param dni Mechanic dni
-	 * @param name Mechanic name
+	 * 
+	 * @param dni     Mechanic dni
+	 * @param name    Mechanic name
 	 * @param surname Mechanic surname
 	 */
 	public Mechanic(String dni, String name, String surname) {
@@ -44,6 +46,7 @@ public class Mechanic extends  BaseEntity{
 
 	/**
 	 * Set a surname to the mechanic
+	 * 
 	 * @param surname
 	 */
 	public void setSurname(String surname) {
@@ -52,6 +55,7 @@ public class Mechanic extends  BaseEntity{
 
 	/**
 	 * Set a name to the mechanic
+	 * 
 	 * @param name
 	 */
 	public void setName(String name) {
@@ -92,6 +96,7 @@ public class Mechanic extends  BaseEntity{
 
 	/**
 	 * Internal use
+	 * 
 	 * @return the interventions of the mechanic
 	 */
 	Set<Intervention> _getInterventions() {
@@ -113,6 +118,7 @@ public class Mechanic extends  BaseEntity{
 	Set<WorkOrder> _getAssigned() {
 		return assigned;
 	}
+
 	/**
 	 *
 	 * @return a copy of the certificates of the mechanic
@@ -120,6 +126,7 @@ public class Mechanic extends  BaseEntity{
 	public Set<Certificate> getCertificates() {
 		return new HashSet<Certificate>(certificates);
 	}
+
 	/**
 	 *
 	 * @return the certificates of the mechanic
@@ -127,6 +134,7 @@ public class Mechanic extends  BaseEntity{
 	Set<Certificate> _getCertificates() {
 		return certificates;
 	}
+
 	/**
 	 *
 	 * @return a copy of the enrollments of the mechanic
@@ -134,6 +142,7 @@ public class Mechanic extends  BaseEntity{
 	public Set<Enrollment> getEnrollments() {
 		return new HashSet<Enrollment>(enrollments);
 	}
+
 	/**
 	 *
 	 * @return the enrollments of the mechanic
@@ -175,7 +184,8 @@ public class Mechanic extends  BaseEntity{
 	/**
 	 *
 	 * @param vehicleType Vehicle type
-	 * @return Enrollmets for the mechanic in courses with dedications to the vehicleType
+	 * @return Enrollmets for the mechanic in courses with dedications to the
+	 *         vehicleType
 	 */
 	public Set<Enrollment> getEnrollmentsFor(VehicleType vehicleType) {
 		Set<Enrollment> ens = new HashSet<>();
@@ -195,12 +205,12 @@ public class Mechanic extends  BaseEntity{
 	 * @param vehicleType Vehicle type
 	 * @return true if mechanic is certified for the vehicle type
 	 */
-    public boolean isCertifiedFor(VehicleType vehicleType) {
-        for (Certificate certificate : _getCertificates()) {
-            if (certificate._getVehicleType().equals(vehicleType)) {
-                return true;
-            }
-        }
-        return false;
-    }
+	public boolean isCertifiedFor(VehicleType vehicleType) {
+		for (Certificate certificate : _getCertificates()) {
+			if (certificate._getVehicleType().equals(vehicleType)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

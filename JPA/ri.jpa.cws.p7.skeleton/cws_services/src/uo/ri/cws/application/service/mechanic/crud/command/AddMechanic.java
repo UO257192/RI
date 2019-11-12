@@ -10,27 +10,27 @@ import uo.ri.cws.domain.Mechanic;
 
 public class AddMechanic implements Command<MechanicDto> {
 
-    private MechanicDto dto;
-    private MechanicRepository mechanicRepository = Factory.repository.forMechanic();
+	private MechanicDto dto;
+	private MechanicRepository mechanicRepository = Factory.repository.forMechanic();
 
-    public AddMechanic(MechanicDto mecanico) {
-        this.dto = mecanico;
-    }
+	public AddMechanic(MechanicDto mecanico) {
+		this.dto = mecanico;
+	}
 
-    @Override
-    public MechanicDto execute() throws BusinessException {
+	@Override
+	public MechanicDto execute() throws BusinessException {
 
-        BusinessCheck.isTrue(dto.dni.trim().length() > 0, "DNI is blank");
-        BusinessCheck.isTrue(!mechanicRepository.findByDni(dto.dni).isPresent(), "Mechanic already exists");
+		BusinessCheck.isTrue(dto.dni.trim().length() > 0, "DNI is blank");
+		BusinessCheck.isTrue(!mechanicRepository.findByDni(dto.dni).isPresent(), "Mechanic already exists");
 
-        Mechanic mechanic = new Mechanic(dto.dni, dto.name, dto.surname);
-        mechanicRepository.add(mechanic);
+		Mechanic mechanic = new Mechanic(dto.dni, dto.name, dto.surname);
+		mechanicRepository.add(mechanic);
 
-        mechanic = mechanicRepository.findByDni(dto.dni).get();
+		mechanic = mechanicRepository.findByDni(dto.dni).get();
 
-        dto.id = mechanic.getId();
+		dto.id = mechanic.getId();
 
-        return dto;
-    }
+		return dto;
+	}
 
 }

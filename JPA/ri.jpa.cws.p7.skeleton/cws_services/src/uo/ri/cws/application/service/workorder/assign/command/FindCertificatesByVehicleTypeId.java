@@ -1,5 +1,8 @@
 package uo.ri.cws.application.service.workorder.assign.command;
 
+import java.util.List;
+import java.util.Optional;
+
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.repository.CertificateRepository;
 import uo.ri.cws.application.repository.VehicleTypeRepository;
@@ -9,9 +12,6 @@ import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.application.util.DtoAssembler;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.VehicleType;
-
-import java.util.List;
-import java.util.Optional;
 
 public class FindCertificatesByVehicleTypeId implements Command<List<CertificateDto>> {
 

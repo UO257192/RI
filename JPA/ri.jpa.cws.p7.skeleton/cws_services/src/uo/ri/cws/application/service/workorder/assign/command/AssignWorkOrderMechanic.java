@@ -12,30 +12,31 @@ import uo.ri.cws.domain.Mechanic;
 import uo.ri.cws.domain.WorkOrder;
 
 public class AssignWorkOrderMechanic implements Command<Void> {
-    private WorkOrderRepository workOrderRepository = Factory.repository.forWorkOrder();
-    private MechanicRepository mechanicRepository = Factory.repository.forMechanic();
-    private String woId;
-    private String mechanicId;
+	private WorkOrderRepository workOrderRepository = Factory.repository.forWorkOrder();
+	private MechanicRepository mechanicRepository = Factory.repository.forMechanic();
+	private String woId;
+	private String mechanicId;
 
-    public AssignWorkOrderMechanic(String woId, String mechanicId) {
-        this.woId = woId;
-        this.mechanicId = mechanicId;
-    }
+	public AssignWorkOrderMechanic(String woId, String mechanicId) {
+		this.woId = woId;
+		this.mechanicId = mechanicId;
+	}
 
-    @Override
-    public Void execute() throws BusinessException {
-        BusinessCheck.isNotNull(woId);
-        BusinessCheck.isNotNull(mechanicId);
-        BusinessCheck.isNotEmpty(mechanicId, "Id de mecanico vacio");
-        BusinessCheck.isNotEmpty(woId, "Id de workorder vacio");
-        Optional<WorkOrder> ow = workOrderRepository.findById(woId);
-        Optional<Mechanic> om = mechanicRepository.findById(mechanicId);
-        BusinessCheck.isTrue(ow.isPresent(), "El workorder no existe");
-        BusinessCheck.isTrue(om.isPresent(), "El mecanico no existe");
-        WorkOrder workOrder = ow.get();
-        Mechanic mechanic = om.get();
-        BusinessCheck.isTrue(mechanic.isCertifiedFor(workOrder.getVehicle().getVehicleType()), "El mecanico no está certificado para el tipo de vehiculo asignado a la workorder");
-        workOrder.assignTo(mechanic);
-        return null;
-    }
+	@Override
+	public Void execute() throws BusinessException {
+		BusinessCheck.isNotNull(woId);
+		BusinessCheck.isNotNull(mechanicId);
+		BusinessCheck.isNotEmpty(mechanicId, "Id de mecanico vacio");
+		BusinessCheck.isNotEmpty(woId, "Id de workorder vacio");
+		Optional<WorkOrder> ow = workOrderRepository.findById(woId);
+		Optional<Mechanic> om = mechanicRepository.findById(mechanicId);
+		BusinessCheck.isTrue(ow.isPresent(), "El workorder no existe");
+		BusinessCheck.isTrue(om.isPresent(), "El mecanico no existe");
+		WorkOrder workOrder = ow.get();
+		Mechanic mechanic = om.get();
+		BusinessCheck.isTrue(mechanic.isCertifiedFor(workOrder.getVehicle().getVehicleType()),
+				"El mecanico no está certificado para el tipo de vehiculo asignado a la workorder");
+		workOrder.assignTo(mechanic);
+		return null;
+	}
 }

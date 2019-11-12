@@ -1,9 +1,5 @@
 package uo.ri.cws.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 /**
  * Voucher class. TVOUCHERS table.
  * <p>
@@ -19,6 +15,7 @@ public class Voucher extends PaymentMean {
 
 	/**
 	 * Voucher class constructor
+	 * 
 	 * @param code Voucher code
 	 */
 	public Voucher(String code) {
@@ -27,19 +24,21 @@ public class Voucher extends PaymentMean {
 	}
 
 	/**
-	 *  Voucher class constructor
+	 * Voucher class constructor
+	 * 
 	 * @param client Voucher client
-	 * @param code Voucher code
+	 * @param code   Voucher code
 	 */
 	public Voucher(Client client, String code) {
 		this(code);
-		Associations.Pay.link(this,client);
+		Associations.Pay.link(this, client);
 	}
 
 	/**
 	 * Voucher class constructor
-	 * @param code Voucher code
-	 * @param available Voucher available amount
+	 * 
+	 * @param code        Voucher code
+	 * @param available   Voucher available amount
 	 * @param description Voucher description
 	 */
 	public Voucher(String code, double available, String description) {
@@ -50,7 +49,8 @@ public class Voucher extends PaymentMean {
 
 	/**
 	 * Voucher class constructor
-	 * @param code Voucher code
+	 * 
+	 * @param code      Voucher code
 	 * @param available Voucher available amount
 	 */
 	public Voucher(String code, double available) {
@@ -68,6 +68,7 @@ public class Voucher extends PaymentMean {
 
 	/**
 	 * For test
+	 * 
 	 * @return Voucher available
 	 */
 	public double getDisponible() {
@@ -84,6 +85,7 @@ public class Voucher extends PaymentMean {
 
 	/**
 	 * Set a new description for the Voucher
+	 * 
 	 * @param description Voucher description
 	 */
 	public void setDescripcion(String description) {

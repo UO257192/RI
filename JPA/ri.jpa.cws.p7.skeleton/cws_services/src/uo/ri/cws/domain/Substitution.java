@@ -1,26 +1,22 @@
 package uo.ri.cws.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
 /**
  * Substitution class. TSUBSTITUTIONS table.
  * <p>
  * * @author UO257192
  */
-public class Substitution extends BaseEntity{
+public class Substitution extends BaseEntity {
 	private int quantity;
 	private Intervention intervention;
 	private SparePart sparePart;
 
-
-	Substitution() {};
+	Substitution() {
+	};
 
 	/**
 	 * Substitution class constructor
-	 * @param sparePart Substitution sparepart
+	 * 
+	 * @param sparePart    Substitution sparepart
 	 * @param intervention Substitution intervention
 	 */
 	public Substitution(SparePart sparePart, Intervention intervention) {
@@ -30,13 +26,14 @@ public class Substitution extends BaseEntity{
 
 	/**
 	 * Substitution class constructor
-	 * @param sparePart Substitution sparepart
+	 * 
+	 * @param sparePart    Substitution sparepart
 	 * @param intervention Substitution intervention
-	 * @param quantity SparePart quantity
+	 * @param quantity     SparePart quantity
 	 */
 	public Substitution(SparePart sparePart, Intervention intervention, int quantity) {
-		this(sparePart,intervention);
-		if(quantity < 1)
+		this(sparePart, intervention);
+		if (quantity < 1)
 			throw new IllegalArgumentException("La cantidad no puede ser inferior a 1");
 		this.quantity = quantity;
 	}
@@ -50,8 +47,8 @@ public class Substitution extends BaseEntity{
 	}
 
 	/**
-	 * Internal use
-	 * Set the sparepart to the Substitution
+	 * Internal use Set the sparepart to the Substitution
+	 * 
 	 * @param sparePart Substitution sparepart
 	 */
 	void _setSparePart(SparePart sparePart) {
@@ -67,8 +64,8 @@ public class Substitution extends BaseEntity{
 	}
 
 	/**
-	 * Internal use
-	 * Set the intervention to the Substitution
+	 * Internal use Set the intervention to the Substitution
+	 * 
 	 * @param intervention
 	 */
 	void _setIntervention(Intervention intervention) {

@@ -1,5 +1,7 @@
 package uo.ri.cws.application.service.training.attendance;
 
+import java.util.List;
+
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.mechanic.MechanicDto;
@@ -12,8 +14,6 @@ import uo.ri.cws.application.service.training.attendance.command.FindAttendanceB
 import uo.ri.cws.application.service.training.attendance.command.RegisterNewAttendance;
 import uo.ri.cws.application.service.training.course.command.FindAllCourses;
 import uo.ri.cws.application.util.command.CommandExecutor;
-
-import java.util.List;
 
 public class CourseAttendanceServiceImpl implements CourseAttendanceService {
 

@@ -1,6 +1,19 @@
 package uo.ri.cws.infrastructure.persistence.jpa.repository;
 
-import uo.ri.cws.application.repository.*;
+import uo.ri.cws.application.repository.CertificateRepository;
+import uo.ri.cws.application.repository.ClientRepository;
+import uo.ri.cws.application.repository.CourseRepository;
+import uo.ri.cws.application.repository.DedicationRepository;
+import uo.ri.cws.application.repository.EnrollmentRepository;
+import uo.ri.cws.application.repository.InterventionRepository;
+import uo.ri.cws.application.repository.InvoiceRepository;
+import uo.ri.cws.application.repository.MechanicRepository;
+import uo.ri.cws.application.repository.PaymentMeanRepository;
+import uo.ri.cws.application.repository.RepositoryFactory;
+import uo.ri.cws.application.repository.SparePartRepository;
+import uo.ri.cws.application.repository.VehicleRepository;
+import uo.ri.cws.application.repository.VehicleTypeRepository;
+import uo.ri.cws.application.repository.WorkOrderRepository;
 
 public class JpaRepositoryFactory implements RepositoryFactory {
 

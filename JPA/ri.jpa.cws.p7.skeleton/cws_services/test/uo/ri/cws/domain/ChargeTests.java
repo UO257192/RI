@@ -8,12 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import alb.util.date.Dates;
-import uo.ri.cws.domain.Cash;
-import uo.ri.cws.domain.Charge;
-import uo.ri.cws.domain.Client;
-import uo.ri.cws.domain.CreditCard;
-import uo.ri.cws.domain.Invoice;
-import uo.ri.cws.domain.Voucher;
 
 public class ChargeTests {
 

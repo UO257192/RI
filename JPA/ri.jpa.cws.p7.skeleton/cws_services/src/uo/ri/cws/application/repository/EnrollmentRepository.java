@@ -1,11 +1,11 @@
 package uo.ri.cws.application.repository;
 
+import java.util.List;
+import java.util.Optional;
+
 import uo.ri.cws.domain.Course;
 import uo.ri.cws.domain.Enrollment;
 import uo.ri.cws.domain.Mechanic;
-
-import java.util.List;
-import java.util.Optional;
 
 public interface EnrollmentRepository extends Repository<Enrollment> {
 

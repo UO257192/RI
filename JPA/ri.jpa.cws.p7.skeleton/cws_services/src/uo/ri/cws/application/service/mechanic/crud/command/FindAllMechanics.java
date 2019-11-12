@@ -8,7 +8,7 @@ import uo.ri.cws.application.service.mechanic.MechanicDto;
 import uo.ri.cws.application.util.DtoAssembler;
 import uo.ri.cws.application.util.command.Command;
 
-public class FindAllMechanics implements Command<List<MechanicDto>>  {
+public class FindAllMechanics implements Command<List<MechanicDto>> {
 
 	private MechanicRepository mechanicRepository = Factory.repository.forMechanic();
 

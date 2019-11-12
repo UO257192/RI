@@ -14,23 +14,23 @@ import uo.ri.cws.domain.WorkOrder;
 
 public class RegisterNewWorkOrder implements Command<WorkOrderDto> {
 
-    private WorkOrderDto workOrderDto;
-    private VehicleRepository vehicleRepository = Factory.repository.forVehicle();
-    private WorkOrderRepository workOrderRepository = Factory.repository.forWorkOrder();
+	private WorkOrderDto workOrderDto;
+	private VehicleRepository vehicleRepository = Factory.repository.forVehicle();
+	private WorkOrderRepository workOrderRepository = Factory.repository.forWorkOrder();
 
-    public RegisterNewWorkOrder(WorkOrderDto workOrderDto) {
-        this.workOrderDto = workOrderDto;
-    }
+	public RegisterNewWorkOrder(WorkOrderDto workOrderDto) {
+		this.workOrderDto = workOrderDto;
+	}
 
-    @Override
-    public WorkOrderDto execute() throws BusinessException {
-        BusinessCheck.isTrue(workOrderDto != null, "La workorder es null");
-        BusinessCheck.isTrue(workOrderDto.description.trim().length() > 0, "Description is blank");
-        Optional<Vehicle> ovehicle = vehicleRepository.findById(workOrderDto.vehicleId);
-        BusinessCheck.isTrue(ovehicle.isPresent(), "El vehiculo no existe");
-        WorkOrder workOrder = new WorkOrder(ovehicle.get(), workOrderDto.description);
-        workOrderRepository.add(workOrder);
-        workOrderDto.id = workOrder.getId();
-        return workOrderDto;
-    }
+	@Override
+	public WorkOrderDto execute() throws BusinessException {
+		BusinessCheck.isTrue(workOrderDto != null, "La workorder es null");
+		BusinessCheck.isTrue(workOrderDto.description.trim().length() > 0, "Description is blank");
+		Optional<Vehicle> ovehicle = vehicleRepository.findById(workOrderDto.vehicleId);
+		BusinessCheck.isTrue(ovehicle.isPresent(), "El vehiculo no existe");
+		WorkOrder workOrder = new WorkOrder(ovehicle.get(), workOrderDto.description);
+		workOrderRepository.add(workOrder);
+		workOrderDto.id = workOrder.getId();
+		return workOrderDto;
+	}
 }

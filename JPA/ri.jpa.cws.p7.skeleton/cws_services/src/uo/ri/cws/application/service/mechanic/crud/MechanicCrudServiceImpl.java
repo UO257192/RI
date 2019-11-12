@@ -15,7 +15,7 @@ import uo.ri.cws.application.service.mechanic.crud.command.UpdateMechanic;
 import uo.ri.cws.application.util.command.CommandExecutor;
 
 public class MechanicCrudServiceImpl implements MechanicCrudService {
-	
+
 	private CommandExecutor executor = Factory.executor.forExecutor();
 
 	@Override
@@ -25,7 +25,7 @@ public class MechanicCrudServiceImpl implements MechanicCrudService {
 
 	@Override
 	public void updateMechanic(MechanicDto mecanico) throws BusinessException {
-		executor.execute(new UpdateMechanic( mecanico ));
+		executor.execute(new UpdateMechanic(mecanico));
 	}
 
 	@Override

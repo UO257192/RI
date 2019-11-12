@@ -1,9 +1,5 @@
 package uo.ri.cws.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,13 +16,14 @@ public class VehicleType extends BaseEntity {
 
 	private Set<Vehicle> vehicles = new HashSet<>();
 	private Set<Dedication> dedications = new HashSet<>();
-	private Set<Certificate> certificates=new HashSet<Certificate>();
+	private Set<Certificate> certificates = new HashSet<Certificate>();
 
 	VehicleType() {
 	}
 
 	/**
 	 * VehicleType class constructor
+	 * 
 	 * @param name Type name
 	 */
 	public VehicleType(String name) {
@@ -36,7 +33,8 @@ public class VehicleType extends BaseEntity {
 
 	/**
 	 * VehicleType class constructor
-	 * @param name Type name
+	 * 
+	 * @param name         Type name
 	 * @param pricePerHour Price per hour of workorder
 	 */
 	public VehicleType(String name, double pricePerHour) {
@@ -62,11 +60,13 @@ public class VehicleType extends BaseEntity {
 
 	/**
 	 * Internal use
+	 * 
 	 * @return the vehicles with this type
 	 */
 	Set<Vehicle> _getVehicles() {
 		return vehicles;
 	}
+
 	/**
 	 *
 	 * @return a copy of the vehicles with this type
@@ -77,6 +77,7 @@ public class VehicleType extends BaseEntity {
 
 	/**
 	 * Internal use
+	 * 
 	 * @return courses dedicated to this type
 	 */
 	Set<Dedication> _getDedications() {
@@ -93,6 +94,7 @@ public class VehicleType extends BaseEntity {
 
 	/**
 	 * Internal use
+	 * 
 	 * @return certificates for this type
 	 */
 	Set<Certificate> _getCertificates() {

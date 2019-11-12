@@ -1,5 +1,7 @@
 package uo.ri.cws.application.service.training.report;
 
+import java.util.List;
+
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.training.CertificateDto;
@@ -10,8 +12,6 @@ import uo.ri.cws.application.service.training.report.command.FindCertificatedByV
 import uo.ri.cws.application.service.training.report.command.FindTrainigByMechanicId;
 import uo.ri.cws.application.service.training.report.command.FindTrainingByVehicleTypeAndMechanic;
 import uo.ri.cws.application.util.command.CommandExecutor;
-
-import java.util.List;
 
 public class CourseReportServiceImpl implements CourseReportService {
 

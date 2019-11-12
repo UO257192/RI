@@ -1,13 +1,13 @@
 package uo.ri.cws.application.service.training.report.command;
 
+import java.util.List;
+
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.repository.CertificateRepository;
 import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.training.CertificateDto;
 import uo.ri.cws.application.util.DtoAssembler;
 import uo.ri.cws.application.util.command.Command;
-
-import java.util.List;
 
 public class FindCertificatedByVehicleType implements Command<List<CertificateDto>> {
 

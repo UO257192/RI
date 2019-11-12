@@ -1,6 +1,5 @@
 package uo.ri.cws.domain;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +9,7 @@ import java.util.Set;
  * <p>
  * * @author UO257192
  */
-public class WorkOrder extends BaseEntity{
+public class WorkOrder extends BaseEntity {
 	public enum WorkOrderStatus {
 		OPEN, ASSIGNED, FINISHED, INVOICED
 	}
@@ -28,6 +27,7 @@ public class WorkOrder extends BaseEntity{
 
 	/**
 	 * WorkOrder class constructor
+	 * 
 	 * @param vehicle WorkOrder vehicle
 	 */
 	public WorkOrder(Vehicle vehicle) {
@@ -38,7 +38,8 @@ public class WorkOrder extends BaseEntity{
 
 	/**
 	 * WorkOrder class constructor
-	 * @param date WorkOrder date
+	 * 
+	 * @param date    WorkOrder date
 	 * @param vehicle WorkOrder vehicle
 	 */
 	public WorkOrder(Date date, Vehicle vehicle) {
@@ -49,7 +50,8 @@ public class WorkOrder extends BaseEntity{
 
 	/**
 	 * WorkOrder class constructor
-	 * @param vehicle WorkOrder vehicle
+	 * 
+	 * @param vehicle     WorkOrder vehicle
 	 * @param description WorkOrder description
 	 */
 	public WorkOrder(Vehicle vehicle, String description) {
@@ -62,6 +64,7 @@ public class WorkOrder extends BaseEntity{
 
 	/**
 	 * Set new description to the workorder
+	 * 
 	 * @param description WorkOrder description
 	 */
 	public void setDescription(String description) {
@@ -86,10 +89,11 @@ public class WorkOrder extends BaseEntity{
 
 	/**
 	 * Computes and return amount
+	 * 
 	 * @return WorkOrder amount
 	 */
 	public double getAmount() {
-        computeAmount();
+		computeAmount();
 		return amount;
 	}
 
@@ -110,8 +114,8 @@ public class WorkOrder extends BaseEntity{
 	}
 
 	/**
-	 * Internal use
-	 * Set Vehicle to the workorder
+	 * Internal use Set Vehicle to the workorder
+	 * 
 	 * @param vehicle WorkOrder vehicle
 	 */
 	void _setVehicle(Vehicle vehicle) {
@@ -127,8 +131,8 @@ public class WorkOrder extends BaseEntity{
 	}
 
 	/**
-	 * Internal use
-	 * Set mechanic assigned to the WorkOrder
+	 * Internal use Set mechanic assigned to the WorkOrder
+	 * 
 	 * @param mechanic WorkOrder mechanic
 	 */
 	void _setMechanic(Mechanic mechanic) {
@@ -144,8 +148,8 @@ public class WorkOrder extends BaseEntity{
 	}
 
 	/**
-	 * Internal use
-	 * Set WorkOrder invoice
+	 * Internal use Set WorkOrder invoice
+	 * 
 	 * @param invoice WorkOrder invoice
 	 */
 	void _setInvoice(Invoice invoice) {
@@ -154,11 +158,13 @@ public class WorkOrder extends BaseEntity{
 
 	/**
 	 * Internal use
+	 * 
 	 * @return the WorkOrder interventions
 	 */
 	Set<Intervention> _getInterventions() {
 		return interventions;
 	}
+
 	/**
 	 *
 	 * @return a copy of the WorkOrder interventions
@@ -192,13 +198,15 @@ public class WorkOrder extends BaseEntity{
 			return false;
 		if (vehicle == null) {
 			return other.vehicle == null;
-		} else return vehicle.equals(other.vehicle);
+		} else
+			return vehicle.equals(other.vehicle);
 	}
 
 	@Override
 	public String toString() {
-		return "WorkOrder [date=" + date.toString() + ", description=" + description + ", amount=" + amount + ", status=" + status
-				+ ", vehicle=" + vehicle + ", mechanic=" + mechanic + ", invoice=" + invoice + "]";
+		return "WorkOrder [date=" + date.toString() + ", description=" + description + ", amount=" + amount
+				+ ", status=" + status + ", vehicle=" + vehicle + ", mechanic=" + mechanic + ", invoice=" + invoice
+				+ "]";
 	}
 
 	/**
@@ -210,9 +218,9 @@ public class WorkOrder extends BaseEntity{
 	 *                               work order is not linked with the invoice
 	 */
 	public void markAsInvoiced() {
-		if(!this.status.equals(WorkOrderStatus.FINISHED))
+		if (!this.status.equals(WorkOrderStatus.FINISHED))
 			throw new IllegalStateException("La averia no está en estado TERMINADA");
-		if(this.invoice == null)
+		if (this.invoice == null)
 			throw new IllegalStateException("La avería no está enlazada con una factura");
 		this.status = WorkOrderStatus.INVOICED;
 	}
@@ -227,9 +235,9 @@ public class WorkOrder extends BaseEntity{
 	 *                               mechanic
 	 */
 	public void markAsFinished() {
-		if(!this.status.equals(WorkOrderStatus.ASSIGNED))
+		if (!this.status.equals(WorkOrderStatus.ASSIGNED))
 			throw new IllegalStateException("La avería no está en estado ASIGNADA");
-		if(this.mechanic == null)
+		if (this.mechanic == null)
 			throw new IllegalStateException("La avería no está enlazada con un mecánico");
 		this.computeAmount();
 		Associations.Assign.unlink(mechanic, this);
@@ -245,9 +253,9 @@ public class WorkOrder extends BaseEntity{
 	 *                               work order is still linked with the invoice
 	 */
 	public void markBackToFinished() {
-		if(!this.status.equals(WorkOrderStatus.INVOICED))
+		if (!this.status.equals(WorkOrderStatus.INVOICED))
 			throw new IllegalStateException("La avería debe estar en estado FACTURADA");
-		if(this.invoice != null)
+		if (this.invoice != null)
 			throw new IllegalStateException("La avería aún está enlazada con la factura");
 		this.status = WorkOrderStatus.FINISHED;
 	}
@@ -262,7 +270,7 @@ public class WorkOrder extends BaseEntity{
 	 *                               mechanic
 	 */
 	public void assignTo(Mechanic mechanic) {
-		if(!this.status.equals(WorkOrderStatus.OPEN))
+		if (!this.status.equals(WorkOrderStatus.OPEN))
 			throw new IllegalStateException("Solo se puede saignar una avería ABIERTA");
 		Associations.Assign.link(mechanic, this);
 		this.status = WorkOrderStatus.ASSIGNED;
@@ -276,7 +284,7 @@ public class WorkOrder extends BaseEntity{
 	 * @throws IllegalStateException if - The work order is not in ASSIGNED status
 	 */
 	public void desassign() {
-		if(!this.status.equals(WorkOrderStatus.ASSIGNED))
+		if (!this.status.equals(WorkOrderStatus.ASSIGNED))
 			throw new IllegalStateException("La avería no está en estado ASIGNADA");
 		Associations.Assign.unlink(mechanic, this);
 		this.status = WorkOrderStatus.OPEN;
@@ -290,7 +298,7 @@ public class WorkOrder extends BaseEntity{
 	 * @throws IllegalStateException if - The work order is not in FINISHED status
 	 */
 	public void reopen() {
-		if(!this.status.equals(WorkOrderStatus.FINISHED))
+		if (!this.status.equals(WorkOrderStatus.FINISHED))
 			throw new IllegalStateException("La avería no está en estado TERMINADA");
 		this.status = WorkOrderStatus.OPEN;
 	}
@@ -298,9 +306,9 @@ public class WorkOrder extends BaseEntity{
 	/**
 	 * Calculates total amount of the interventions
 	 */
-	private void computeAmount(){
+	private void computeAmount() {
 		amount = 0L;
-		for(Intervention intervention: interventions)
+		for (Intervention intervention : interventions)
 			amount += intervention.getAmount();
 	}
 }

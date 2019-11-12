@@ -1,7 +1,15 @@
 package uo.ri.cws.application.util;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import uo.ri.cws.application.service.client.ClientDto;
-import uo.ri.cws.application.service.invoice.*;
+import uo.ri.cws.application.service.invoice.CardDto;
+import uo.ri.cws.application.service.invoice.CashDto;
+import uo.ri.cws.application.service.invoice.InvoiceDto;
+import uo.ri.cws.application.service.invoice.PaymentMeanDto;
+import uo.ri.cws.application.service.invoice.VoucherDto;
 import uo.ri.cws.application.service.mechanic.MechanicDto;
 import uo.ri.cws.application.service.training.CertificateDto;
 import uo.ri.cws.application.service.training.CourseDto;
@@ -9,24 +17,20 @@ import uo.ri.cws.application.service.training.EnrollmentDto;
 import uo.ri.cws.application.service.vehicle.VehicleDto;
 import uo.ri.cws.application.service.vehicletype.VehicleTypeDto;
 import uo.ri.cws.application.service.workorder.WorkOrderDto;
+import uo.ri.cws.domain.Cash;
 import uo.ri.cws.domain.Certificate;
-import uo.ri.cws.domain.Mechanic;
-import uo.ri.cws.domain.Vehicle;
-import uo.ri.cws.domain.VehicleType;
 import uo.ri.cws.domain.Client;
 import uo.ri.cws.domain.Course;
+import uo.ri.cws.domain.CreditCard;
 import uo.ri.cws.domain.Dedication;
 import uo.ri.cws.domain.Enrollment;
 import uo.ri.cws.domain.Invoice;
-import uo.ri.cws.domain.Cash;
-import uo.ri.cws.domain.CreditCard;
+import uo.ri.cws.domain.Mechanic;
 import uo.ri.cws.domain.PaymentMean;
+import uo.ri.cws.domain.Vehicle;
+import uo.ri.cws.domain.VehicleType;
 import uo.ri.cws.domain.Voucher;
 import uo.ri.cws.domain.WorkOrder;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class DtoAssembler {
 

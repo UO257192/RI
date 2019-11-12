@@ -8,7 +8,7 @@ import java.util.Set;
  * <p>
  * * @author UO257192
  */
-public abstract class PaymentMean extends BaseEntity{
+public abstract class PaymentMean extends BaseEntity {
 	private double accumulated = 0.0;
 
 	private Client client;
@@ -24,6 +24,7 @@ public abstract class PaymentMean extends BaseEntity{
 
 	/**
 	 * Set Accumulated value
+	 * 
 	 * @param accumulated PaymentMean accumulated
 	 */
 	public void setAccumulated(double accumulated) {
@@ -40,6 +41,7 @@ public abstract class PaymentMean extends BaseEntity{
 
 	/**
 	 * Associate Client to the paymentmean
+	 * 
 	 * @param client Client associated to the paymentmean
 	 */
 	void _setClient(Client client) {
@@ -48,6 +50,7 @@ public abstract class PaymentMean extends BaseEntity{
 
 	/**
 	 * Internal use
+	 * 
 	 * @return charges
 	 */
 	Set<Charge> _getCharges() {
@@ -64,6 +67,7 @@ public abstract class PaymentMean extends BaseEntity{
 
 	/**
 	 * Add import to accumulated amount
+	 * 
 	 * @param amount Amount to add
 	 */
 	public void pay(double amount) {

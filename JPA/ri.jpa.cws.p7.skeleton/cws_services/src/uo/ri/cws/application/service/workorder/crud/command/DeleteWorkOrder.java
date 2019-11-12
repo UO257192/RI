@@ -11,20 +11,20 @@ import uo.ri.cws.domain.WorkOrder;
 
 public class DeleteWorkOrder implements Command<Void> {
 
-    private WorkOrderRepository workOrderRepository = Factory.repository.forWorkOrder();
-    public String id;
+	private WorkOrderRepository workOrderRepository = Factory.repository.forWorkOrder();
+	public String id;
 
-    public DeleteWorkOrder(String id) {
-        this.id = id;
-    }
+	public DeleteWorkOrder(String id) {
+		this.id = id;
+	}
 
-    @Override
-    public Void execute() throws BusinessException {
-        Optional<WorkOrder> optionalWorkOrder = workOrderRepository.findById(id);
-        BusinessCheck.isTrue(optionalWorkOrder.isPresent(), "La workorder no existe");
-        WorkOrder workOrder = optionalWorkOrder.get();
-        BusinessCheck.isTrue(workOrder.getInterventions().isEmpty(), "La workorder tiene intervenciones");
-        workOrderRepository.remove(workOrder);
-        return null;
-    }
+	@Override
+	public Void execute() throws BusinessException {
+		Optional<WorkOrder> optionalWorkOrder = workOrderRepository.findById(id);
+		BusinessCheck.isTrue(optionalWorkOrder.isPresent(), "La workorder no existe");
+		WorkOrder workOrder = optionalWorkOrder.get();
+		BusinessCheck.isTrue(workOrder.getInterventions().isEmpty(), "La workorder tiene intervenciones");
+		workOrderRepository.remove(workOrder);
+		return null;
+	}
 }

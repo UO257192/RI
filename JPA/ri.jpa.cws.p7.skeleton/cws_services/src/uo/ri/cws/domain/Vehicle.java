@@ -1,6 +1,5 @@
 package uo.ri.cws.domain;
 
-import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,20 +8,22 @@ import java.util.Set;
  * <p>
  * * @author UO257192
  */
-public class Vehicle extends BaseEntity{
+public class Vehicle extends BaseEntity {
 	private String plateNumber;
 	private String make;
 	private String model;
-	
+
 	private Client client;
 	private VehicleType vehicleType;
-	
+
 	private Set<WorkOrder> workOrders = new HashSet<>();
-	
-	Vehicle() {};
+
+	Vehicle() {
+	};
 
 	/**
 	 * Vehicle class constructor
+	 * 
 	 * @param plateNumber Vehicle plateNumber
 	 */
 	public Vehicle(String plateNumber) {
@@ -31,10 +32,11 @@ public class Vehicle extends BaseEntity{
 	}
 
 	/**
-	 *  Vehicle class constructor
+	 * Vehicle class constructor
+	 * 
 	 * @param plateNumber Vehicle plateNumber
-	 * @param make Vehicle make
-	 * @param model Vehicle model
+	 * @param make        Vehicle make
+	 * @param model       Vehicle model
 	 */
 	public Vehicle(String plateNumber, String make, String model) {
 		this(plateNumber);
@@ -91,7 +93,8 @@ public class Vehicle extends BaseEntity{
 	}
 
 	/**
-	 *  Internal use
+	 * Internal use
+	 * 
 	 * @return the workOrders of the vehicle
 	 */
 	Set<WorkOrder> _getWorkOrders() {
@@ -99,8 +102,8 @@ public class Vehicle extends BaseEntity{
 	}
 
 	/**
-	 * Internal use
-	 * Set the owner of the vehicle
+	 * Internal use Set the owner of the vehicle
+	 * 
 	 * @param client Client owner
 	 */
 	void _setClient(Client client) {
@@ -108,8 +111,8 @@ public class Vehicle extends BaseEntity{
 	}
 
 	/**
-	 * Internal use
-	 * Set the type of the vehicle
+	 * Internal use Set the type of the vehicle
+	 * 
 	 * @param vehicleType VehicleType
 	 */
 	void _setVehicleType(VehicleType vehicleType) {
@@ -143,12 +146,7 @@ public class Vehicle extends BaseEntity{
 
 	@Override
 	public String toString() {
-		return "Vehicle{" +
-				"plateNumber='" + plateNumber + '\'' +
-				", brand='" + make + '\'' +
-				", model='" + model + '\'' +
-				", client=" + client +
-				", vehicleType=" + vehicleType +
-				'}';
+		return "Vehicle{" + "plateNumber='" + plateNumber + '\'' + ", brand='" + make + '\'' + ", model='" + model
+				+ '\'' + ", client=" + client + ", vehicleType=" + vehicleType + '}';
 	}
 }

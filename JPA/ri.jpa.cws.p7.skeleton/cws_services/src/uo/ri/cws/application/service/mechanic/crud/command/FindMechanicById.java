@@ -10,7 +10,7 @@ import uo.ri.cws.application.util.DtoAssembler;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Mechanic;
 
-public class FindMechanicById implements Command< Optional<MechanicDto>> {
+public class FindMechanicById implements Command<Optional<MechanicDto>> {
 
 	private MechanicRepository mechanicRepository = Factory.repository.forMechanic();
 	private String id;
