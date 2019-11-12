@@ -29,6 +29,7 @@ public class RegisterNewCourse implements Command<CourseDto> {
 
     @Override
     public CourseDto execute() throws BusinessException {
+        BusinessCheck.isTrue(courseDto != null, "El curso proporcionado es null");
         Optional<Course> ocourse = courseRepository.findByCode(courseDto.code);
         BusinessCheck.isTrue(!ocourse.isPresent(), "Ya existe un curso con el mismo codigo.");
         Map<VehicleType, Integer> percentages = new HashMap<VehicleType,Integer>();

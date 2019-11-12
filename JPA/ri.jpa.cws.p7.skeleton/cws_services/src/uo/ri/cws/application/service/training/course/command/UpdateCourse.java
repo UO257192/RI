@@ -22,6 +22,7 @@ public class UpdateCourse  implements Command<Void> {
 
     @Override
     public Void execute() throws BusinessException {
+        BusinessCheck.isTrue(dto != null, "El curso proporcionado es null");
         Optional<Course> course = courseRepository.findById(dto.id);
         BusinessCheck.isTrue(course.isPresent(), "El curso no existe");
         Course cour = course.get();

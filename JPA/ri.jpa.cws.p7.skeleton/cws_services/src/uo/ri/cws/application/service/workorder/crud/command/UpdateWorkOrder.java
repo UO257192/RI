@@ -22,6 +22,7 @@ public class UpdateWorkOrder implements Command<Void> {
 
     @Override
     public Void execute() throws BusinessException {
+        BusinessCheck.isTrue(workOrderDto != null, "La workorder es null");
         Optional<WorkOrder> optionalWorkOrder = workOrderRepository.findById(workOrderDto.id);
         BusinessCheck.isTrue(optionalWorkOrder.isPresent(), "La workorder no existe");
         BusinessCheck.isNotNull(workOrderDto.description, "La descripcion es null");

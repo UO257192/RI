@@ -7,6 +7,11 @@ import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * VehicleType class. TVEHICLETYPE table.
+ * <p>
+ * * @author UO257192
+ */
 public class VehicleType extends BaseEntity {
 
 	private String name;
@@ -20,48 +25,92 @@ public class VehicleType extends BaseEntity {
 	VehicleType() {
 	}
 
+	/**
+	 * VehicleType class constructor
+	 * @param name Type name
+	 */
 	public VehicleType(String name) {
 		super();
 		this.name = name;
 	}
 
+	/**
+	 * VehicleType class constructor
+	 * @param name Type name
+	 * @param pricePerHour Price per hour of workorder
+	 */
 	public VehicleType(String name, double pricePerHour) {
 		this(name);
 		this.pricePerHour = pricePerHour;
 	}
 
+	/**
+	 *
+	 * @return VehicleType name
+	 */
 	public String getNombre() {
 		return name;
 	}
 
+	/**
+	 *
+	 * @return VehicleType price per hour
+	 */
 	public double getPricePerHour() {
 		return pricePerHour;
 	}
 
+	/**
+	 * Internal use
+	 * @return the vehicles with this type
+	 */
 	Set<Vehicle> _getVehicles() {
 		return vehicles;
 	}
-
+	/**
+	 *
+	 * @return a copy of the vehicles with this type
+	 */
 	public Set<Vehicle> getVehicles() {
 		return new HashSet<Vehicle>(vehicles);
 	}
 
+	/**
+	 * Internal use
+	 * @return courses dedicated to this type
+	 */
 	Set<Dedication> _getDedications() {
 		return dedications;
 	}
 
+	/**
+	 *
+	 * @return a copy of the courses dedicated to this type
+	 */
 	public Set<Dedication> getDedications() {
 		return new HashSet<Dedication>(dedications);
 	}
 
+	/**
+	 * Internal use
+	 * @return certificates for this type
+	 */
 	Set<Certificate> _getCertificates() {
 		return certificates;
 	}
 
+	/**
+	 *
+	 * @return a copy of the certificates for this type
+	 */
 	public Set<Certificate> getCertificates() {
 		return new HashSet<Certificate>(certificates);
 	}
 
+	/**
+	 *
+	 * @return minimun traning hours necessary to get certified
+	 */
 	public int getMinTrainingHours() {
 		return mintraininghours;
 	}

@@ -4,6 +4,12 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+/**
+ * WorkOrder class. TWORKORDERS table.
+ * <p>
+ * * @author UO257192
+ */
 public class WorkOrder extends BaseEntity{
 	public enum WorkOrderStatus {
 		OPEN, ASSIGNED, FINISHED, INVOICED
@@ -20,18 +26,32 @@ public class WorkOrder extends BaseEntity{
 
 	private Set<Intervention> interventions = new HashSet<>();
 
+	/**
+	 * WorkOrder class constructor
+	 * @param vehicle WorkOrder vehicle
+	 */
 	public WorkOrder(Vehicle vehicle) {
 		super();
 		this.date = new Date();
 		Associations.Order.link(vehicle, this);
 	}
 
+	/**
+	 * WorkOrder class constructor
+	 * @param date WorkOrder date
+	 * @param vehicle WorkOrder vehicle
+	 */
 	public WorkOrder(Date date, Vehicle vehicle) {
 		this.date = date;
 		this.vehicle = vehicle;
 		Associations.Order.link(vehicle, this);
 	}
 
+	/**
+	 * WorkOrder class constructor
+	 * @param vehicle WorkOrder vehicle
+	 * @param description WorkOrder description
+	 */
 	public WorkOrder(Vehicle vehicle, String description) {
 		this(new Date(), vehicle);
 		this.description = description;
@@ -40,55 +60,109 @@ public class WorkOrder extends BaseEntity{
 	WorkOrder() {
 	}
 
+	/**
+	 * Set new description to the workorder
+	 * @param description WorkOrder description
+	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
+	/**
+	 *
+	 * @return a copy of the date
+	 */
 	public Date getDate() {
 		return new Date(date.getTime());
 	}
 
+	/**
+	 *
+	 * @return WorkOrder description
+	 */
 	public String getDescription() {
 		return description;
 	}
 
+	/**
+	 * Computes and return amount
+	 * @return WorkOrder amount
+	 */
 	public double getAmount() {
         computeAmount();
 		return amount;
 	}
 
+	/**
+	 *
+	 * @return WorkOrder status
+	 */
 	public WorkOrderStatus getStatus() {
 		return status;
 	}
 
+	/**
+	 *
+	 * @return WorkOrder vehicle
+	 */
 	public Vehicle getVehicle() {
 		return vehicle;
 	}
 
+	/**
+	 * Internal use
+	 * Set Vehicle to the workorder
+	 * @param vehicle WorkOrder vehicle
+	 */
 	void _setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
 
+	/**
+	 *
+	 * @return WorkOrder mechanic assigned
+	 */
 	public Mechanic getMechanic() {
 		return mechanic;
 	}
 
+	/**
+	 * Internal use
+	 * Set mechanic assigned to the WorkOrder
+	 * @param mechanic WorkOrder mechanic
+	 */
 	void _setMechanic(Mechanic mechanic) {
 		this.mechanic = mechanic;
 	}
 
+	/**
+	 *
+	 * @return WorkOrder invoice
+	 */
 	public Invoice getInvoice() {
 		return invoice;
 	}
 
+	/**
+	 * Internal use
+	 * Set WorkOrder invoice
+	 * @param invoice WorkOrder invoice
+	 */
 	void _setInvoice(Invoice invoice) {
 		this.invoice = invoice;
 	}
 
+	/**
+	 * Internal use
+	 * @return the WorkOrder interventions
+	 */
 	Set<Intervention> _getInterventions() {
 		return interventions;
 	}
-
+	/**
+	 *
+	 * @return a copy of the WorkOrder interventions
+	 */
 	public Set<Intervention> getInterventions() {
 		return new HashSet<>(interventions);
 	}
@@ -221,6 +295,9 @@ public class WorkOrder extends BaseEntity{
 		this.status = WorkOrderStatus.OPEN;
 	}
 
+	/**
+	 * Calculates total amount of the interventions
+	 */
 	private void computeAmount(){
 		amount = 0L;
 		for(Intervention intervention: interventions)

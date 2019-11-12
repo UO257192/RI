@@ -4,6 +4,11 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Vehicle class. TVEHICLES table.
+ * <p>
+ * * @author UO257192
+ */
 public class Vehicle extends BaseEntity{
 	private String plateNumber;
 	private String make;
@@ -15,49 +20,98 @@ public class Vehicle extends BaseEntity{
 	private Set<WorkOrder> workOrders = new HashSet<>();
 	
 	Vehicle() {};
-	
+
+	/**
+	 * Vehicle class constructor
+	 * @param plateNumber Vehicle plateNumber
+	 */
 	public Vehicle(String plateNumber) {
 		super();
 		this.plateNumber = plateNumber;
 	}
 
+	/**
+	 *  Vehicle class constructor
+	 * @param plateNumber Vehicle plateNumber
+	 * @param make Vehicle make
+	 * @param model Vehicle model
+	 */
 	public Vehicle(String plateNumber, String make, String model) {
 		this(plateNumber);
 		this.make = make;
 		this.model = model;
 	}
 
+	/**
+	 *
+	 * @return Vehicle plateNumber
+	 */
 	public String getPlateNumber() {
 		return plateNumber;
 	}
 
+	/**
+	 *
+	 * @return Vehicle make
+	 */
 	public String getMake() {
 		return make;
 	}
 
+	/**
+	 *
+	 * @return Vehicle model
+	 */
 	public String getModel() {
 		return model;
 	}
 
+	/**
+	 *
+	 * @return Vehicle owner
+	 */
 	public Client getClient() {
 		return client;
 	}
 
+	/**
+	 *
+	 * @return Type of the vehicle
+	 */
 	public VehicleType getVehicleType() {
 		return vehicleType;
 	}
 
+	/**
+	 *
+	 * @return a copy of the workOrders of the vehicle
+	 */
 	public Set<WorkOrder> getWorkOrders() {
 		return new HashSet<WorkOrder>(workOrders);
 	}
 
+	/**
+	 *  Internal use
+	 * @return the workOrders of the vehicle
+	 */
 	Set<WorkOrder> _getWorkOrders() {
 		return workOrders;
 	}
+
+	/**
+	 * Internal use
+	 * Set the owner of the vehicle
+	 * @param client Client owner
+	 */
 	void _setClient(Client client) {
 		this.client = client;
 	}
 
+	/**
+	 * Internal use
+	 * Set the type of the vehicle
+	 * @param vehicleType VehicleType
+	 */
 	void _setVehicleType(VehicleType vehicleType) {
 		this.vehicleType = vehicleType;
 	}

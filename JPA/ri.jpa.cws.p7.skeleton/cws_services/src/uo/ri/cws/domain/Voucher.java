@@ -4,6 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+/**
+ * Voucher class. TVOUCHERS table.
+ * <p>
+ * * @author UO257192
+ */
 public class Voucher extends PaymentMean {
 	private String code;
 	private double available;
@@ -12,43 +17,82 @@ public class Voucher extends PaymentMean {
 	Voucher() {
 	}
 
+	/**
+	 * Voucher class constructor
+	 * @param code Voucher code
+	 */
 	public Voucher(String code) {
 		super();
 		this.code = code;
 	}
 
+	/**
+	 *  Voucher class constructor
+	 * @param client Voucher client
+	 * @param code Voucher code
+	 */
 	public Voucher(Client client, String code) {
 		this(code);
 		Associations.Pay.link(this,client);
 	}
 
+	/**
+	 * Voucher class constructor
+	 * @param code Voucher code
+	 * @param available Voucher available amount
+	 * @param description Voucher description
+	 */
 	public Voucher(String code, double available, String description) {
 		this(code);
 		this.available = available;
 		this.description = description;
 	}
 
+	/**
+	 * Voucher class constructor
+	 * @param code Voucher code
+	 * @param available Voucher available amount
+	 */
 	public Voucher(String code, double available) {
 		this(code);
 		this.available = available;
 	}
 
+	/**
+	 *
+	 * @return Voucher code
+	 */
 	public String getCode() {
 		return code;
 	}
 
+	/**
+	 * For test
+	 * @return Voucher available
+	 */
 	public double getDisponible() {
 		return available;
 	}
 
+	/**
+	 *
+	 * @return Voucher description
+	 */
 	public String getDescripcion() {
 		return description;
 	}
 
+	/**
+	 * Set a new description for the Voucher
+	 * @param description Voucher description
+	 */
 	public void setDescripcion(String description) {
 		this.description = description;
 	}
 
+	/**
+	 * Update available amount
+	 */
 	void updateAvailable() {
 		this.available = available - this.getAccumulated();
 	}

@@ -24,6 +24,7 @@ public class RegisterNewWorkOrder implements Command<WorkOrderDto> {
 
     @Override
     public WorkOrderDto execute() throws BusinessException {
+        BusinessCheck.isTrue(workOrderDto != null, "La workorder es null");
         BusinessCheck.isTrue(workOrderDto.description.trim().length() > 0, "Description is blank");
         Optional<Vehicle> ovehicle = vehicleRepository.findById(workOrderDto.vehicleId);
         BusinessCheck.isTrue(ovehicle.isPresent(), "El vehiculo no existe");

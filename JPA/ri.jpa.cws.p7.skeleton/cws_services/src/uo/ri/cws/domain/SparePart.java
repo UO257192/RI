@@ -15,37 +15,64 @@ public class SparePart extends BaseEntity{
 
 	private Set<Substitution> substitutions = new HashSet<>();
 
+	/**
+	 *  SparePart class constructor
+	 * @param code SparePart code
+	 */
 	public SparePart(String code) {
 		super();
 		this.code = code;
 	}
 
+	/**
+	 * SparePart class constructor
+	 * @param code SparePart code
+	 * @param description SparePart description
+	 * @param price SparePart price
+	 */
 	public SparePart(String code, String description, double price) {
 		this(code);
 		this.description = description;
 		this.price = price;
 	}
 
-	public SparePart() {
+	SparePart() {
 
 	}
 
+	/**
+	 *
+	 * @return SparePart code
+	 */
 	public String getCode() {
 		return code;
 	}
-
+	/**
+	 *
+	 * @return SparePart description
+	 */
 	public String getDescription() {
 		return description;
 	}
-
+	/**
+	 *
+	 * @return SparePart price
+	 */
 	public double getPrice() {
 		return price;
 	}
 
+	/**
+	 * Internal use
+	 * @return substitutions in which the sparePart is used
+	 */
 	Set<Substitution> _getSubstitutions() {
 		return substitutions;
 	}
-
+	/**
+	 *
+	 * @return copy of substitutions in which the sparePart is used
+	 */
 	public Set<Substitution> getSustituciones() {
 		return new HashSet<Substitution>(substitutions);
 	}
