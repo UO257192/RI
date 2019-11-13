@@ -9,7 +9,18 @@ import uo.ri.cws.domain.Mechanic;
 
 public interface EnrollmentRepository extends Repository<Enrollment> {
 
+	/**
+	 *
+	 * @param course Course
+	 * @param mechanic Mechanic
+	 * @return Enroll mechanic to course
+	 */
 	Optional<Enrollment> findByMechanicCourse(Course course, Mechanic mechanic);
 
+	/**
+	 *
+	 * @param course Course
+	 * @return list of enrollments to the course
+	 */
 	List<Enrollment> findAttendanceByCourseId(Course course);
 }

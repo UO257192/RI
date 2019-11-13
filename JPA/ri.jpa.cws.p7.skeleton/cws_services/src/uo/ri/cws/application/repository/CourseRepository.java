@@ -21,9 +21,27 @@ public interface CourseRepository extends Repository<Course> {
 	 */
 	Optional<Course> findByCode(String code);
 
+	/**
+	 *
+	 * @param mechanic Mechanic certified
+	 * @param vehicleType VehicleType certified by Mechanic
+	 * @return total number of hours of courses dedicated to the vehicle type passed for the mechanic
+	 */
 	Optional<BigDecimal> findCourseHoursForCertificate(Mechanic mechanic, VehicleType vehicleType);
 
+	/**
+	 *
+	 * @param mechanic Mechanic
+	 * @param vehicleType VehicleType
+	 * @return  total number of hours of courses dedicated to the vehicle type for the mechanic
+	 */
 	Optional<BigDecimal> findTrainingByVehicleTypeAndMechanic(Mechanic mechanic, VehicleType vehicleType);
 
+	/**
+	 *
+	 * @param mechanic Mechanic
+	 * @param vehicleType VehicleType
+	 * @return total number of enrolled hours of courses dedicated to the vehicle type for the mechanic
+	 */
 	Optional<BigDecimal> findEnrolledHoursByVehicleTypeAndMechanic(Mechanic mechanic, VehicleType vehicleType);
 }

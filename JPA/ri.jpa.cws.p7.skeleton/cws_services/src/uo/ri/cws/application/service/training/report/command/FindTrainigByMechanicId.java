@@ -29,6 +29,8 @@ public class FindTrainigByMechanicId implements Command<List<TrainingForMechanic
 
     @Override
     public List<TrainingForMechanicRow> execute() throws BusinessException {
+        BusinessCheck.isNotEmpty(id, "ID vacio");
+        BusinessCheck.isNotNull(id, "ID null");
         Optional<Mechanic> om = mechanicRepository.findById(id);
         BusinessCheck.isTrue(om.isPresent(), "El mecanico no existe");
 

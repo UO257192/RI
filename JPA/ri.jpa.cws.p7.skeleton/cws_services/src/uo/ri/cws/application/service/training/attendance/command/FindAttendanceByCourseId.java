@@ -25,6 +25,8 @@ public class FindAttendanceByCourseId implements Command<List<EnrollmentDto>> {
 
 	@Override
 	public List<EnrollmentDto> execute() throws BusinessException {
+		BusinessCheck.isNotEmpty(id, "ID vacio");
+		BusinessCheck.isNotNull(id, "ID null");
 		Optional<Course> optionalCourse = courseRepository.findById(id);
 		BusinessCheck.isTrue(optionalCourse.isPresent(), "No existe el curso");
 		return DtoAssembler.toEnrollmentDtoList(enrollmentRepository.findAttendanceByCourseId(optionalCourse.get()));
