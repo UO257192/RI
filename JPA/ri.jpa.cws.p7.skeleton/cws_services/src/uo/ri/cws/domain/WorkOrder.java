@@ -1,11 +1,10 @@
 package uo.ri.cws.domain;
 
-import alb.util.assertion.Argument;
-import uo.ri.cws.application.util.BusinessCheck;
-
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+import alb.util.assertion.Argument;
 
 /**
  * WorkOrder class. TWORKORDERS table.
