@@ -1,5 +1,8 @@
 package uo.ri.cws.domain;
 
+import alb.util.assertion.Argument;
+import uo.ri.cws.application.util.BusinessCheck;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -33,6 +36,7 @@ public class WorkOrder extends BaseEntity {
 	public WorkOrder(Vehicle vehicle) {
 		super();
 		this.date = new Date();
+		Argument.isNotNull(vehicle);
 		Associations.Order.link(vehicle, this);
 	}
 
@@ -43,8 +47,19 @@ public class WorkOrder extends BaseEntity {
 	 * @param vehicle WorkOrder vehicle
 	 */
 	public WorkOrder(Date date, Vehicle vehicle) {
+		Argument.isNotNull(vehicle);
+		Argument.isNotNull(date);
 		this.date = date;
-		this.vehicle = vehicle;
+		Associations.Order.link(vehicle, this);
+	}
+
+	public WorkOrder(Date date, Vehicle vehicle, String description) {
+		Argument.isNotNull(vehicle);
+		Argument.isNotNull(date);
+		Argument.isNotNull(description);
+		Argument.isNotEmpty(description);
+		this.date = date;
+		this.description = description;
 		Associations.Order.link(vehicle, this);
 	}
 
@@ -56,6 +71,7 @@ public class WorkOrder extends BaseEntity {
 	 */
 	public WorkOrder(Vehicle vehicle, String description) {
 		this(new Date(), vehicle);
+		Argument.isNotEmpty(description);
 		this.description = description;
 	}
 
